@@ -222,4 +222,5 @@ function getRomsByDevice(device) {
 
 function getAvailableDevices() {
   return Object.keys(romsData);
+
 }

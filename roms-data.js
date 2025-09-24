@@ -24,7 +24,7 @@ const romsData = {
     {
       name: "crDroid (Não Oficial)",
       version: "Android 15",
-      description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
+      description: "Versão não oficial da crDroid baseada no Android 15.",
       size: "1.35GB",
       date: "23/09/2025",
       developer: "irawansalt",
@@ -319,7 +319,7 @@ const romsData = {
     {
       name: "PixelOS",
       version: "Android 15",
-      description: "Versão não oficial da ROM PixelOS (sistema oficial Google) desenvolvida por Akarizao",
+      description: "Versão não oficial da ROM PixelOS (sistema oficial Google).",
       size: "1.1 GB",
       date: "05/08/2025",
       developer: "Akarizao",
@@ -348,7 +348,7 @@ const romsData = {
     {
       name: "YAAP | Voyager",
       version: "Android 16",
-      description: "Versão não oficial e user da ROM YAAP Voyage, mantida por visual",
+      description: "Versão não oficial e user da ROM YAAP Voyager.",
       size: "1.4 GB",
       date: "18/08/2025",
       developer: "@XxxVishalxxX",
@@ -400,7 +400,7 @@ const romsData = {
     {
       name: "MistOS 4.1",
       version: "Android 16",
-      description: "Versão oficial da ROM MistOS desenvolvida por JNW",
+      description: "Versão oficial da ROM MistOS.",
       size: "1.3 GB",
       date: "15/09/2025",
       developer: "JNW_SG",
@@ -419,7 +419,7 @@ const romsData = {
     {
       name: "AxionOS 2.0",
       version: "Android 16",
-      description: "Versão BETA 3 não oficial da ROM AxionOS, desenvolvida por JNW",
+      description: "Versão BETA 3 não oficial da ROM AxionOS.",
       size: "1.5 GB",
       date: "20/09/2025",
       developer: "JNW_SG",
@@ -441,7 +441,7 @@ const romsData = {
     {
       name: "InfinityX (Não Oficial)",
       version: "Android 16",
-      description: "Versão não oficial da Rom Infinity X desenvolvida por Akarizao",
+      description: "Versão não oficial da Rom Infinity X.",
       size: "1.4 GB",
       date: "25/09/2025",
       developer: "Akarizao",
@@ -472,7 +472,7 @@ const romsData = {
     {
       name: "SunOS (Não Oficial)",
       version: "Android 15",
-      description: "ROM SunOS não oficial desenvolvida por Irawansalt",
+      description: "Versão não oficial da Rom SunOS.",
       size: "1.3 GB",
       date: "20/09/2025",
       developer: "Irawansalt",
@@ -504,7 +504,7 @@ const romsData = {
     {
       name: "Stock ROM",
       version: "Android 15",
-      description: "ROM Stock oficial da Motorola, para o Moto G34. O download deve ser feito pelo RSA para maior garantia",
+      description: "Stock Rom (Clique em Download para mais detalhes).",
       size: "1.8 GB",
       date: "01/01/2025",
       developer: "Motorola",
@@ -513,7 +513,7 @@ const romsData = {
       details: {
         version: "Android 15",
         dev: "Motorola",
-        description: "ROM Stock oficial da Motorola, para o MotoG34",
+        description: "ROM Stock oficial da Motorola, para o Moto G34. É recomendado fazer o download direto pelo RSA, vai por sua conta e risco.",
         changelog: [],
         knownIssues: [],
         notes: [
@@ -543,3 +543,4 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+

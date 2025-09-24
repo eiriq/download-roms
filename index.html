@@ -665,10 +665,87 @@
       background-color: var(--md-sys-color-surface-variant);
     }
 
+    .rom-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .search-container {
+      flex: 1;
+      position: relative;
+      max-width: 500px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 3rem;
+      border-radius: 24px;
+      border: 1px solid var(--md-sys-color-outline);
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--md-sys-elevation-level1);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--md-sys-color-on-surface-variant);
+      pointer-events: none;
+    }
+
+    .view-toggle {
+      display: flex;
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--md-sys-elevation-level1);
+    }
+
+    .view-button {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      transition: all 0.2s ease;
+    }
+
+    .view-button.active {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .view-button:hover:not(.active) {
+      background-color: var(--md-sys-color-outline-variant);
+    }
+
     .rom-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .rom-cards.list-view {
+      grid-template-columns: 1fr;
     }
 
     .rom-card {
@@ -685,6 +762,13 @@
       animation-duration: 0.5s;
       animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
       animation-fill-mode: forwards;
+    }
+
+    .rom-cards.list-view .rom-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem;
     }
 
     .rom-card.show {
@@ -710,6 +794,10 @@
       border-color: var(--md-sys-color-primary);
     }
 
+    .rom-cards.list-view .rom-card:hover {
+      transform: translateY(-2px);
+    }
+
     .rom-card.easter-egg {
       background-color: #FFEBEE;
       border: 1px solid #EF9A9A;
@@ -722,6 +810,10 @@
     [data-theme="dark"] .rom-card.easter-egg {
       background-color: #B71C1C;
       border: 1px solid #EF5350;
+    }
+
+    .rom-content {
+      flex: 1;
     }
 
     .rom-name {
@@ -749,11 +841,23 @@
       line-height: 1.4;
     }
 
+    .rom-cards.list-view .rom-description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
     .rom-details {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
       margin-bottom: 1.2rem;
+    }
+
+    .rom-cards.list-view .rom-details {
+      margin-bottom: 0;
     }
 
     .rom-detail {
@@ -784,6 +888,12 @@
       transition: all 0.3s ease;
       box-shadow: var(--md-sys-elevation-level2);
       width: 100%;
+    }
+
+    .rom-cards.list-view .download-button {
+      width: auto;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
     }
 
     .download-button:hover {
@@ -1196,6 +1306,24 @@
       cursor: pointer;
     }
 
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .no-results .material-icons {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--md-sys-color-primary);
+    }
+
+    .no-results h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--md-sys-color-on-surface);
+    }
+
     @media (max-width: 768px) {
       .selection-header h1 {
         font-size: 2rem;
@@ -1211,6 +1339,14 @@
       
       .rom-cards {
         grid-template-columns: 1fr;
+      }
+      
+      .rom-controls {
+        flex-direction: column;
+      }
+      
+      .search-container {
+        max-width: 100%;
       }
       
       .modal {
@@ -1304,6 +1440,22 @@
           <span class="material-icons">arrow_back</span>
           Voltar
         </button>
+      </div>
+      
+      <div class="rom-controls">
+        <div class="search-container">
+          <span class="material-icons search-icon">search</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Buscar ROMs...">
+        </div>
+        
+        <div class="view-toggle">
+          <button class="view-button active" id="gridViewButton" title="Visualização em grade">
+            <span class="material-icons">grid_view</span>
+          </button>
+          <button class="view-button" id="listViewButton" title="Visualização em lista">
+            <span class="material-icons">view_list</span>
+          </button>
+        </div>
       </div>
       
       <div class="loading" id="loading">
@@ -1511,6 +1663,9 @@
     const notification = document.getElementById('notification');
     const infoButton = document.getElementById('infoButton');
     const tutorialButton = document.getElementById('tutorialButton');
+    const searchInput = document.getElementById('searchInput');
+    const gridViewButton = document.getElementById('gridViewButton');
+    const listViewButton = document.getElementById('listViewButton');
     
     const modalOverlay = document.getElementById('modalOverlay');
     const modalClose = document.getElementById('modalClose');
@@ -1528,10 +1683,12 @@
       theme: 'light',
       primaryColor: '#1976D2',
       animationsEnabled: true,
-      notificationsEnabled: true
+      notificationsEnabled: true,
+      viewMode: 'grid'
     };
 
     let currentRom = null;
+    let allRoms = [];
 
     function initializeApp() {
       loadSettings();
@@ -1560,6 +1717,18 @@
       });
       tutorialButton.addEventListener('click', function() {
         tutorialModalOverlay.classList.add('active');
+      });
+
+      searchInput.addEventListener('input', function() {
+        filterRoms(this.value);
+      });
+
+      gridViewButton.addEventListener('click', function() {
+        setViewMode('grid');
+      });
+
+      listViewButton.addEventListener('click', function() {
+        setViewMode('list');
       });
 
       notification.querySelector('.notification-close').addEventListener('click', function() {
@@ -1610,9 +1779,9 @@
         loading.classList.remove('show');
         
         // Usa a função do arquivo de dados para obter as ROMs
-        const roms = getRomsByDevice(device);
+        allRoms = getRomsByDevice(device);
         
-        if (roms.length === 0) {
+        if (allRoms.length === 0) {
           romCards.innerHTML = `
             <div class="no-results">
               <span class="material-icons">search_off</span>
@@ -1621,56 +1790,109 @@
             </div>
           `;
         } else {
-          roms.forEach((rom, index) => {
-            const romCard = document.createElement('div');
-            romCard.className = 'rom-card';
-            
-            if (rom.easterEgg) {
-              romCard.classList.add('easter-egg');
-            }
-            
-            romCard.innerHTML = `
-              <h3 class="rom-name">${rom.name}</h3>
-              <span class="rom-version">${rom.version}</span>
-              <p class="rom-description">${rom.description}</p>
-              <div class="rom-details">
-                <div class="rom-detail">
-                  <span class="material-icons">sd_card</span>
-                  <span>${rom.size}</span>
-                </div>
-                <div class="rom-detail">
-                  <span class="material-icons">calendar_today</span>
-                  <span>${rom.date}</span>
-                </div>
-                <div class="rom-detail">
-                  <span class="material-icons">person</span>
-                  <span>${rom.developer}</span>
-                </div>
-              </div>
-              <button class="download-button" data-rom-index="${index}">
-                <span class="material-icons">download</span>
-                Download
-              </button>
-            `;
-            
-            romCards.appendChild(romCard);
-            
-            setTimeout(() => {
-              romCard.classList.add('show');
-            }, index * 100);
-            
-            romCard.querySelector('.download-button').addEventListener('click', function() {
-              const romIndex = this.getAttribute('data-rom-index');
-              const selectedRom = roms[romIndex];
-              showRomDetails(selectedRom);
-            });
-          });
+          displayRoms(allRoms);
         }
         
         setTimeout(() => {
           romList.classList.add('show');
         }, 100);
       }, 300);
+    }
+
+    function displayRoms(roms) {
+      romCards.innerHTML = '';
+      
+      if (roms.length === 0) {
+        romCards.innerHTML = `
+          <div class="no-results">
+            <span class="material-icons">search_off</span>
+            <h3>Nenhuma ROM encontrada</h3>
+            <p>Não há ROMs correspondentes à sua busca.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      roms.forEach((rom, index) => {
+        const romCard = document.createElement('div');
+        romCard.className = 'rom-card';
+        
+        if (rom.easterEgg) {
+          romCard.classList.add('easter-egg');
+        }
+        
+        romCard.innerHTML = `
+          <div class="rom-content">
+            <h3 class="rom-name">${rom.name}</h3>
+            <span class="rom-version">${rom.version}</span>
+            <p class="rom-description">${rom.description}</p>
+            <div class="rom-details">
+              <div class="rom-detail">
+                <span class="material-icons">sd_card</span>
+                <span>${rom.size}</span>
+              </div>
+              <div class="rom-detail">
+                <span class="material-icons">calendar_today</span>
+                <span>${rom.date}</span>
+              </div>
+              <div class="rom-detail">
+                <span class="material-icons">person</span>
+                <span>${rom.developer}</span>
+              </div>
+            </div>
+          </div>
+          <button class="download-button" data-rom-index="${index}">
+            <span class="material-icons">download</span>
+            Download
+          </button>
+        `;
+        
+        romCards.appendChild(romCard);
+        
+        setTimeout(() => {
+          romCard.classList.add('show');
+        }, index * 100);
+        
+        romCard.querySelector('.download-button').addEventListener('click', function() {
+          const romIndex = this.getAttribute('data-rom-index');
+          const selectedRom = roms[romIndex];
+          showRomDetails(selectedRom);
+        });
+      });
+    }
+
+    function filterRoms(searchTerm) {
+      if (!searchTerm) {
+        displayRoms(allRoms);
+        return;
+      }
+      
+      const filteredRoms = allRoms.filter(rom => {
+        const term = searchTerm.toLowerCase();
+        return (
+          rom.name.toLowerCase().includes(term) ||
+          rom.version.toLowerCase().includes(term) ||
+          rom.description.toLowerCase().includes(term) ||
+          rom.developer.toLowerCase().includes(term)
+        );
+      });
+      
+      displayRoms(filteredRoms);
+    }
+
+    function setViewMode(mode) {
+      settings.viewMode = mode;
+      saveSettings();
+      
+      if (mode === 'grid') {
+        romCards.classList.remove('list-view');
+        gridViewButton.classList.add('active');
+        listViewButton.classList.remove('active');
+      } else {
+        romCards.classList.add('list-view');
+        gridViewButton.classList.remove('active');
+        listViewButton.classList.add('active');
+      }
     }
 
     function showDeviceSelection() {
@@ -1833,6 +2055,7 @@
         
         applyTheme();
         applyPrimaryColor();
+        setViewMode(settings.viewMode);
       }
     }
 

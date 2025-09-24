@@ -21,26 +21,24 @@
 const romsData = {
   motog34: [
     // MODELO 1
-    /*
     {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
+      name: "crDroid (Não Oficial)",
+      version: "Android 15",
+      description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
+      size: "1.35GB",
+      date: "23/09/2025",
+      developer: "irawansalt",
+      url: "https://drive.google.com/drive/folders/1Sx7qR2SBfVo9fg6pPcnZlJNYLAmI4h_I?usp=sharing",
       details: {
-        version: "",
-        dev: "",
-        description: "",
+        version: "Android 15",
+        dev: "irawansalt",
+        description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
         changelog: [],
         knownIssues: [],
         notes: []
       },
-      source: ""
+      source: "https://t.me/MotoG34/484673"
     },
-    */
     
     // MODELO 2
     /*
@@ -545,4 +543,5 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 

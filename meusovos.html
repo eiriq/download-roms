@@ -175,6 +175,295 @@
       }
     }
 
+    @keyframes collectSticker {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+        z-index: 1000;
+      }
+      100% {
+        transform: translate(calc(100vw - 300px), calc(-70vh)) scale(0.2);
+        opacity: 0.3;
+        z-index: 1000;
+      }
+    }
+
+    @keyframes bounceBox {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes modalSlideOut {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    .sticker-animation {
+      position: fixed !important;
+      animation: collectSticker 2s ease-in-out forwards;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .collection-box {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+      background: var(--md-sys-color-primary-container);
+      border: 3px solid var(--md-sys-color-primary);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--md-sys-elevation-level3);
+      z-index: 99;
+    }
+
+    .collection-box:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level4);
+    }
+
+    .collection-box.bounce {
+      animation: bounceBox 0.6s ease;
+    }
+
+    .collection-box .material-icons {
+      font-size: 28px;
+      color: var(--md-sys-color-primary);
+      margin-bottom: 2px;
+    }
+
+    .collection-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--md-sys-color-on-primary-container);
+      background: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border-radius: 10px;
+      padding: 2px 6px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.show, .modal-overlay.closing {
+      display: flex;
+      opacity: 1;
+    }
+
+    .collection-modal {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      box-shadow: var(--md-sys-elevation-level5);
+      transform: translateY(100vh);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay.show .collection-modal {
+      animation: modalSlideIn 0.3s ease forwards;
+    }
+
+    .modal-overlay.closing .collection-modal {
+      animation: modalSlideOut 0.3s ease forwards;
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--md-sys-color-primary);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+      min-width: 200px;
+    }
+
+    .modal-title:hover {
+      background-color: var(--md-sys-color-primary-container);
+    }
+
+    .modal-title.editing {
+      background-color: var(--md-sys-color-primary-container);
+      outline: 2px solid var(--md-sys-color-primary);
+    }
+
+    .collection-info {
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background-color: var(--md-sys-color-surface-variant);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .stickers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .sticker-card {
+      background: var(--md-sys-color-surface-variant);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .sticker-card.collected {
+      background: var(--md-sys-color-primary-container);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .sticker-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .sticker-preview {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 0.5rem;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .sticker-placeholder {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 0.5rem;
+      border-radius: 8px;
+      background: var(--md-sys-color-outline-variant);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 2rem;
+    }
+
+    .sticker-info {
+      font-size: 0.8rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .sticker-number {
+      font-weight: 600;
+      color: var(--md-sys-color-primary);
+    }
+
+    .modal-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-info {
+      font-size: 0.8rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .footer-button {
+      background: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .footer-button:hover {
+      background: var(--md-sys-color-outline-variant);
+    }
+
+    .footer-button.danger {
+      background: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-on-error-container);
+    }
+
+    .footer-button.danger:hover {
+      background: var(--md-sys-color-error);
+      color: var(--md-sys-color-on-error);
+    }
+
     .background-shapes {
       position: fixed;
       top: 0;
@@ -499,7 +788,7 @@
     .download-all-button {
       position: fixed;
       top: 80px;
-      right: 20px;
+      left: 20px;
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
       border: none;
@@ -586,6 +875,88 @@
       animation: fadeInUp 0.7s ease;
     }
 
+    .confirm-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .confirm-modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .confirm-content {
+      background: var(--md-sys-color-surface);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      padding: 2rem;
+      box-shadow: var(--md-sys-elevation-level5);
+      animation: modalSlideIn 0.3s ease forwards;
+    }
+
+    .confirm-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--md-sys-color-primary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .confirm-message {
+      font-size: 1.1rem;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 2rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .confirm-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .confirm-button {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border: none;
+      border-radius: 16px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--md-sys-elevation-level2);
+      min-width: 100px;
+    }
+
+    .confirm-button:hover {
+      background-color: #1565C0;
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level3);
+    }
+
+    .confirm-button.cancel {
+      background-color: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .confirm-button.cancel:hover {
+      background-color: var(--md-sys-color-outline-variant);
+    }
+
     @media (max-width: 768px) {
       .page-title {
         font-size: 2rem;
@@ -593,10 +964,25 @@
       
       .download-all-button {
         top: auto;
-        bottom: 20px;
-        right: 20px;
+        bottom: 90px;
+        left: 20px;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
+      }
+
+      .collection-box {
+        top: 80px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+      }
+
+      .collection-box .material-icons {
+        font-size: 24px;
+      }
+
+      .stickers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       }
     }
   </style>
@@ -613,6 +999,55 @@
     <div class="spiral"></div>
   </div>
 
+  <div class="collection-box" id="collectionBox">
+    <span class="material-icons">inventory_2</span>
+    <span class="collection-counter" id="collectionCounter">0</span>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="collection-modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="collectionTitle" contenteditable="false">Minha Coleção</div>
+          <div class="collection-info" id="collectionInfo">0 de 15 figurinhas</div>
+        </div>
+        <button class="modal-close" id="modalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="stickers-grid" id="stickersGrid">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="footer-info" id="footerInfo">
+          Última modificação: --
+        </div>
+        <div class="footer-actions">
+          <button class="footer-button" id="exportButton">
+            <span class="material-icons" style="font-size: 16px; margin-right: 4px;">download</span>
+            Exportar
+          </button>
+          <button class="footer-button danger" id="clearButton">
+            <span class="material-icons" style="font-size: 16px; margin-right: 4px;">delete</span>
+            Limpar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="confirm-modal" id="confirmModal">
+    <div class="confirm-content">
+      <h3 class="confirm-title">Confirmação</h3>
+      <p class="confirm-message">Realmente quer limpar sua coleção? Você pode perder dinossauros raros...?</p>
+      <div class="confirm-actions">
+        <button class="confirm-button" id="confirmYes">SIM</button>
+        <button class="confirm-button cancel" id="confirmNo">NÃO</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toolbar">
     <div class="logo">
       <span class="material-icons">egg</span>
@@ -626,7 +1061,7 @@
   </div>
 
   <main>
-    <h1 class="page-title">Easter Ovo</h1>
+    <h1 class="page-title">Erro 404... 😈</h1>
     
     <div class="image-container">
       <div class="loading-container" id="loadingContainer">
@@ -669,7 +1104,6 @@
   </div>
 
   <script>
-    // feito por mim :D
     const loadingContainer = document.getElementById('loadingContainer');
     const imageContent = document.getElementById('imageContent');
     const easterImage = document.getElementById('easterImage');
@@ -678,6 +1112,19 @@
     const downloadAllButton = document.getElementById('downloadAllButton');
     const themeToggle = document.getElementById('themeToggle');
     const notification = document.getElementById('notification');
+    const collectionBox = document.getElementById('collectionBox');
+    const collectionCounter = document.getElementById('collectionCounter');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const collectionTitle = document.getElementById('collectionTitle');
+    const collectionInfo = document.getElementById('collectionInfo');
+    const stickersGrid = document.getElementById('stickersGrid');
+    const footerInfo = document.getElementById('footerInfo');
+    const exportButton = document.getElementById('exportButton');
+    const clearButton = document.getElementById('clearButton');
+    const confirmModal = document.getElementById('confirmModal');
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
     
     let settings = {
       theme: 'light',
@@ -685,10 +1132,21 @@
     };
 
     let usedImages = [];
+    let currentImageNumber = null;
+
+    let collection = {
+      collectionName: "Minha Coleção",
+      collectedStickers: [],
+      totalCollected: 0,
+      lastModified: new Date().toISOString()
+    };
 
     function initializeApp() {
       loadSettings();
+      loadCollection();
       setupEventListeners();
+      updateCollectionDisplay();
+      generateStickersGrid();
       
       setTimeout(() => {
         showRandomImage();
@@ -698,8 +1156,33 @@
     function setupEventListeners() {
       nextButton.addEventListener('click', showRandomImage);
       resetButton.addEventListener('click', resetImages);
-      downloadAllButton.addEventListener('click', downloadAllImages);
+      downloadAllButton.addEventListener('click', exportCollection);
       themeToggle.addEventListener('click', toggleTheme);
+      collectionBox.addEventListener('click', openCollectionModal);
+      modalClose.addEventListener('click', closeCollectionModal);
+      modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+          closeCollectionModal();
+        }
+      });
+      
+      collectionTitle.addEventListener('dblclick', enableTitleEditing);
+      collectionTitle.addEventListener('blur', saveTitleEditing);
+      collectionTitle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          collectionTitle.blur();
+        }
+        if (e.key === 'Escape') {
+          collectionTitle.textContent = collection.collectionName;
+          collectionTitle.blur();
+        }
+      });
+      
+      exportButton.addEventListener('click', exportCollection);
+      clearButton.addEventListener('click', showClearConfirmation);
+      confirmYes.addEventListener('click', clearCollection);
+      confirmNo.addEventListener('click', hideClearConfirmation);
       
       notification.querySelector('.notification-close').addEventListener('click', function() {
         notification.classList.remove('show');
@@ -722,12 +1205,205 @@
         } while (usedImages.includes(randomImageNumber));
         
         usedImages.push(randomImageNumber);
+        currentImageNumber = randomImageNumber;
         
         easterImage.src = `${randomImageNumber}.png`;
         
         loadingContainer.style.display = 'none';
         imageContent.classList.add('show');
+        
+        setTimeout(() => {
+          collectSticker(randomImageNumber);
+        }, 1000);
       }, 1500);
+    }
+
+    function collectSticker(stickerNumber) {
+      const animatedSticker = document.createElement('img');
+      animatedSticker.src = `${stickerNumber}.png`;
+      animatedSticker.className = 'easter-image sticker-animation';
+      animatedSticker.style.position = 'fixed';
+      animatedSticker.style.top = easterImage.getBoundingClientRect().top + 'px';
+      animatedSticker.style.left = easterImage.getBoundingClientRect().left + 'px';
+      animatedSticker.style.width = easterImage.offsetWidth + 'px';
+      animatedSticker.style.height = easterImage.offsetHeight + 'px';
+      animatedSticker.style.borderRadius = '8px';
+      animatedSticker.style.zIndex = '1000';
+      
+      document.body.appendChild(animatedSticker);
+      
+      requestAnimationFrame(() => {
+        animatedSticker.classList.add('sticker-animation');
+      });
+      
+      addStickerToCollection(stickerNumber);
+      
+      collectionBox.classList.add('bounce');
+      setTimeout(() => {
+        collectionBox.classList.remove('bounce');
+      }, 600);
+      
+      setTimeout(() => {
+        if (animatedSticker.parentNode) {
+          animatedSticker.parentNode.removeChild(animatedSticker);
+        }
+      }, 2000);
+    }
+
+    function addStickerToCollection(stickerNumber) {
+      const existingSticker = collection.collectedStickers.find(s => s.id === stickerNumber);
+      
+      if (existingSticker) {
+        existingSticker.viewCount++;
+        existingSticker.lastViewed = new Date().toISOString();
+      } else {
+        collection.collectedStickers.push({
+          id: stickerNumber,
+          imagePath: `${stickerNumber}.png`,
+          collectedAt: new Date().toISOString(),
+          lastViewed: new Date().toISOString(),
+          viewCount: 1
+        });
+      }
+      
+      collection.totalCollected = collection.collectedStickers.length;
+      collection.lastModified = new Date().toISOString();
+      
+      saveCollection();
+      updateCollectionDisplay();
+      updateStickersGrid();
+      
+      showNotification("Figurinha coletada!", `Figurinha #${stickerNumber} adicionada à coleção!`);
+    }
+
+    function updateCollectionDisplay() {
+      collectionCounter.textContent = collection.totalCollected;
+      collectionInfo.textContent = `${collection.totalCollected} de 15 figurinhas`;
+      
+      const lastModified = new Date(collection.lastModified);
+      footerInfo.textContent = `Última modificação: ${lastModified.toLocaleDateString('pt-BR')} às ${lastModified.toLocaleTimeString('pt-BR')}`;
+    }
+
+    function generateStickersGrid() {
+      stickersGrid.innerHTML = '';
+      
+      for (let i = 1; i <= 15; i++) {
+        const stickerCard = document.createElement('div');
+        stickerCard.className = 'sticker-card';
+        
+        const collectedSticker = collection.collectedStickers.find(s => s.id === i);
+        
+        if (collectedSticker) {
+          stickerCard.classList.add('collected');
+          stickerCard.innerHTML = `
+            <img src="${collectedSticker.imagePath}" alt="Figurinha ${i}" class="sticker-preview">
+            <div class="sticker-number">#${i}</div>
+            <div class="sticker-info">
+              Coletada em ${new Date(collectedSticker.collectedAt).toLocaleDateString('pt-BR')}<br>
+              Vista ${collectedSticker.viewCount}x
+            </div>
+          `;
+        } else {
+          stickerCard.innerHTML = `
+            <div class="sticker-placeholder">?</div>
+            <div class="sticker-number">#${i}</div>
+            <div class="sticker-info">Não coletada</div>
+          `;
+        }
+        
+        stickersGrid.appendChild(stickerCard);
+      }
+    }
+
+    function updateStickersGrid() {
+      generateStickersGrid();
+    }
+
+    function openCollectionModal() {
+      modalOverlay.classList.add('show');
+      generateStickersGrid();
+    }
+
+    function closeCollectionModal() {
+      modalOverlay.classList.add('closing');
+      
+      setTimeout(() => {
+        modalOverlay.classList.remove('show', 'closing');
+        if (collectionTitle.contentEditable === 'true') {
+          saveTitleEditing();
+        }
+      }, 300);
+    }
+
+    function enableTitleEditing() {
+      collectionTitle.contentEditable = 'true';
+      collectionTitle.classList.add('editing');
+      collectionTitle.focus();
+      
+      const range = document.createRange();
+      range.selectNodeContents(collectionTitle);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+
+    function saveTitleEditing() {
+      collectionTitle.contentEditable = 'false';
+      collectionTitle.classList.remove('editing');
+      
+      const newTitle = collectionTitle.textContent.trim();
+      if (newTitle && newTitle.length <= 50) {
+        collection.collectionName = newTitle;
+        collection.lastModified = new Date().toISOString();
+        saveCollection();
+        updateCollectionDisplay();
+      } else {
+        collectionTitle.textContent = collection.collectionName;
+      }
+    }
+
+    function exportCollection() {
+      const exportData = {
+        ...collection,
+        exportedAt: new Date().toISOString(),
+        totalStickers: 15
+      };
+      
+      const dataStr = JSON.stringify(exportData, null, 2);
+      const dataBlob = new Blob([dataStr], {type: 'application/json'});
+      
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(dataBlob);
+      link.download = 'colecao_de_picas.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      showNotification("Exportação concluída", "Todas as imagens estão em você... digo, no seu dispositivo!");
+    }
+
+    function showClearConfirmation() {
+      confirmModal.classList.add('show');
+    }
+
+    function hideClearConfirmation() {
+      confirmModal.classList.remove('show');
+    }
+
+    function clearCollection() {
+      hideClearConfirmation();
+      
+      collection = {
+        collectionName: "Minha Coleção",
+        collectedStickers: [],
+        totalCollected: 0,
+        lastModified: new Date().toISOString()
+      };
+      
+      saveCollection();
+      updateCollectionDisplay();
+      updateStickersGrid();
+      showNotification("Coleção limpa!", "Todas as figurinhas foram removidas.");
     }
 
     function resetImages() {
@@ -738,17 +1414,6 @@
       setTimeout(() => {
         showRandomImage();
       }, 1500);
-    }
-
-    function downloadAllImages() {
-      showNotification("Download iniciado", "O arquivo está sendo baixado!");
-      
-      const link = document.createElement('a');
-      link.href = 'baixo tudo ne safado.rar';
-      link.download = 'baixo tudo ne safado.rar';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     }
 
     function toggleTheme() {
@@ -782,19 +1447,47 @@
     }
 
     function saveSettings() {
-      localStorage.setItem('easterEggSettings', JSON.stringify(settings));
+      try {
+        sessionStorage.setItem('easterEggSettings', JSON.stringify(settings));
+      } catch (e) {
+        console.warn('Could not save settings');
+      }
     }
 
     function loadSettings() {
-      const savedSettings = localStorage.getItem('easterEggSettings');
-      if (savedSettings) {
-        settings = JSON.parse(savedSettings);
-        applyTheme();
+      try {
+        const savedSettings = sessionStorage.getItem('easterEggSettings');
+        if (savedSettings) {
+          settings = JSON.parse(savedSettings);
+          applyTheme();
+        }
+      } catch (e) {
+        console.warn('Could not load settings');
+      }
+    }
+
+    function saveCollection() {
+      try {
+        sessionStorage.setItem('easterEggCollection', JSON.stringify(collection));
+      } catch (e) {
+        console.warn('Could not save collection');
+      }
+    }
+
+    function loadCollection() {
+      try {
+        const savedCollection = sessionStorage.getItem('easterEggCollection');
+        if (savedCollection) {
+          collection = JSON.parse(savedCollection);
+          collectionTitle.textContent = collection.collectionName;
+        }
+      } catch (e) {
+        console.warn('Could not load collection');
       }
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
-       // eu de novo :D
+    // eu de novo :D
   </script>
 </body>
 </html>

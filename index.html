@@ -266,6 +266,38 @@
       }
     }
 
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10% { transform: rotate(-10deg); }
+      20% { transform: rotate(10deg); }
+      30% { transform: rotate(-10deg); }
+      40% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      60% { transform: rotate(10deg); }
+      70% { transform: rotate(-10deg); }
+      80% { transform: rotate(10deg); }
+      90% { transform: rotate(-10deg); }
+    }
+
+    @keyframes ring {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
     .fade-in-up {
       animation: fadeInUp 0.5s ease forwards;
     }
@@ -452,6 +484,7 @@
       border-radius: 50%;
       transition: all 0.3s ease;
       position: relative;
+      overflow: hidden;
     }
 
     .icon-button:hover {
@@ -469,6 +502,49 @@
     .icon-button .material-icons {
       font-size: 1.2rem;
       z-index: 1;
+    }
+
+    .icon-button.ripple {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-button.ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .icon-button.ripple:active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .notification-bell {
+      position: relative;
+    }
+
+    .notification-bell.has-notification::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--md-sys-color-error);
+      border-radius: 50%;
+      border: 2px solid var(--md-sys-color-surface);
+    }
+
+    .notification-bell.animate {
+      animation: shake 0.5s ease, ring 0.5s ease;
     }
 
     [data-theme="dark"] .icon-button:hover {
@@ -707,6 +783,20 @@
       pointer-events: none;
     }
 
+    .search-clear {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      display: none;
+    }
+
+    .search-clear.visible {
+      display: block;
+    }
+
     .view-toggle {
       display: flex;
       background-color: var(--md-sys-color-surface-variant);
@@ -888,6 +978,8 @@
       transition: all 0.3s ease;
       box-shadow: var(--md-sys-elevation-level2);
       width: 100%;
+      position: relative;
+      overflow: hidden;
     }
 
     .rom-cards.list-view .download-button {
@@ -905,6 +997,14 @@
     .download-button:active {
       transform: translateY(0);
       box-shadow: var(--md-sys-elevation-level1);
+    }
+
+    .download-button .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
     }
 
     .rom-card.easter-egg .download-button {
@@ -1117,10 +1217,17 @@
 
     .modal-section {
       margin-bottom: 1.5rem;
-      background-color: var(--md-sys-color-surface-variant);
-      border-radius: 12px;
-      padding: 1rem;
-      border: 1px solid var(--md-sys-color-outline);
+      background-color: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 1.25rem;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      box-shadow: var(--md-sys-elevation-level1);
+      transition: all 0.3s ease;
+    }
+
+    .modal-section:hover {
+      box-shadow: var(--md-sys-elevation-level3);
+      transform: translateY(-2px);
     }
 
     .modal-section-title {
@@ -1193,6 +1300,16 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-button .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
     }
 
     .modal-button-secondary {
@@ -1324,6 +1441,60 @@
       color: var(--md-sys-color-on-surface);
     }
 
+    .info-card {
+      background-color: var(--md-sys-color-primary-container);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--md-sys-color-primary);
+    }
+
+    .info-card-title {
+      font-weight: 500;
+      color: var(--md-sys-color-primary);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card-title .material-icons {
+      font-size: 1rem;
+    }
+
+    .info-card-content {
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card-description {
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--md-sys-color-secondary);
+    }
+
+    .info-card-description-title {
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card-description-content {
+      color: var(--md-sys-color-on-surface-variant);
+      line-height: 1.5;
+    }
+
     @media (max-width: 768px) {
       .selection-header h1 {
         font-size: 2rem;
@@ -1347,6 +1518,10 @@
       
       .search-container {
         max-width: 100%;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
       }
       
       .modal {
@@ -1390,6 +1565,9 @@
       <h1>ROM Downloads</h1>
     </div>
     <div class="toolbar-actions">
+      <button class="icon-button notification-bell" id="notificationBell" aria-label="Notificações">
+        <span class="material-icons">notifications</span>
+      </button>
       <button class="icon-button" id="themeToggle" aria-label="Alternar tema">
         <span class="material-icons">dark_mode</span>
       </button>
@@ -1446,6 +1624,7 @@
         <div class="search-container">
           <span class="material-icons search-icon">search</span>
           <input type="text" class="search-input" id="searchInput" placeholder="Buscar ROMs...">
+          <span class="material-icons search-clear" id="searchClear">clear</span>
         </div>
         
         <div class="view-toggle">
@@ -1490,13 +1669,35 @@
         </div>
         
         <div class="modal-tab-content active" id="details-tab">
-          <div class="modal-section">
-            <h4 class="modal-section-title">
-              <span class="material-icons">info</span>
-              Informações
-            </h4>
-            <div id="romDetails">
-              <!-- Detalhes da ROM serão inseridos aqui -->
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">android</span>
+                Versão
+              </div>
+              <div class="info-card-content" id="romVersion">
+                <!-- Versão da ROM será inserida aqui -->
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">person</span>
+                Desenvolvedor
+              </div>
+              <div class="info-card-content" id="romDeveloper">
+                <!-- Desenvolvedor da ROM será inserido aqui -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card-description">
+            <div class="info-card-description-title">
+              <span class="material-icons">description</span>
+              Descrição
+            </div>
+            <div class="info-card-description-content" id="romDescription">
+              <!-- Descrição da ROM será inserida aqui -->
             </div>
           </div>
           
@@ -1664,8 +1865,10 @@
     const infoButton = document.getElementById('infoButton');
     const tutorialButton = document.getElementById('tutorialButton');
     const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
     const gridViewButton = document.getElementById('gridViewButton');
     const listViewButton = document.getElementById('listViewButton');
+    const notificationBell = document.getElementById('notificationBell');
     
     const modalOverlay = document.getElementById('modalOverlay');
     const modalClose = document.getElementById('modalClose');
@@ -1684,7 +1887,8 @@
       primaryColor: '#1976D2',
       animationsEnabled: true,
       notificationsEnabled: true,
-      viewMode: 'grid'
+      viewMode: 'grid',
+      lastUpdateSeen: null
     };
 
     let currentRom = null;
@@ -1693,6 +1897,7 @@
     function initializeApp() {
       loadSettings();
       setupEventListeners();
+      checkForUpdates();
       
       const deviceCards = document.querySelectorAll('.device-card');
       deviceCards.forEach((card, index) => {
@@ -1720,7 +1925,19 @@
       });
 
       searchInput.addEventListener('input', function() {
-        filterRoms(this.value);
+        const value = this.value;
+        if (value) {
+          searchClear.classList.add('visible');
+        } else {
+          searchClear.classList.remove('visible');
+        }
+        filterRoms(value);
+      });
+
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.classList.remove('visible');
+        filterRoms('');
       });
 
       gridViewButton.addEventListener('click', function() {
@@ -1729,6 +1946,11 @@
 
       listViewButton.addEventListener('click', function() {
         setViewMode('list');
+      });
+
+      notificationBell.addEventListener('click', function() {
+        markNotificationAsSeen();
+        showNotification('Atualização Estável 2.0!', 'Melhorias na interface e no script que busca ROMs!');
       });
 
       notification.querySelector('.notification-close').addEventListener('click', function() {
@@ -1765,6 +1987,47 @@
           tutorialModalOverlay.classList.remove('active');
         }
       });
+
+      document.querySelectorAll('.icon-button, .modal-button, .download-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
+          
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+    }
+
+    function checkForUpdates() {
+      const updateDate = '2023-11-15';
+      const lastSeen = settings.lastUpdateSeen;
+      
+      if (!lastSeen || lastSeen !== updateDate) {
+        notificationBell.classList.add('has-notification', 'animate');
+        
+        setTimeout(() => {
+          notificationBell.classList.remove('animate');
+        }, 1000);
+      }
+    }
+
+    function markNotificationAsSeen() {
+      notificationBell.classList.remove('has-notification');
+      settings.lastUpdateSeen = '2023-11-15';
+      saveSettings();
     }
 
     function showRomList(device) {
@@ -1778,7 +2041,6 @@
       setTimeout(() => {
         loading.classList.remove('show');
         
-        // Usa a função do arquivo de dados para obter as ROMs
         allRoms = getRomsByDevice(device);
         
         if (allRoms.length === 0) {
@@ -1918,12 +2180,9 @@
       
       modalTitle.textContent = rom.name;
       
-      const detailsHtml = `
-        <p><strong>Versão:</strong> ${rom.details.version}</p>
-        <p><strong>DEV:</strong> ${rom.details.dev}</p>
-        <p>${rom.details.description}</p>
-      `;
-      document.getElementById('romDetails').innerHTML = detailsHtml;
+      document.getElementById('romVersion').textContent = rom.details.version;
+      document.getElementById('romDeveloper').textContent = rom.details.dev;
+      document.getElementById('romDescription').textContent = rom.details.description;
       
       const changelogHtml = rom.details.changelog.map(item => `<li>${item}</li>`).join('');
       document.getElementById('changelog').innerHTML = changelogHtml || '<li>Nenhuma alteração recente</li>';

@@ -478,7 +478,7 @@ const romsData = {
       size: "1.3 GB",
       date: "20/09/2025",
       developer: "rawansalt",
-      url: "https://drive.google.com/uc?export=download&id=1WTo-zHIfB39mMaz6AR6hdDtP9OgtDd5q",
+      url: "https://drive.google.com/drive/folders/1J8ezFfoplKq34qAMnYL1ZRKmITygTxzzs",
       details: {
         version: "Android 15",
         dev: "rawansalt",
@@ -545,4 +545,3 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
-

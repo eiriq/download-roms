@@ -298,6 +298,14 @@
       }
     }
 
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
     .fade-in-up {
       animation: fadeInUp 0.5s ease forwards;
     }
@@ -797,6 +805,58 @@
       display: block;
     }
 
+    .filter-dropdown {
+      position: relative;
+    }
+
+    .filter-button {
+      background-color: var(--md-sys-color-surface-variant);
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-button:hover {
+      background-color: var(--md-sys-color-outline-variant);
+    }
+
+    .filter-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: var(--md-sys-color-surface);
+      border-radius: 8px;
+      box-shadow: var(--md-sys-elevation-level3);
+      min-width: 200px;
+      z-index: 10;
+      margin-top: 0.5rem;
+      display: none;
+      overflow: hidden;
+    }
+
+    .filter-menu.active {
+      display: block;
+    }
+
+    .filter-option {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-option:hover {
+      background-color: var(--md-sys-color-surface-variant);
+    }
+
     .view-toggle {
       display: flex;
       background-color: var(--md-sys-color-surface-variant);
@@ -962,6 +1022,44 @@
       font-size: 0.9rem;
     }
 
+    .rom-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .favorite-button {
+      background: none;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .favorite-button:hover {
+      background-color: var(--md-sys-color-surface-variant);
+      transform: scale(1.1);
+    }
+
+    .favorite-button.active {
+      color: var(--md-sys-color-error);
+      border-color: var(--md-sys-color-error);
+    }
+
+    .favorite-button.active:hover {
+      background-color: rgba(186, 26, 26, 0.1);
+    }
+
+    .favorite-button .material-icons {
+      font-size: 1.2rem;
+    }
+
     .download-button {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
@@ -1104,6 +1202,37 @@
     }
 
     .tutorial-button:active {
+      transform: translateY(0);
+      box-shadow: var(--md-sys-elevation-level2);
+    }
+
+    .feedback-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--md-sys-color-tertiary);
+      color: var(--md-sys-color-on-tertiary);
+      border: none;
+      border-radius: 16px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--md-sys-elevation-level3);
+      z-index: 99;
+    }
+
+    .feedback-button:hover {
+      background-color: #4D4162;
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level4);
+    }
+
+    .feedback-button:active {
       transform: translateY(0);
       box-shadow: var(--md-sys-elevation-level2);
     }
@@ -1495,6 +1624,103 @@
       line-height: 1.5;
     }
 
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--md-sys-color-outline);
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+      box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--md-sys-color-primary);
+    }
+
+    .form-checkbox label {
+      color: var(--md-sys-color-on-surface);
+      cursor: pointer;
+    }
+
+    .favorites-section {
+      display: none;
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    .favorites-section.show {
+      display: block;
+    }
+
+    .favorites-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .favorites-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+    }
+
+    .favorites-empty {
+      text-align: center;
+      padding: 3rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .favorites-empty .material-icons {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--md-sys-color-primary);
+    }
+
+    .favorites-empty h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--md-sys-color-on-surface);
+    }
+
     @media (max-width: 768px) {
       .selection-header h1 {
         font-size: 2rem;
@@ -1538,11 +1764,17 @@
         padding: 0.75rem;
       }
       
-      .tutorial-button {
+      .tutorial-button,
+      .feedback-button {
         bottom: 10px;
         left: 10px;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
+      }
+      
+      .feedback-button {
+        left: auto;
+        right: 10px;
       }
     }
   </style>
@@ -1627,6 +1859,31 @@
           <span class="material-icons search-clear" id="searchClear">clear</span>
         </div>
         
+        <div class="filter-dropdown">
+          <button class="filter-button" id="filterButton">
+            <span class="material-icons">filter_list</span>
+            Filtrar
+          </button>
+          <div class="filter-menu" id="filterMenu">
+            <div class="filter-option" data-filter="all">
+              <span class="material-icons">apps</span>
+              Todas as ROMs
+            </div>
+            <div class="filter-option" data-filter="favorites">
+              <span class="material-icons">favorite</span>
+              Favoritas
+            </div>
+            <div class="filter-option" data-filter="developer">
+              <span class="material-icons">person</span>
+              Por Desenvolvedor
+            </div>
+            <div class="filter-option" data-filter="date">
+              <span class="material-icons">calendar_today</span>
+              Por Data
+            </div>
+          </div>
+        </div>
+        
         <div class="view-toggle">
           <button class="view-button active" id="gridViewButton" title="Visualização em grade">
             <span class="material-icons">grid_view</span>
@@ -1646,11 +1903,41 @@
         <!-- As ROMs serão carregadas dinamicamente aqui -->
       </div>
     </div>
+
+    <div class="favorites-section" id="favoritesSection">
+      <div class="favorites-header">
+        <h2 class="favorites-title">Minhas ROMs Favoritas</h2>
+        <button class="back-button" id="backFromFavorites">
+          <span class="material-icons">arrow_back</span>
+          Voltar
+        </button>
+      </div>
+      
+      <div class="loading" id="favoritesLoading">
+        <span class="material-icons">refresh</span>
+        <p>Carregando favoritos...</p>
+      </div>
+      
+      <div class="rom-cards" id="favoritesCards">
+        <!-- Os favoritos serão carregados dinamicamente aqui -->
+      </div>
+      
+      <div class="favorites-empty" id="favoritesEmpty">
+        <span class="material-icons">favorite_border</span>
+        <h3>Nenhuma ROM favoritada</h3>
+        <p>Clique no ícone de coração em qualquer ROM para adicioná-la aos favoritos.</p>
+      </div>
+    </div>
   </main>
 
   <button class="tutorial-button" id="tutorialButton" style="display: none;">
     <span class="material-icons">help_outline</span>
     Como instalar ROMs?
+  </button>
+
+  <button class="feedback-button" id="feedbackButton">
+    <span class="material-icons">feedback</span>
+    Feedback
   </button>
 
   <div class="modal-overlay" id="modalOverlay">
@@ -1840,6 +2127,58 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="feedbackModalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Enviar Feedback</h3>
+        <button class="modal-close" id="feedbackModalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label class="form-label" for="feedbackType">Tipo de Feedback</label>
+            <select class="form-select" id="feedbackType" required>
+              <option value="">Selecione uma opção</option>
+              <option value="suggestion">Sugestão</option>
+              <option value="bug">Relatório de Bug</option>
+              <option value="improvement">Melhoria</option>
+              <option value="other">Outro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="feedbackName">Seu Nome (Opcional)</label>
+            <input type="text" class="form-input" id="feedbackName" placeholder="Deixe em branco para enviar anonimamente">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="feedbackMessage">Mensagem</label>
+            <textarea class="form-textarea" id="feedbackMessage" placeholder="Descreva seu feedback em detalhes..." required></textarea>
+          </div>
+          
+          <div class="form-checkbox">
+            <input type="checkbox" id="feedbackAnonymous">
+            <label for="feedbackAnonymous">Enviar anonimamente</label>
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-secondary" id="feedbackCancelButton">
+          <span class="material-icons">close</span>
+          Cancelar
+        </button>
+        <button class="modal-button modal-button-primary" id="feedbackSubmitButton">
+          <span class="material-icons">send</span>
+          Enviar Feedback
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="notification" id="notification">
     <span class="material-icons notification-icon">check_circle</span>
     <div class="notification-content">
@@ -1858,16 +2197,24 @@
     const deviceSelection = document.getElementById('deviceSelection');
     const romList = document.getElementById('romList');
     const romCards = document.getElementById('romCards');
+    const favoritesSection = document.getElementById('favoritesSection');
+    const favoritesCards = document.getElementById('favoritesCards');
+    const favoritesEmpty = document.getElementById('favoritesEmpty');
+    const favoritesLoading = document.getElementById('favoritesLoading');
     const loading = document.getElementById('loading');
     const backButton = document.getElementById('backButton');
+    const backFromFavorites = document.getElementById('backFromFavorites');
     const themeToggle = document.getElementById('themeToggle');
     const notification = document.getElementById('notification');
     const infoButton = document.getElementById('infoButton');
     const tutorialButton = document.getElementById('tutorialButton');
+    const feedbackButton = document.getElementById('feedbackButton');
     const searchInput = document.getElementById('searchInput');
     const searchClear = document.getElementById('searchClear');
     const gridViewButton = document.getElementById('gridViewButton');
     const listViewButton = document.getElementById('listViewButton');
+    const filterButton = document.getElementById('filterButton');
+    const filterMenu = document.getElementById('filterMenu');
     const notificationBell = document.getElementById('notificationBell');
     
     const modalOverlay = document.getElementById('modalOverlay');
@@ -1882,6 +2229,16 @@
     const tutorialModalClose = document.getElementById('tutorialModalClose');
     const tutorialModalConfirm = document.getElementById('tutorialModalConfirm');
     
+    const feedbackModalOverlay = document.getElementById('feedbackModalOverlay');
+    const feedbackModalClose = document.getElementById('feedbackModalClose');
+    const feedbackCancelButton = document.getElementById('feedbackCancelButton');
+    const feedbackSubmitButton = document.getElementById('feedbackSubmitButton');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackType = document.getElementById('feedbackType');
+    const feedbackName = document.getElementById('feedbackName');
+    const feedbackMessage = document.getElementById('feedbackMessage');
+    const feedbackAnonymous = document.getElementById('feedbackAnonymous');
+    
     let settings = {
       theme: 'light',
       primaryColor: '#1976D2',
@@ -1893,9 +2250,13 @@
 
     let currentRom = null;
     let allRoms = [];
+    let favorites = [];
+    let currentFilter = 'all';
+    let currentDevice = '';
 
     function initializeApp() {
       loadSettings();
+      loadFavorites();
       setupEventListeners();
       checkForUpdates();
       
@@ -1916,12 +2277,16 @@
       });
 
       backButton.addEventListener('click', showDeviceSelection);
+      backFromFavorites.addEventListener('click', showRomList);
       themeToggle.addEventListener('click', toggleTheme);
       infoButton.addEventListener('click', function() {
         showNotification('ROM Downloads v1.0', 'Faça downloads mais rápidos das ROMs :o');
       });
       tutorialButton.addEventListener('click', function() {
         tutorialModalOverlay.classList.add('active');
+      });
+      feedbackButton.addEventListener('click', function() {
+        feedbackModalOverlay.classList.add('active');
       });
 
       searchInput.addEventListener('input', function() {
@@ -1938,6 +2303,18 @@
         searchInput.value = '';
         searchClear.classList.remove('visible');
         filterRoms('');
+      });
+
+      filterButton.addEventListener('click', function() {
+        filterMenu.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          applyFilter(filter);
+          filterMenu.classList.remove('active');
+        });
       });
 
       gridViewButton.addEventListener('click', function() {
@@ -1976,6 +2353,16 @@
         tutorialModalOverlay.classList.remove('active');
       });
       
+      feedbackModalClose.addEventListener('click', function() {
+        feedbackModalOverlay.classList.remove('active');
+      });
+      
+      feedbackCancelButton.addEventListener('click', function() {
+        feedbackModalOverlay.classList.remove('active');
+      });
+      
+      feedbackSubmitButton.addEventListener('click', submitFeedback);
+      
       modalOverlay.addEventListener('click', function(e) {
         if (e.target === modalOverlay) {
           closeModal();
@@ -1985,6 +2372,12 @@
       tutorialModalOverlay.addEventListener('click', function(e) {
         if (e.target === tutorialModalOverlay) {
           tutorialModalOverlay.classList.remove('active');
+        }
+      });
+      
+      feedbackModalOverlay.addEventListener('click', function(e) {
+        if (e.target === feedbackModalOverlay) {
+          feedbackModalOverlay.classList.remove('active');
         }
       });
 
@@ -2009,6 +2402,13 @@
           }, 600);
         });
       });
+
+      // Fechar o menu de filtros ao clicar fora
+      document.addEventListener('click', function(e) {
+        if (!filterButton.contains(e.target) && !filterMenu.contains(e.target)) {
+          filterMenu.classList.remove('active');
+        }
+      });
     }
 
     function checkForUpdates() {
@@ -2031,7 +2431,9 @@
     }
 
     function showRomList(device) {
+      currentDevice = device;
       deviceSelection.style.display = 'none';
+      favoritesSection.style.display = 'none';
       romList.style.display = 'block';
       tutorialButton.style.display = 'flex';
       
@@ -2052,7 +2454,7 @@
             </div>
           `;
         } else {
-          displayRoms(allRoms);
+          applyFilter(currentFilter);
         }
         
         setTimeout(() => {
@@ -2061,11 +2463,36 @@
       }, 300);
     }
 
-    function displayRoms(roms) {
-      romCards.innerHTML = '';
+    function showFavorites() {
+      romList.style.display = 'none';
+      deviceSelection.style.display = 'none';
+      favoritesSection.style.display = 'block';
+      tutorialButton.style.display = 'none';
+      
+      favoritesLoading.classList.add('show');
+      favoritesCards.innerHTML = '';
+      favoritesEmpty.style.display = 'none';
+      
+      setTimeout(() => {
+        favoritesLoading.classList.remove('show');
+        
+        if (favorites.length === 0) {
+          favoritesEmpty.style.display = 'block';
+        } else {
+          displayRoms(favorites, favoritesCards);
+        }
+        
+        setTimeout(() => {
+          favoritesSection.classList.add('show');
+        }, 100);
+      }, 300);
+    }
+
+    function displayRoms(roms, container = romCards) {
+      container.innerHTML = '';
       
       if (roms.length === 0) {
-        romCards.innerHTML = `
+        container.innerHTML = `
           <div class="no-results">
             <span class="material-icons">search_off</span>
             <h3>Nenhuma ROM encontrada</h3>
@@ -2082,6 +2509,8 @@
         if (rom.easterEgg) {
           romCard.classList.add('easter-egg');
         }
+        
+        const isFavorite = favorites.some(fav => fav.name === rom.name && fav.developer === rom.developer);
         
         romCard.innerHTML = `
           <div class="rom-content">
@@ -2103,33 +2532,120 @@
               </div>
             </div>
           </div>
-          <button class="download-button" data-rom-index="${index}">
-            <span class="material-icons">download</span>
-            Download
-          </button>
+          <div class="rom-actions">
+            <button class="favorite-button ${isFavorite ? 'active' : ''}" data-rom-name="${rom.name}" data-rom-dev="${rom.developer}">
+              <span class="material-icons">${isFavorite ? 'favorite' : 'favorite_border'}</span>
+            </button>
+            <button class="download-button" data-rom-index="${index}">
+              <span class="material-icons">download</span>
+              Download
+            </button>
+          </div>
         `;
         
-        romCards.appendChild(romCard);
+        container.appendChild(romCard);
         
         setTimeout(() => {
           romCard.classList.add('show');
         }, index * 100);
         
+        romCard.querySelector('.favorite-button').addEventListener('click', function() {
+          const romName = this.getAttribute('data-rom-name');
+          const romDev = this.getAttribute('data-rom-dev');
+          toggleFavorite(romName, romDev);
+        });
+        
         romCard.querySelector('.download-button').addEventListener('click', function() {
           const romIndex = this.getAttribute('data-rom-index');
           const selectedRom = roms[romIndex];
           showRomDetails(selectedRom);
+          trackDownload(selectedRom.name);
         });
       });
     }
 
+    function toggleFavorite(romName, romDev) {
+      const index = favorites.findIndex(fav => fav.name === romName && fav.dev === romDev);
+      
+      if (index === -1) {
+        // Adicionar aos favoritos
+        const rom = allRoms.find(r => r.name === romName && r.developer === romDev);
+        if (rom) {
+          favorites.push({
+            name: rom.name,
+            developer: rom.developer,
+            version: rom.version,
+            description: rom.description,
+            size: rom.size,
+            date: rom.date,
+            url: rom.url,
+            details: rom.details,
+            source: rom.source,
+            easterEgg: rom.easterEgg || false
+          });
+          showNotification('Adicionado aos Favoritos', `${romName} foi adicionada aos seus favoritos.`);
+        }
+      } else {
+        // Remover dos favoritos
+        favorites.splice(index, 1);
+        showNotification('Removido dos Favoritos', `${romName} foi removida dos seus favoritos.`);
+      }
+      
+      saveFavorites();
+      
+      // Atualizar a interface
+      if (currentFilter === 'favorites') {
+        applyFilter('favorites');
+      } else {
+        applyFilter(currentFilter);
+      }
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      
+      let filteredRoms = [];
+      
+      switch (filter) {
+        case 'all':
+          filteredRoms = allRoms;
+          break;
+        case 'favorites':
+          filteredRoms = favorites;
+          break;
+        case 'developer':
+          // Agrupar por desenvolvedor
+          const developers = [...new Set(allRoms.map(rom => rom.developer))];
+          filteredRoms = developers.map(dev => ({
+            isDeveloperGroup: true,
+            developer: dev,
+            roms: allRoms.filter(rom => rom.developer === dev)
+          }));
+          break;
+        case 'date':
+          // Ordenar por data (mais recente primeiro)
+          filteredRoms = [...allRoms].sort((a, b) => {
+            const dateA = new Date(a.date.split('/').reverse().join('/'));
+            const dateB = new Date(b.date.split('/').reverse().join('/'));
+            return dateB - dateA;
+          });
+          break;
+        default:
+          filteredRoms = allRoms;
+      }
+      
+      displayRoms(filteredRoms);
+    }
+
     function filterRoms(searchTerm) {
       if (!searchTerm) {
-        displayRoms(allRoms);
+        applyFilter(currentFilter);
         return;
       }
       
-      const filteredRoms = allRoms.filter(rom => {
+      let romsToFilter = currentFilter === 'favorites' ? favorites : allRoms;
+      
+      const filteredRoms = romsToFilter.filter(rom => {
         const term = searchTerm.toLowerCase();
         return (
           rom.name.toLowerCase().includes(term) ||
@@ -2159,10 +2675,12 @@
 
     function showDeviceSelection() {
       romList.classList.remove('show');
+      favoritesSection.classList.remove('show');
       tutorialButton.style.display = 'none';
       
       setTimeout(() => {
         romList.style.display = 'none';
+        favoritesSection.style.display = 'none';
         deviceSelection.style.display = 'block';
         
         const deviceCards = document.querySelectorAll('.device-card');
@@ -2260,6 +2778,67 @@
       }
     }
 
+    function trackDownload(romName) {
+      // Enviar informações do download para o Formspree
+      const formData = new FormData();
+      formData.append('dispositivo', navigator.userAgent);
+      formData.append('rom', romName);
+      formData.append('mensagem', 'Entrou!');
+      
+      fetch('https://formspree.io/f/xblzjvwn', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Download tracked:', data);
+      })
+      .catch(error => {
+        console.error('Error tracking download:', error);
+      });
+    }
+
+    function submitFeedback() {
+      const type = feedbackType.value;
+      const name = feedbackAnonymous.checked ? 'Anônimo' : feedbackName.value;
+      const message = feedbackMessage.value;
+      
+      if (!type || !message) {
+        showNotification('Erro', 'Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+      
+      const formData = new FormData();
+      formData.append('tipo', type);
+      formData.append('nome', name);
+      formData.append('mensagem', message);
+      
+      fetch('https://formspree.io/f/mrbygwjw', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          showNotification('Feedback Enviado', 'Obrigado pelo seu feedback!');
+          feedbackModalOverlay.classList.remove('active');
+          feedbackForm.reset();
+        } else {
+          showNotification('Erro', 'Não foi possível enviar o feedback. Tente novamente.');
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting feedback:', error);
+        showNotification('Erro', 'Não foi possível enviar o feedback. Tente novamente.');
+      });
+    }
+
     function toggleTheme() {
       settings.theme = settings.theme === 'light' ? 'dark' : 'light';
       applyTheme();
@@ -2315,6 +2894,17 @@
         applyTheme();
         applyPrimaryColor();
         setViewMode(settings.viewMode);
+      }
+    }
+
+    function saveFavorites() {
+      localStorage.setItem('romFavorites', JSON.stringify(favorites));
+    }
+
+    function loadFavorites() {
+      const savedFavorites = localStorage.getItem('romFavorites');
+      if (savedFavorites) {
+        favorites = JSON.parse(savedFavorites);
       }
     }
 

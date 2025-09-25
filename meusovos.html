@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -741,48 +743,28 @@
       box-shadow: var(--md-sys-elevation-level2);
     }
 
-    .action-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
+    .timer-container {
+      background-color: var(--md-sys-color-primary-container);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
     }
 
-    .action-button {
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      border: none;
-      border-radius: 16px;
-      padding: 0.8rem 1.5rem;
+    .timer-title {
       font-size: 1rem;
       font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-      box-shadow: var(--md-sys-elevation-level2);
+      color: var(--md-sys-color-on-primary-container);
+      margin-bottom: 0.5rem;
     }
 
-    .action-button:hover {
-      background-color: #1565C0;
-      transform: translateY(-2px);
-      box-shadow: var(--md-sys-elevation-level3);
-    }
-
-    .action-button:active {
-      transform: translateY(0);
-      box-shadow: var(--md-sys-elevation-level1);
-    }
-
-    .action-button.secondary {
-      background-color: var(--md-sys-color-surface-variant);
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .action-button.secondary:hover {
-      background-color: var(--md-sys-color-outline-variant);
+    .timer-display {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+      font-family: 'Roboto Mono', monospace;
     }
 
     .download-all-button {
@@ -1071,16 +1053,11 @@
       
       <div class="image-content" id="imageContent">
         <img src="" alt="Imagem engraçada" class="easter-image" id="easterImage">
-        <div class="action-buttons">
-          <button class="action-button" id="nextButton">
-            <span class="material-icons">arrow_forward</span>
-            Próxima
-          </button>
-          <button class="action-button secondary" id="resetButton">
-            <span class="material-icons">refresh</span>
-            Reiniciar
-          </button>
-        </div>
+      </div>
+      
+      <div class="timer-container">
+        <div class="timer-title">Próxima figurinha em:</div>
+        <div class="timer-display" id="timerDisplay">00:00:00</div>
       </div>
     </div>
     
@@ -1107,8 +1084,6 @@
     const loadingContainer = document.getElementById('loadingContainer');
     const imageContent = document.getElementById('imageContent');
     const easterImage = document.getElementById('easterImage');
-    const nextButton = document.getElementById('nextButton');
-    const resetButton = document.getElementById('resetButton');
     const downloadAllButton = document.getElementById('downloadAllButton');
     const themeToggle = document.getElementById('themeToggle');
     const notification = document.getElementById('notification');
@@ -1125,14 +1100,16 @@
     const confirmModal = document.getElementById('confirmModal');
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
+    const timerDisplay = document.getElementById('timerDisplay');
     
     let settings = {
       theme: 'light',
       primaryColor: '#1976D2'
     };
 
-    let usedImages = [];
     let currentImageNumber = null;
+    let nextStickerTime = null;
+    let timerInterval = null;
 
     let collection = {
       collectionName: "Minha Coleção",
@@ -1141,6 +1118,21 @@
       lastModified: new Date().toISOString()
     };
 
+    const STICKER_RARITY = {
+      common: { min: 1, max: 5, chance: 0.40, name: "Comum" },
+      rare: { min: 6, max: 10, chance: 0.35, name: "Rara" },
+      epic: { min: 11, max: 15, chance: 0.25, name: "Épica" }
+    };
+
+const WAIT_TIME_MINUTES = 48 * 60; // 48 horas em minutos
+const WAIT_TIME_MS = WAIT_TIME_MINUTES * 60 * 1000;
+
+    const FEEDBACK_MESSAGES = [
+      "Aguarde até a próxima figurinha aparecer, viado!",
+      "Vai com calma vida, ta afobado parceiro?.",
+      "As melhores coisas vêm para quem espera 😏"
+    ];
+
     function initializeApp() {
       loadSettings();
       loadCollection();
@@ -1148,14 +1140,20 @@
       updateCollectionDisplay();
       generateStickersGrid();
       
-      setTimeout(() => {
+      const savedNextTime = localStorage.getItem('nextStickerTime');
+      if (savedNextTime) {
+        nextStickerTime = parseInt(savedNextTime);
+        if (nextStickerTime <= Date.now()) {
+          showRandomImage();
+        } else {
+          startTimer();
+        }
+      } else {
         showRandomImage();
-      }, 2000);
+      }
     }
 
     function setupEventListeners() {
-      nextButton.addEventListener('click', showRandomImage);
-      resetButton.addEventListener('click', resetImages);
       downloadAllButton.addEventListener('click', exportCollection);
       themeToggle.addEventListener('click', toggleTheme);
       collectionBox.addEventListener('click', openCollectionModal);
@@ -1187,35 +1185,82 @@
       notification.querySelector('.notification-close').addEventListener('click', function() {
         notification.classList.remove('show');
       });
+
+      easterImage.addEventListener('click', function() {
+        const randomMessage = FEEDBACK_MESSAGES[Math.floor(Math.random() * FEEDBACK_MESSAGES.length)];
+        showNotification("Paciência!", randomMessage);
+      });
     }
 
     function showRandomImage() {
-      if (usedImages.length >= 15) {
-        showNotification("Fim das memórias", "Você já viu todas as imagens!");
-        return;
-      }
-      
       loadingContainer.style.display = 'flex';
       imageContent.classList.remove('show');
       
       setTimeout(() => {
-        let randomImageNumber;
-        do {
-          randomImageNumber = Math.floor(Math.random() * 15) + 1;
-        } while (usedImages.includes(randomImageNumber));
+        const stickerNumber = generateRandomSticker();
+        currentImageNumber = stickerNumber;
         
-        usedImages.push(randomImageNumber);
-        currentImageNumber = randomImageNumber;
-        
-        easterImage.src = `${randomImageNumber}.png`;
+        easterImage.src = `${stickerNumber}.png`;
         
         loadingContainer.style.display = 'none';
         imageContent.classList.add('show');
         
         setTimeout(() => {
-          collectSticker(randomImageNumber);
+          collectSticker(stickerNumber);
         }, 1000);
+        
+        scheduleNextSticker();
       }, 1500);
+    }
+
+    function generateRandomSticker() {
+      const rand = Math.random();
+      let selectedRange;
+      
+      if (rand < STICKER_RARITY.common.chance) {
+        selectedRange = STICKER_RARITY.common;
+      } else if (rand < STICKER_RARITY.common.chance + STICKER_RARITY.rare.chance) {
+        selectedRange = STICKER_RARITY.rare;
+      } else {
+        selectedRange = STICKER_RARITY.epic;
+      }
+      
+      return Math.floor(Math.random() * (selectedRange.max - selectedRange.min + 1)) + selectedRange.min;
+    }
+
+    function scheduleNextSticker() {
+      nextStickerTime = Date.now() + WAIT_TIME_MS;
+      localStorage.setItem('nextStickerTime', nextStickerTime.toString());
+      startTimer();
+    }
+
+    function startTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+      }
+      
+      updateTimerDisplay();
+      timerInterval = setInterval(updateTimerDisplay, 1000);
+    }
+
+    function updateTimerDisplay() {
+      if (!nextStickerTime) return;
+      
+      const now = Date.now();
+      const timeLeft = Math.max(0, nextStickerTime - now);
+      
+      if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = "AGORA!";
+        showRandomImage();
+        return;
+      }
+      
+      const hours = Math.floor(timeLeft / (60 * 60 * 1000));
+      const minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
+      const seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
+      
+      timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
 
     function collectSticker(stickerNumber) {
@@ -1273,7 +1318,14 @@
       updateCollectionDisplay();
       updateStickersGrid();
       
-      showNotification("Figurinha coletada!", `Figurinha #${stickerNumber} adicionada à coleção!`);
+      let rarity = "Comum";
+      if (stickerNumber >= 11 && stickerNumber <= 15) {
+        rarity = "Épica";
+      } else if (stickerNumber >= 6 && stickerNumber <= 10) {
+        rarity = "Rara";
+      }
+      
+      showNotification("Figurinha coletada!", `Figurinha #${stickerNumber} (${rarity}) adicionada à coleção!`);
     }
 
     function updateCollectionDisplay() {
@@ -1406,16 +1458,6 @@
       showNotification("Coleção limpa!", "Todas as figurinhas foram removidas.");
     }
 
-    function resetImages() {
-      usedImages = [];
-      loadingContainer.style.display = 'flex';
-      imageContent.classList.remove('show');
-      
-      setTimeout(() => {
-        showRandomImage();
-      }, 1500);
-    }
-
     function toggleTheme() {
       settings.theme = settings.theme === 'light' ? 'dark' : 'light';
       applyTheme();
@@ -1487,7 +1529,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
-    // eu de novo :D
   </script>
 </body>
 </html>

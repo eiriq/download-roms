@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROM Downloads - Moto G34</title>
-  <link rel="icon" type="image/png" href="logo.png">
+  <title>Downloads - Moto G34</title>
+  <link rel="icon" type="image/png" href="icon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
@@ -20,7 +20,6 @@
       --md-sys-color-tertiary: #64577A;
       --md-sys-color-on-tertiary: #FFFFFF;
       --md-sys-color-tertiary-container: #EBDFF7;
-      --md-sys-color-on-tertiary-container: #20102D;
       --md-sys-color-error: #BA1A1A;
       --md-sys-color-error-container: #FFDAD6;
       --md-sys-color-on-error: #FFFFFF;
@@ -498,11 +497,9 @@
     .icon-button:hover {
       background-color: var(--md-sys-color-primary-container);
       color: var(--md-sys-color-primary);
-      transform: scale(1.1);
     }
 
     .icon-button:active {
-      transform: scale(0.95);
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
     }
@@ -661,6 +658,14 @@
       font-size: 2rem;
     }
 
+    .device-image {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+
     .device-name {
       font-size: 1.3rem;
       font-weight: 500;
@@ -694,466 +699,6 @@
 
     .device-spec .material-icons {
       font-size: 0.9rem;
-    }
-
-    .rom-list {
-      width: 100%;
-      display: none;
-      margin-top: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .rom-list.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .rom-list.hiding {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .rom-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .rom-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--md-sys-color-primary);
-    }
-
-    .back-button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: none;
-      border: 1px solid var(--md-sys-color-outline);
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .back-button:hover {
-      background-color: var(--md-sys-color-surface-variant);
-    }
-
-    .rom-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    .search-container {
-      flex: 1;
-      position: relative;
-      max-width: 500px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 0.75rem 1rem 0.75rem 3rem;
-      border-radius: 24px;
-      border: 1px solid var(--md-sys-color-outline);
-      background-color: var(--md-sys-color-surface);
-      color: var(--md-sys-color-on-surface);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: var(--md-sys-elevation-level1);
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--md-sys-color-primary);
-      box-shadow: var(--md-sys-elevation-level2);
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--md-sys-color-on-surface-variant);
-      pointer-events: none;
-    }
-
-    .search-clear {
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-      display: none;
-    }
-
-    .search-clear.visible {
-      display: block;
-    }
-
-    .filter-dropdown {
-      position: relative;
-    }
-
-    .filter-button {
-      background-color: var(--md-sys-color-surface-variant);
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-button:hover {
-      background-color: var(--md-sys-color-outline-variant);
-    }
-
-    .filter-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: var(--md-sys-color-surface);
-      border-radius: 8px;
-      box-shadow: var(--md-sys-elevation-level3);
-      min-width: 200px;
-      z-index: 10;
-      margin-top: 0.5rem;
-      display: none;
-      overflow: hidden;
-    }
-
-    .filter-menu.active {
-      display: block;
-    }
-
-    .filter-option {
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .filter-option:hover {
-      background-color: var(--md-sys-color-surface-variant);
-    }
-
-    .view-toggle {
-      display: flex;
-      background-color: var(--md-sys-color-surface-variant);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--md-sys-elevation-level1);
-    }
-
-    .view-button {
-      background: none;
-      border: none;
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      transition: all 0.2s ease;
-    }
-
-    .view-button.active {
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-    }
-
-    .view-button:hover:not(.active) {
-      background-color: var(--md-sys-color-outline-variant);
-    }
-
-    .rom-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .rom-cards.list-view {
-      grid-template-columns: 1fr;
-    }
-
-    .rom-card {
-      background-color: var(--md-sys-color-surface);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: var(--md-sys-elevation-level1);
-      transition: all 0.3s ease;
-      border: 1px solid var(--md-sys-color-outline-variant);
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-      animation-duration: 0.5s;
-      animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
-      animation-fill-mode: forwards;
-    }
-
-    .rom-cards.list-view .rom-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-    }
-
-    .rom-card.show {
-      animation-name: slideInCard;
-    }
-
-    .rom-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
-      border-radius: 4px 4px 0 0;
-      opacity: 0;
-      animation: fadeInTopBar 0.8s ease 0.3s forwards;
-    }
-
-    .rom-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: var(--md-sys-elevation-level4);
-      border-color: var(--md-sys-color-primary);
-    }
-
-    .rom-cards.list-view .rom-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .rom-card.easter-egg {
-      background-color: #FFEBEE;
-      border: 1px solid #EF9A9A;
-    }
-
-    .rom-card.easter-egg::before {
-      background: linear-gradient(90deg, #F44336, #D32F2F);
-    }
-
-    [data-theme="dark"] .rom-card.easter-egg {
-      background-color: #4A2C2A;
-      border: 1px solid #8B5A5A;
-    }
-
-    [data-theme="dark"] .rom-card.easter-egg::before {
-      background: linear-gradient(90deg, #E57373, #C62828);
-    }
-
-    .rom-content {
-      flex: 1;
-    }
-
-    .rom-cards.list-view .rom-content {
-      flex: 1;
-    }
-
-    .rom-name {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
-      margin-bottom: 0.5rem;
-    }
-
-    .rom-cards.list-view .rom-name {
-      font-size: 1.1rem;
-      margin-bottom: 0;
-    }
-
-    .rom-version {
-      display: inline-block;
-      background-color: var(--md-sys-color-primary-container);
-      color: var(--md-sys-color-primary);
-      padding: 0.2rem 0.6rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-bottom: 0.8rem;
-    }
-
-    .rom-cards.list-view .rom-version {
-      display: none;
-    }
-
-    .rom-description {
-      font-size: 0.9rem;
-      color: var(--md-sys-color-on-surface-variant);
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-
-    .rom-cards.list-view .rom-description {
-      display: none;
-    }
-
-    .rom-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .rom-cards.list-view .rom-details {
-      display: none;
-    }
-
-    .rom-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.8rem;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .rom-detail .material-icons {
-      font-size: 0.9rem;
-    }
-
-    .rom-actions {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .rom-cards.list-view .rom-actions {
-      margin-top: 0;
-    }
-
-    .favorite-button {
-      background: none;
-      border: 1px solid var(--md-sys-color-outline);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .favorite-button:hover {
-      background-color: var(--md-sys-color-surface-variant);
-      transform: scale(1.1);
-    }
-
-    .favorite-button.active {
-      color: var(--md-sys-color-error);
-      border-color: var(--md-sys-color-error);
-    }
-
-    .favorite-button.active:hover {
-      background-color: rgba(186, 26, 26, 0.1);
-    }
-
-    .favorite-button .material-icons {
-      font-size: 1.2rem;
-    }
-
-    .download-button {
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      border: none;
-      border-radius: 16px;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-      box-shadow: var(--md-sys-elevation-level2);
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .rom-cards.list-view .download-button {
-      width: auto;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-    }
-
-    .download-button:hover {
-      background-color: #1565C0;
-      transform: translateY(-2px);
-      box-shadow: var(--md-sys-elevation-level3);
-    }
-
-    .download-button:active {
-      transform: translateY(0);
-      box-shadow: var(--md-sys-elevation-level1);
-    }
-
-    .download-button .ripple {
-      position: absolute;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.7);
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-    }
-
-    .rom-card.easter-egg .download-button {
-      background-color: #D32F2F;
-    }
-
-    .rom-card.easter-egg .download-button:hover {
-      background-color: #B71C1C;
-    }
-
-    .loading {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .loading.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-      animation: fadeIn 0.5s ease;
-    }
-
-    .loading .material-icons {
-      font-size: 2rem;
-      color: var(--md-sys-color-primary);
-      animation: spin 1.5s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     .coming-soon {
@@ -1192,35 +737,113 @@
       color: var(--md-sys-color-on-surface-variant);
     }
 
-    .tutorial-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      border: none;
+    .category-selection {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      display: none;
+    }
+
+    .category-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .category-card {
+      background-color: var(--md-sys-color-surface);
       border-radius: 16px;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 500;
+      padding: 1.5rem;
+      box-shadow: var(--md-sys-elevation-level1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--md-sys-color-outline-variant);
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+      animation-fill-mode: forwards;
+    }
+
+    .category-card.show {
+      animation-name: slideInCard;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+      border-radius: 4px 4px 0 0;
+      opacity: 0;
+      animation: fadeInTopBar 0.8s ease 0.3s forwards;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: var(--md-sys-elevation-level4);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .category-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .category-icon .material-icons {
+      font-size: 2rem;
+    }
+
+    .google-icon {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--md-sys-color-primary);
+    }
+
+    .category-name {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-description {
+      font-size: 1rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .back-button {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.3s ease;
-      box-shadow: var(--md-sys-elevation-level3);
-      z-index: 99;
+      background: none;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 1rem;
     }
 
-    .tutorial-button:hover {
-      background-color: #1565C0;
-      transform: translateY(-2px);
-      box-shadow: var(--md-sys-elevation-level4);
-    }
-
-    .tutorial-button:active {
-      transform: translateY(0);
-      box-shadow: var(--md-sys-elevation-level2);
+    .back-button:hover {
+      background-color: var(--md-sys-color-surface-variant);
     }
 
     .feedback-button {
@@ -1332,102 +955,6 @@
       flex: 1;
     }
 
-    .modal-tabs {
-      display: flex;
-      border-bottom: 1px solid var(--md-sys-color-outline-variant);
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-tab {
-      padding: 0.75rem 1.5rem;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    .modal-tab.active {
-      color: var(--md-sys-color-primary);
-      border-bottom-color: var(--md-sys-color-primary);
-    }
-
-    .modal-tab-content {
-      display: none;
-    }
-
-    .modal-tab-content.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .modal-section {
-      margin-bottom: 1.5rem;
-      background-color: var(--md-sys-color-surface);
-      border-radius: 16px;
-      padding: 1.25rem;
-      border: 1px solid var(--md-sys-color-outline-variant);
-      box-shadow: var(--md-sys-elevation-level1);
-      transition: all 0.3s ease;
-    }
-
-    .modal-section:hover {
-      box-shadow: var(--md-sys-elevation-level3);
-      transform: translateY(-2px);
-    }
-
-    .modal-section-title {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .modal-section-title .material-icons {
-      font-size: 1.2rem;
-      color: var(--md-sys-color-primary);
-    }
-
-    .modal-list {
-      list-style: none;
-      padding-left: 1.5rem;
-      margin: 0.5rem 0;
-    }
-
-    .modal-list li {
-      position: relative;
-      padding-left: 1rem;
-      margin-bottom: 0.5rem;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .modal-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--md-sys-color-primary);
-    }
-
-    .modal-code {
-      background-color: #282c34;
-      border-radius: 8px;
-      padding: 1rem;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.9rem;
-      color: #abb2bf;
-      overflow-x: auto;
-      margin: 1rem 0;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal-code .code-line {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
     .modal-footer {
       padding: 1.5rem;
       border-top: 1px solid var(--md-sys-color-outline-variant);
@@ -1474,171 +1001,6 @@
 
     .modal-button-primary:hover {
       background-color: #1565C0;
-    }
-
-    .telegram-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #0088cc;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .telegram-button:hover {
-      background-color: #0077b3;
-      transform: translateY(-2px);
-    }
-
-    .telegram-button .material-icons {
-      font-size: 1.2rem;
-    }
-
-    .android-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: #3DDC84;
-      color: #212121;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .android-button:hover {
-      background-color: #2FB868;
-      transform: translateY(-2px);
-    }
-
-    .android-button .material-icons {
-      font-size: 1.2rem;
-    }
-
-    .notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: var(--md-sys-color-surface);
-      border-radius: 8px;
-      box-shadow: var(--md-sys-elevation-level4);
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      z-index: 500;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s ease;
-      max-width: 350px;
-    }
-
-    .notification.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .notification-icon {
-      color: var(--md-sys-color-primary);
-      font-size: 1.5rem;
-    }
-
-    .notification-content {
-      flex: 1;
-    }
-
-    .notification-title {
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-    }
-
-    .notification-message {
-      font-size: 0.9rem;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .notification-close {
-      background: none;
-      border: none;
-      color: var(--md-sys-color-on-surface-variant);
-      cursor: pointer;
-    }
-
-    .no-results {
-      text-align: center;
-      padding: 2rem;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    .no-results .material-icons {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--md-sys-color-primary);
-    }
-
-    .no-results h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--md-sys-color-on-surface);
-    }
-
-    .info-card {
-      background-color: var(--md-sys-color-primary-container);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--md-sys-color-primary);
-    }
-
-    .info-card-title {
-      font-weight: 500;
-      color: var(--md-sys-color-primary);
-      margin-bottom: 0.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .info-card-title .material-icons {
-      font-size: 1rem;
-    }
-
-    .info-card-content {
-      color: var(--md-sys-color-on-primary-container);
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .info-card-description {
-      background-color: var(--md-sys-color-surface-variant);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--md-sys-color-secondary);
-    }
-
-    .info-card-description-title {
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .info-card-description-content {
-      color: var(--md-sys-color-on-surface-variant);
-      line-height: 1.5;
     }
 
     .form-group {
@@ -1697,68 +1059,53 @@
       cursor: pointer;
     }
 
-    .favorites-section {
-      display: none;
-      width: 100%;
-      margin-top: 2rem;
-    }
-
-    .favorites-section.show {
-      display: block;
-    }
-
-    .favorites-header {
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--md-sys-color-surface);
+      border-radius: 8px;
+      box-shadow: var(--md-sys-elevation-level4);
+      padding: 1rem 1.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
+      gap: 1rem;
+      z-index: 500;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      max-width: 350px;
     }
 
-    .favorites-title {
-      font-size: 1.8rem;
-      font-weight: 700;
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-icon {
       color: var(--md-sys-color-primary);
+      font-size: 1.5rem;
     }
 
-    .favorites-empty {
-      text-align: center;
-      padding: 3rem;
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .notification-message {
+      font-size: 0.9rem;
       color: var(--md-sys-color-on-surface-variant);
     }
 
-    .favorites-empty .material-icons {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--md-sys-color-primary);
-    }
-
-    .favorites-empty h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--md-sys-color-on-surface);
-    }
-
-    .developer-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .developer-header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-      padding: 0.75rem;
-      background-color: var(--md-sys-color-primary-container);
-      border-radius: 8px;
-    }
-
-    .developer-header .material-icons {
-      color: var(--md-sys-color-primary);
-    }
-
-    .developer-name {
-      font-weight: 500;
-      color: var(--md-sys-color-primary);
+    .notification-close {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
@@ -1774,19 +1121,7 @@
         grid-template-columns: 1fr;
       }
       
-      .rom-cards {
-        grid-template-columns: 1fr;
-      }
-      
-      .rom-controls {
-        flex-direction: column;
-      }
-      
-      .search-container {
-        max-width: 100%;
-      }
-      
-      .info-grid {
+      .category-cards {
         grid-template-columns: 1fr;
       }
       
@@ -1795,26 +1130,11 @@
         border-radius: 16px;
       }
       
-      .modal-tabs {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-      
-      .modal-section {
-        padding: 0.75rem;
-      }
-      
-      .tutorial-button,
       .feedback-button {
         bottom: 10px;
-        left: 10px;
+        right: 10px;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
-      }
-      
-      .feedback-button {
-        left: auto;
-        right: 10px;
       }
     }
   </style>
@@ -1834,7 +1154,7 @@
   <div class="toolbar">
     <div class="logo">
       <span class="material-icons">smartphone</span>
-      <h1>ROM Downloads</h1>
+      <h1>Downloads</h1>
     </div>
     <div class="toolbar-actions">
       <button class="icon-button notification-bell" id="notificationBell" aria-label="Notificações">
@@ -1852,8 +1172,8 @@
   <main>
     <div class="device-selection" id="deviceSelection">
       <div class="selection-header">
-        <h1>Downloads de ROMs :D</h1>
-        <p>Selecione um dispositivo para ver as ROMs disponíveis</p>
+        <h1>Downloads para seu dispositivo :D</h1>
+        <p>Selecione seu celular para ver o que temos pra ele!</p>
       </div>
       
       <div class="device-cards">
@@ -1861,6 +1181,7 @@
           <div class="device-icon">
             <span class="material-icons">smartphone</span>
           </div>
+          <img src="g34.png" alt="Moto G34" class="device-image">
           <h3 class="device-name">Moto G34</h3>
           <p class="device-description">Fogos...</p>
           <div class="device-specs">
@@ -1870,7 +1191,7 @@
             </div>
             <div class="device-spec">
               <span class="material-icons">sd_storage</span>
-              <span>128GB</span>
+              <span>128/256GB</span>
             </div>
           </div>
         </div>
@@ -1883,294 +1204,61 @@
       </div>
     </div>
 
-    <div class="rom-list" id="romList">
-      <div class="rom-header">
-        <h2 class="rom-title">ROMs para Moto G34</h2>
-        <button class="back-button" id="backButton">
+    <div class="category-selection" id="categorySelection">
+      <div class="selection-header">
+        <h2>Selecione uma categoria</h2>
+        <p>Escolha o tipo de download que você procura</p>
+        <button class="back-button" id="backToDevices">
           <span class="material-icons">arrow_back</span>
-          Voltar
+          Voltar para dispositivos
         </button>
       </div>
       
-      <div class="rom-controls">
-        <div class="search-container">
-          <span class="material-icons search-icon">search</span>
-          <input type="text" class="search-input" id="searchInput" placeholder="Buscar ROMs...">
-          <span class="material-icons search-clear" id="searchClear">clear</span>
-        </div>
-        
-        <div class="filter-dropdown">
-          <button class="filter-button" id="filterButton">
-            <span class="material-icons">filter_list</span>
-            Filtrar
-          </button>
-          <div class="filter-menu" id="filterMenu">
-            <div class="filter-option" data-filter="all">
-              <span class="material-icons">apps</span>
-              Todas as ROMs
-            </div>
-            <div class="filter-option" data-filter="favorites">
-              <span class="material-icons">favorite</span>
-              Favoritas
-            </div>
-            <div class="filter-option" data-filter="developer">
-              <span class="material-icons">person</span>
-              Por Desenvolvedor
-            </div>
-            <div class="filter-option" data-filter="date">
-              <span class="material-icons">calendar_today</span>
-              Por Data
-            </div>
+      <div class="category-cards">
+        <div class="category-card" data-category="roms">
+          <div class="category-icon">
+            <span class="material-icons">android</span>
           </div>
+          <h3 class="category-name">ROMs</h3>
+          <p class="category-description">Novo sistema, novo estilo, escolha sua ROM!</p>
         </div>
         
-        <div class="view-toggle">
-          <button class="view-button active" id="gridViewButton" title="Visualização em grade">
-            <span class="material-icons">grid_view</span>
-          </button>
-          <button class="view-button" id="listViewButton" title="Visualização em lista">
-            <span class="material-icons">view_list</span>
-          </button>
+        <div class="category-card" data-category="recoverys">
+          <div class="category-icon">
+            <span class="material-icons">settings_backup_restore</span>
+          </div>
+          <h3 class="category-name">Recoverys</h3>
+          <p class="category-description">Recuperação personalizada</p>
         </div>
-      </div>
-      
-      <div class="loading" id="loading">
-        <span class="material-icons">refresh</span>
-        <p>Carregando ROMs...</p>
-      </div>
-      
-      <div class="rom-cards" id="romCards">
-        <!-- As ROMs serão carregadas dinamicamente aqui -->
-      </div>
-    </div>
-
-    <div class="favorites-section" id="favoritesSection">
-      <div class="favorites-header">
-        <h2 class="favorites-title">Minhas ROMs Favoritas</h2>
-        <button class="back-button" id="backFromFavorites">
-          <span class="material-icons">arrow_back</span>
-          Voltar
-        </button>
-      </div>
-      
-      <div class="loading" id="favoritesLoading">
-        <span class="material-icons">refresh</span>
-        <p>Carregando favoritos...</p>
-      </div>
-      
-      <div class="rom-cards" id="favoritesCards">
-        <!-- Os favoritos serão carregados dinamicamente aqui -->
-      </div>
-      
-      <div class="favorites-empty" id="favoritesEmpty">
-        <span class="material-icons">favorite_border</span>
-        <h3>Nenhuma ROM favoritada</h3>
-        <p>Clique no ícone de coração em qualquer ROM para adicioná-la aos favoritos.</p>
+        
+        <div class="category-card" data-category="roots">
+          <div class="category-icon">
+            <span class="material-icons">security</span>
+          </div>
+          <h3 class="category-name">Roots</h3>
+          <p class="category-description">Tenha o controle total do seu Android!</p>
+        </div>
+        
+        <div class="category-card" data-category="gapps">
+          <div class="category-icon">
+            <span class="google-icon">G</span>
+          </div>
+          <h3 class="category-name">GApps</h3>
+          <p class="category-description">Use os aplicativos do google em seu sistema</p>
+        </div>
       </div>
     </div>
   </main>
-
-  <button class="tutorial-button" id="tutorialButton" style="display: none;">
-    <span class="material-icons">help_outline</span>
-    Como instalar ROMs?
-  </button>
 
   <button class="feedback-button" id="feedbackButton">
     <span class="material-icons">feedback</span>
     Feedback
   </button>
 
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Informações da ROM</h3>
-        <button class="modal-close" id="modalClose">
-          <span class="material-icons">close</span>
-        </button>
-      </div>
-      
-      <div class="modal-body">
-        <div class="modal-tabs" id="modalTabs">
-          <div class="modal-tab active" data-tab="details">Detalhes</div>
-          <div class="modal-tab" data-tab="source">Fonte</div>
-        </div>
-        
-        <div class="modal-tab-content active" id="details-tab">
-          <div class="info-grid">
-            <div class="info-card">
-              <div class="info-card-title">
-                <span class="material-icons">android</span>
-                Versão
-              </div>
-              <div class="info-card-content" id="romVersion">
-                <!-- Versão da ROM será inserida aqui -->
-              </div>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-card-title">
-                <span class="material-icons">person</span>
-                Desenvolvedor
-              </div>
-              <div class="info-card-content" id="romDeveloper">
-                <!-- Desenvolvedor da ROM será inserido aqui -->
-              </div>
-            </div>
-          </div>
-          
-          <div class="info-card-description">
-            <div class="info-card-description-title">
-              <span class="material-icons">description</span>
-              Descrição
-            </div>
-            <div class="info-card-description-content" id="romDescription">
-              <!-- Descrição da ROM será inserida aqui -->
-            </div>
-          </div>
-          
-          <div class="modal-section" id="changelogSection">
-            <h4 class="modal-section-title">
-              <span class="material-icons">history</span>
-              Registro de Mudanças
-            </h4>
-            <ul class="modal-list" id="changelog">
-              <!-- Changelog será inserido aqui -->
-            </ul>
-          </div>
-          
-          <div class="modal-section" id="knownIssuesSection">
-            <h4 class="modal-section-title">
-              <span class="material-icons">error_outline</span>
-              Problemas Conhecidos
-            </h4>
-            <ul class="modal-list" id="knownIssues">
-              <!-- Problemas conhecidos serão inseridos aqui -->
-            </ul>
-          </div>
-          
-          <div class="modal-section" id="notesSection">
-            <h4 class="modal-section-title">
-              <span class="material-icons">sticky_note_2</span>
-              Notas
-            </h4>
-            <ul class="modal-list" id="notes">
-              <!-- Notas serão inseridas aqui -->
-            </ul>
-          </div>
-          
-          <div class="modal-section" id="creditsSection">
-            <h4 class="modal-section-title">
-              <span class="material-icons">emoji_events</span>
-              Créditos
-            </h4>
-            <ul class="modal-list" id="credits">
-              <!-- Créditos serão inseridos aqui -->
-            </ul>
-          </div>
-        </div>
-        
-        <div class="modal-tab-content" id="source-tab">
-          <div class="modal-section">
-            <h4 class="modal-section-title">
-              <span class="material-icons">link</span>
-              Fonte da ROM
-            </h4>
-            <div id="sourceLink">
-              <!-- Link da fonte será inserido aqui -->
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="modal-footer">
-        <button class="modal-button modal-button-secondary" id="cancelButton">
-          <span class="material-icons">close</span>
-          Cancelar
-        </button>
-        <button class="modal-button modal-button-primary" id="confirmButton">
-          <span class="material-icons">download</span>
-          Baixar ROM
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="tutorialModalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Como Instalar ROMs</h3>
-        <button class="modal-close" id="tutorialModalClose">
-          <span class="material-icons">close</span>
-        </button>
-      </div>
-      
-      <div class="modal-body">
-        <div class="modal-section">
-          <h4 class="modal-section-title">
-            <span class="material-icons">warning</span>
-            Aviso Importante
-          </h4>
-          <p>Não somos responsáveis por dispositivos danificados, cartões SD inutilizados, guerras termonucleares ou por você ser demitido porque o aplicativo de alarme falhou. Por favor, faça alguma pesquisa se tiver alguma preocupação com os recursos incluídos nos produtos encontrados aqui antes de instalá-los! VOCÊ está escolhendo fazer essas modificações, e se você me apontar o dedo por estragar seu dispositivo, eu vou rir de você. Sua garantia será anulada se você mexer em qualquer parte do seu dispositivo / software.</p>
-        </div>
-        
-        <div class="modal-section">
-          <h4 class="modal-section-title">
-            <span class="material-icons">list_alt</span>
-            Pré-requisitos
-          </h4>
-          <ul class="modal-list">
-            <li>Bootloader desbloqueado</li>
-            <li>TWRP Recovery instalado</li>
-            <li>Bateria com pelo menos 50% de carga</li>
-            <li>Faça backup dos seus dados importantes</li>
-          </ul>
-        </div>
-        
-        <div class="modal-section">
-          <h4 class="modal-section-title">
-            <span class="material-icons">build</span>
-            Instruções de Instalação
-          </h4>
-          <ol class="modal-list" style="list-style-type: decimal;">
-            <li>Baixe a ROM desejada e coloque na memória do seu dispositivo</li>
-            <li>Reinicie o dispositivo no modo Recovery (Power + Volume Down)</li>
-            <li>Selecione "Wipe" > "Format Data" e confirme</li>
-            <li>Vá para "Advanced Wipe" e selecione Dalvik, Cache e System</li>
-            <li>Deslize para confirmar o wipe</li>
-            <li>Volte ao menu principal e selecione "Install"</li>
-            <li>Navegue até onde você salvou a ROM e selecione-a</li>
-            <li>Deslize para confirmar a instalação</li>
-            <li>Após a instalação, selecione "Reboot System"</li>
-            <li>O primeiro boot pode levar alguns minutos, seja paciente</li>
-          </ol>
-        </div>
-        
-        <div class="modal-section">
-          <h4 class="modal-section-title">
-            <span class="material-icons">help_outline</span>
-            Solução de Problemas
-          </h4>
-          <ul class="modal-list">
-            <li>Se o dispositivo ficar preso no boot, tente reiniciar no recovery e faça o wipe novamente</li>
-            <li>Se encontrar erros de instalação, verifique se o download do arquivo foi concluído corretamente</li>
-            <li>Para problemas específicos da ROM, consulte a fonte da ROM para obter suporte</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="modal-footer">
-        <button class="modal-button modal-button-primary" id="tutorialModalConfirm">
-          <span class="material-icons">check</span>
-          Entendido
-        </button>
-      </div>
-    </div>
-  </div>
-
   <div class="modal-overlay" id="feedbackModalOverlay">
     <div class="modal">
       <div class="modal-header">
-        <h3 class="modal-title">Enviar Feedback</h3>
+        <h3 class="modal-title">Enviar ideias, críticas, melhorias...</h3>
         <button class="modal-close" id="feedbackModalClose">
           <span class="material-icons">close</span>
         </button>
@@ -2179,7 +1267,7 @@
       <div class="modal-body">
         <form id="feedbackForm">
           <div class="form-group">
-            <label class="form-label" for="feedbackType">Tipo de Feedback</label>
+            <label class="form-label" for="feedbackType">Tipo de Sugestão</label>
             <select class="form-select" id="feedbackType" required>
               <option value="">Selecione uma opção</option>
               <option value="suggestion">Sugestão</option>
@@ -2196,7 +1284,7 @@
           
           <div class="form-group">
             <label class="form-label" for="feedbackMessage">Mensagem</label>
-            <textarea class="form-textarea" id="feedbackMessage" placeholder="Descreva seu feedback em detalhes..." required></textarea>
+            <textarea class="form-textarea" id="feedbackMessage" placeholder="Fale mais sobre sua sugestão!" required></textarea>
           </div>
           
           <div class="form-checkbox">
@@ -2213,7 +1301,7 @@
         </button>
         <button class="modal-button modal-button-primary" id="feedbackSubmitButton">
           <span class="material-icons">send</span>
-          Enviar Feedback
+          Enviar Sugestão!
         </button>
       </div>
     </div>
@@ -2230,43 +1318,15 @@
     </button>
   </div>
 
-  <script src="roms-data.js"></script>
-  
   <script>
     const deviceSelection = document.getElementById('deviceSelection');
-    const romList = document.getElementById('romList');
-    const romCards = document.getElementById('romCards');
-    const favoritesSection = document.getElementById('favoritesSection');
-    const favoritesCards = document.getElementById('favoritesCards');
-    const favoritesEmpty = document.getElementById('favoritesEmpty');
-    const favoritesLoading = document.getElementById('favoritesLoading');
-    const loading = document.getElementById('loading');
-    const backButton = document.getElementById('backButton');
-    const backFromFavorites = document.getElementById('backFromFavorites');
+    const categorySelection = document.getElementById('categorySelection');
     const themeToggle = document.getElementById('themeToggle');
     const notification = document.getElementById('notification');
     const infoButton = document.getElementById('infoButton');
-    const tutorialButton = document.getElementById('tutorialButton');
     const feedbackButton = document.getElementById('feedbackButton');
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    const gridViewButton = document.getElementById('gridViewButton');
-    const listViewButton = document.getElementById('listViewButton');
-    const filterButton = document.getElementById('filterButton');
-    const filterMenu = document.getElementById('filterMenu');
     const notificationBell = document.getElementById('notificationBell');
-    
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalTabs = document.querySelectorAll('.modal-tab');
-    const modalTabContents = document.querySelectorAll('.modal-tab-content');
-    const cancelButton = document.getElementById('cancelButton');
-    const confirmButton = document.getElementById('confirmButton');
-    
-    const tutorialModalOverlay = document.getElementById('tutorialModalOverlay');
-    const tutorialModalClose = document.getElementById('tutorialModalClose');
-    const tutorialModalConfirm = document.getElementById('tutorialModalConfirm');
+    const backToDevices = document.getElementById('backToDevices');
     
     const feedbackModalOverlay = document.getElementById('feedbackModalOverlay');
     const feedbackModalClose = document.getElementById('feedbackModalClose');
@@ -2283,19 +1343,13 @@
       primaryColor: '#1976D2',
       animationsEnabled: true,
       notificationsEnabled: true,
-      viewMode: 'grid',
       lastUpdateSeen: null
     };
 
-    let currentRom = null;
-    let allRoms = [];
-    let favorites = [];
-    let currentFilter = 'all';
     let currentDevice = '';
 
     function initializeApp() {
       loadSettings();
-      loadFavorites();
       setupEventListeners();
       checkForUpdates();
       
@@ -2311,87 +1365,40 @@
       document.querySelectorAll('.device-card').forEach(card => {
         card.addEventListener('click', function() {
           const device = this.getAttribute('data-device');
-          showRomList(device);
+          showCategorySelection(device);
         });
       });
 
-      backButton.addEventListener('click', showDeviceSelection);
-      backFromFavorites.addEventListener('click', showRomList);
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
+          const device = currentDevice;
+          window.location.href = `${category}.html?device=${device}`;
+        });
+      });
+
+      backToDevices.addEventListener('click', function() {
+        deviceSelection.style.display = 'block';
+        categorySelection.style.display = 'none';
+      });
+
       themeToggle.addEventListener('click', toggleTheme);
       infoButton.addEventListener('click', function() {
-        showNotification('ROM Downloads v1.0', 'Faça downloads mais rápidos das ROMs :o');
-      });
-      tutorialButton.addEventListener('click', function() {
-        tutorialModalOverlay.classList.add('active');
+        showNotification('Downloads v1.0', 'Faça downloads mais rápidos das ROMs, Recoverys e Roots :o');
       });
       feedbackButton.addEventListener('click', function() {
         feedbackModalOverlay.classList.add('active');
       });
 
-      searchInput.addEventListener('input', function() {
-        const value = this.value;
-        if (value) {
-          searchClear.classList.add('visible');
-        } else {
-          searchClear.classList.remove('visible');
-        }
-        filterRoms(value);
-      });
-
-      searchClear.addEventListener('click', function() {
-        searchInput.value = '';
-        searchClear.classList.remove('visible');
-        filterRoms('');
-      });
-
-      filterButton.addEventListener('click', function() {
-        filterMenu.classList.toggle('active');
-      });
-
-      document.querySelectorAll('.filter-option').forEach(option => {
-        option.addEventListener('click', function() {
-          const filter = this.getAttribute('data-filter');
-          applyFilter(filter);
-          filterMenu.classList.remove('active');
-        });
-      });
-
-      gridViewButton.addEventListener('click', function() {
-        setViewMode('grid');
-      });
-
-      listViewButton.addEventListener('click', function() {
-        setViewMode('list');
-      });
-
       notificationBell.addEventListener('click', function() {
         markNotificationAsSeen();
-        showNotification('Atualização Estável 2.0!', 'Melhorias na interface e no script que busca ROMs!');
+        showNotification('Atualização Estável 2.0!', 'Melhorias na interface e no script que busca downloads!');
       });
 
       notification.querySelector('.notification-close').addEventListener('click', function() {
         notification.classList.remove('show');
       });
 
-      modalClose.addEventListener('click', closeModal);
-      cancelButton.addEventListener('click', closeModal);
-      confirmButton.addEventListener('click', confirmDownload);
-      
-      modalTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const tabName = this.getAttribute('data-tab');
-          switchTab(tabName);
-        });
-      });
-      
-      tutorialModalClose.addEventListener('click', function() {
-        tutorialModalOverlay.classList.remove('active');
-      });
-      
-      tutorialModalConfirm.addEventListener('click', function() {
-        tutorialModalOverlay.classList.remove('active');
-      });
-      
       feedbackModalClose.addEventListener('click', function() {
         feedbackModalOverlay.classList.remove('active');
       });
@@ -2402,25 +1409,13 @@
       
       feedbackSubmitButton.addEventListener('click', submitFeedback);
       
-      modalOverlay.addEventListener('click', function(e) {
-        if (e.target === modalOverlay) {
-          closeModal();
-        }
-      });
-      
-      tutorialModalOverlay.addEventListener('click', function(e) {
-        if (e.target === tutorialModalOverlay) {
-          tutorialModalOverlay.classList.remove('active');
-        }
-      });
-      
       feedbackModalOverlay.addEventListener('click', function(e) {
         if (e.target === feedbackModalOverlay) {
           feedbackModalOverlay.classList.remove('active');
         }
       });
 
-      document.querySelectorAll('.icon-button, .modal-button, .download-button').forEach(button => {
+      document.querySelectorAll('.icon-button, .modal-button').forEach(button => {
         button.addEventListener('click', function(e) {
           const ripple = document.createElement('span');
           ripple.classList.add('ripple');
@@ -2440,12 +1435,6 @@
             ripple.remove();
           }, 600);
         });
-      });
-
-      document.addEventListener('click', function(e) {
-        if (!filterButton.contains(e.target) && !filterMenu.contains(e.target)) {
-          filterMenu.classList.remove('active');
-        }
       });
     }
 
@@ -2468,398 +1457,17 @@
       saveSettings();
     }
 
-    function showRomList(device) {
+    function showCategorySelection(device) {
       currentDevice = device;
       deviceSelection.style.display = 'none';
-      favoritesSection.style.display = 'none';
-      romList.style.display = 'block';
-      tutorialButton.style.display = 'flex';
+      categorySelection.style.display = 'block';
       
-      loading.classList.add('show');
-      romCards.innerHTML = '';
-      
-      setTimeout(() => {
-        loading.classList.remove('show');
-        
-        allRoms = getRomsByDevice(device);
-        
-        if (allRoms.length === 0) {
-          romCards.innerHTML = `
-            <div class="no-results">
-              <span class="material-icons">search_off</span>
-              <h3>Nenhuma ROM encontrada</h3>
-              <p>Não há ROMs disponíveis para este dispositivo no momento.</p>
-            </div>
-          `;
-        } else {
-          applyFilter(currentFilter);
-        }
-        
+      const categoryCards = document.querySelectorAll('.category-card');
+      categoryCards.forEach((card, index) => {
+        card.classList.remove('show');
         setTimeout(() => {
-          romList.classList.add('show');
-        }, 100);
-      }, 300);
-    }
-
-    function showFavorites() {
-      romList.style.display = 'none';
-      deviceSelection.style.display = 'none';
-      favoritesSection.style.display = 'block';
-      tutorialButton.style.display = 'none';
-      
-      favoritesLoading.classList.add('show');
-      favoritesCards.innerHTML = '';
-      favoritesEmpty.style.display = 'none';
-      
-      setTimeout(() => {
-        favoritesLoading.classList.remove('show');
-        
-        if (favorites.length === 0) {
-          favoritesEmpty.style.display = 'block';
-        } else {
-          displayRoms(favorites, favoritesCards);
-        }
-        
-        setTimeout(() => {
-          favoritesSection.classList.add('show');
-        }, 100);
-      }, 300);
-    }
-
-    function displayRoms(roms, container = romCards) {
-      container.innerHTML = '';
-      
-      if (roms.length === 0) {
-        container.innerHTML = `
-          <div class="no-results">
-            <span class="material-icons">search_off</span>
-            <h3>Nenhuma ROM encontrada</h3>
-            <p>Não há ROMs correspondentes à sua busca.</p>
-          </div>
-        `;
-        return;
-      }
-      
-      roms.forEach((rom, index) => {
-        if (rom.isDeveloperGroup) {
-          const developerGroup = document.createElement('div');
-          developerGroup.className = 'developer-group';
-          
-          const developerHeader = document.createElement('div');
-          developerHeader.className = 'developer-header';
-          developerHeader.innerHTML = `
-            <span class="material-icons">person</span>
-            <span class="developer-name">${rom.developer}</span>
-          `;
-          
-          developerGroup.appendChild(developerHeader);
-          
-          const romsContainer = document.createElement('div');
-          romsContainer.className = 'rom-cards';
-          
-          rom.roms.forEach((devRom, devIndex) => {
-            const romCard = createRomCard(devRom, devIndex);
-            romsContainer.appendChild(romCard);
-          });
-          
-          developerGroup.appendChild(romsContainer);
-          container.appendChild(developerGroup);
-        } else {
-          const romCard = createRomCard(rom, index);
-          container.appendChild(romCard);
-        }
-      });
-    }
-
-    function createRomCard(rom, index) {
-      const romCard = document.createElement('div');
-      romCard.className = 'rom-card';
-      
-      if (rom.easterEgg) {
-        romCard.classList.add('easter-egg');
-      }
-      
-      const isFavorite = favorites.some(fav => fav.name === rom.name && fav.developer === rom.developer);
-      
-      romCard.innerHTML = `
-        <div class="rom-content">
-          <h3 class="rom-name">${rom.name}</h3>
-          <span class="rom-version">${rom.version}</span>
-          <p class="rom-description">${rom.description}</p>
-          <div class="rom-details">
-            <div class="rom-detail">
-              <span class="material-icons">sd_card</span>
-              <span>${rom.size}</span>
-            </div>
-            <div class="rom-detail">
-              <span class="material-icons">calendar_today</span>
-              <span>${rom.date}</span>
-            </div>
-            <div class="rom-detail">
-              <span class="material-icons">person</span>
-              <span>${rom.developer}</span>
-            </div>
-          </div>
-        </div>
-        <div class="rom-actions">
-          <button class="favorite-button ${isFavorite ? 'active' : ''}" data-rom-name="${rom.name}" data-rom-dev="${rom.developer}">
-            <span class="material-icons">${isFavorite ? 'favorite' : 'favorite_border'}</span>
-          </button>
-          <button class="download-button" data-rom-index="${index}">
-            <span class="material-icons">download</span>
-            Download
-          </button>
-        </div>
-      `;
-      
-      setTimeout(() => {
-        romCard.classList.add('show');
-      }, index * 100);
-      
-      romCard.querySelector('.favorite-button').addEventListener('click', function() {
-        const romName = this.getAttribute('data-rom-name');
-        const romDev = this.getAttribute('data-rom-dev');
-        toggleFavorite(romName, romDev);
-      });
-      
-      romCard.querySelector('.download-button').addEventListener('click', function() {
-        const romIndex = this.getAttribute('data-rom-index');
-        const selectedRom = rom.isDeveloperGroup ? rom.roms[romIndex] : rom;
-        showRomDetails(selectedRom);
-        trackDownload(selectedRom.name);
-      });
-      
-      return romCard;
-    }
-
-    function toggleFavorite(romName, romDev) {
-      const index = favorites.findIndex(fav => fav.name === romName && fav.dev === romDev);
-      
-      if (index === -1) {
-        const rom = allRoms.find(r => r.name === romName && r.developer === romDev);
-        if (rom) {
-          favorites.push({
-            name: rom.name,
-            developer: rom.developer,
-            version: rom.version,
-            description: rom.description,
-            size: rom.size,
-            date: rom.date,
-            url: rom.url,
-            details: rom.details,
-            source: rom.source,
-            easterEgg: rom.easterEgg || false
-          });
-          showNotification('Adicionado aos Favoritos', `${romName} foi adicionada aos seus favoritos.`);
-        }
-      } else {
-        favorites.splice(index, 1);
-        showNotification('Removido dos Favoritos', `${romName} foi removida dos seus favoritos.`);
-      }
-      
-      saveFavorites();
-      
-      if (currentFilter === 'favorites') {
-        applyFilter('favorites');
-      } else {
-        applyFilter(currentFilter);
-      }
-    }
-
-    function applyFilter(filter) {
-      currentFilter = filter;
-      
-      let filteredRoms = [];
-      
-      switch (filter) {
-        case 'all':
-          filteredRoms = allRoms;
-          break;
-        case 'favorites':
-          filteredRoms = favorites;
-          break;
-        case 'developer':
-          const developers = [...new Set(allRoms.map(rom => rom.developer).filter(dev => dev && dev.trim() !== ''))];
-          filteredRoms = developers.map(dev => ({
-            isDeveloperGroup: true,
-            developer: dev,
-            roms: allRoms.filter(rom => rom.developer === dev)
-          }));
-          break;
-        case 'date':
-          filteredRoms = [...allRoms].sort((a, b) => {
-            const dateA = new Date(a.date.split('/').reverse().join('/'));
-            const dateB = new Date(b.date.split('/').reverse().join('/'));
-            return dateB - dateA;
-          });
-          break;
-        default:
-          filteredRoms = allRoms;
-      }
-      
-      displayRoms(filteredRoms);
-    }
-
-    function filterRoms(searchTerm) {
-      if (!searchTerm) {
-        applyFilter(currentFilter);
-        return;
-      }
-      
-      let romsToFilter = currentFilter === 'favorites' ? favorites : allRoms;
-      
-      const filteredRoms = romsToFilter.filter(rom => {
-        const term = searchTerm.toLowerCase();
-        return (
-          rom.name.toLowerCase().includes(term) ||
-          rom.version.toLowerCase().includes(term) ||
-          rom.description.toLowerCase().includes(term) ||
-          rom.developer.toLowerCase().includes(term)
-        );
-      });
-      
-      displayRoms(filteredRoms);
-    }
-
-    function setViewMode(mode) {
-      settings.viewMode = mode;
-      saveSettings();
-      
-      if (mode === 'grid') {
-        romCards.classList.remove('list-view');
-        gridViewButton.classList.add('active');
-        listViewButton.classList.remove('active');
-      } else {
-        romCards.classList.add('list-view');
-        gridViewButton.classList.remove('active');
-        listViewButton.classList.add('active');
-      }
-    }
-
-    function showDeviceSelection() {
-      romList.classList.remove('show');
-      favoritesSection.classList.remove('show');
-      tutorialButton.style.display = 'none';
-      
-      setTimeout(() => {
-        romList.style.display = 'none';
-        favoritesSection.style.display = 'none';
-        deviceSelection.style.display = 'block';
-        
-        const deviceCards = document.querySelectorAll('.device-card');
-        deviceCards.forEach((card, index) => {
-          card.classList.remove('show');
-          setTimeout(() => {
-            card.classList.add('show');
-          }, index * 100);
-        });
-      }, 500);
-    }
-
-    function showRomDetails(rom) {
-      currentRom = rom;
-      
-      modalTitle.textContent = rom.name;
-      
-      document.getElementById('romVersion').textContent = rom.details.version;
-      document.getElementById('romDeveloper').textContent = rom.details.dev;
-      document.getElementById('romDescription').textContent = rom.details.description;
-      
-      const changelogHtml = rom.details.changelog.map(item => `<li>${item}</li>`).join('');
-      document.getElementById('changelog').innerHTML = changelogHtml || '<li>Nenhuma alteração recente</li>';
-      
-      document.getElementById('changelogSection').style.display = rom.details.changelog.length > 0 ? 'block' : 'none';
-      
-      const issuesHtml = rom.details.knownIssues.map(item => `<li>${item}</li>`).join('');
-      document.getElementById('knownIssues').innerHTML = issuesHtml || '<li>Nenhum problema conhecido</li>';
-      
-      document.getElementById('knownIssuesSection').style.display = rom.details.knownIssues.length > 0 ? 'block' : 'none';
-      
-      const notesHtml = rom.details.notes.map(item => `<li>${item}</li>`).join('');
-      document.getElementById('notes').innerHTML = notesHtml || '<li>Nenhuma nota adicional</li>';
-      
-      document.getElementById('notesSection').style.display = rom.details.notes.length > 0 ? 'block' : 'none';
-      
-      if (rom.details.credits) {
-        const creditsHtml = rom.details.credits.map(item => `<li>${item}</li>`).join('');
-        document.getElementById('credits').innerHTML = creditsHtml;
-        document.getElementById('creditsSection').style.display = 'block';
-      } else {
-        document.getElementById('creditsSection').style.display = 'none';
-      }
-      
-      let sourceHtml;
-      if (rom.easterEgg) {
-        sourceHtml = `<a href="${rom.source}" target="_blank" class="android-button"><span class="material-icons">android</span> Acessar</a>`;
-      } else {
-        sourceHtml = `<a href="${rom.source}" target="_blank" class="telegram-button"><span class="material-icons">send</span> Acessar</a>`;
-      }
-      document.getElementById('sourceLink').innerHTML = sourceHtml;
-      
-      modalOverlay.classList.add('active');
-    }
-
-    function switchTab(tabName) {
-      modalTabs.forEach(tab => {
-        tab.classList.remove('active');
-      });
-      
-      modalTabContents.forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-      document.getElementById(`${tabName}-tab`).classList.add('active');
-    }
-
-    function closeModal() {
-      modalOverlay.classList.remove('active');
-      currentRom = null;
-    }
-
-    function confirmDownload() {
-      if (currentRom && currentRom.url) {
-        let downloadUrl;
-        
-        if (currentRom.easterEgg) {
-          const randomValue = Math.random();
-          if (randomValue < 0.2) {
-            downloadUrl = 'meusovos.html';
-          } else {
-            downloadUrl = currentRom.url;
-          }
-        } else {
-          downloadUrl = currentRom.url;
-        }
-        
-        window.open(downloadUrl, '_blank');
-        closeModal();
-        
-        if (settings.notificationsEnabled) {
-          showNotification('Download Iniciado', `O download da ROM ${currentRom.name} foi iniciado.`);
-        }
-      }
-    }
-
-    function trackDownload(romName) {
-      const formData = new FormData();
-      formData.append('dispositivo', navigator.userAgent);
-      formData.append('rom', romName);
-      formData.append('mensagem', 'Entrou!');
-      
-      fetch('https://formspree.io/f/xblzjvwn', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Download tracked:', data);
-      })
-      .catch(error => {
-        console.error('Error tracking download:', error);
+          card.classList.add('show');
+        }, index * 100);
       });
     }
 
@@ -2905,6 +1513,8 @@
       settings.theme = settings.theme === 'light' ? 'dark' : 'light';
       applyTheme();
       saveSettings();
+      
+      localStorage.setItem('appTheme', settings.theme);
     }
 
     function applyTheme() {
@@ -2945,32 +1555,26 @@
     }
 
     function saveSettings() {
-      localStorage.setItem('romDownloadSettings', JSON.stringify(settings));
+      localStorage.setItem('downloadSettings', JSON.stringify(settings));
     }
 
     function loadSettings() {
-      const savedSettings = localStorage.getItem('romDownloadSettings');
+      const savedSettings = localStorage.getItem('downloadSettings');
       if (savedSettings) {
         settings = JSON.parse(savedSettings);
-        
-        applyTheme();
-        applyPrimaryColor();
-        setViewMode(settings.viewMode);
       }
-    }
-
-    function saveFavorites() {
-      localStorage.setItem('romFavorites', JSON.stringify(favorites));
-    }
-
-    function loadFavorites() {
-      const savedFavorites = localStorage.getItem('romFavorites');
-      if (savedFavorites) {
-        favorites = JSON.parse(savedFavorites);
+      
+      const sharedTheme = localStorage.getItem('appTheme');
+      if (sharedTheme) {
+        settings.theme = sharedTheme;
       }
+      
+      applyTheme();
+      applyPrimaryColor();
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
-  </script>
+ // Modificações feitas na pagina inicial no dia 26, obrigado a todos pelos feedbacks:)
+ </script>
 </body>
 </html>

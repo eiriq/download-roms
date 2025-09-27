@@ -44,23 +44,23 @@ const romsData = {
     // MODELO 2
     /*
     {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      lastUpdate: "", // Adicione aqui a última atualização
-      developer: "",
-      url: "",
+      name: "LMODroid",
+      version: "Android 15",
+      description: "Versão 6.2 oficial da LMDroid baseada no Android 15",
+      size: "1.4GB",
+      date: "27/09/2025",
+      lastUpdate: "17 de Setembro", // Adicione aqui a última atualização
+      developer: "LibreMobileOS",
+      url: "https://drive.google.com/file/d/1LuRFAUVBSNpf6kmepOkZhUcfDO75O8Uh/view?usp=sharing",
       details: {
-        version: "",
-        dev: "",
-        description: "",
+        version: "Android 15",
+        dev: "LibreMobileOS",
+        description: "Versão 6.2 oficial da LMDroid baseada no Android 15",
         changelog: [],
         knownIssues: [],
         notes: []
       },
-      source: ""
+      source: "https://t.me/MotoG34/488271"
     },
     */
     
@@ -564,3 +564,4 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+

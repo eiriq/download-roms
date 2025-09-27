@@ -42,7 +42,6 @@ const romsData = {
     },
     
     // MODELO 2
-    /*
     {
       name: "LMODroid",
       version: "Android 15",
@@ -62,7 +61,6 @@ const romsData = {
       },
       source: "https://t.me/MotoG34/488271"
     },
-    */
     
     // MODELO 3
     /*
@@ -564,4 +562,5 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 

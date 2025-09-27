@@ -24,9 +24,10 @@ const romsData = {
     {
       name: "crDroid (Não Oficial)",
       version: "Android 15",
-      description: "Versão não oficial da crDroid baseada no Android 15.",
+      description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
       size: "1.35GB",
       date: "23/09/2025",
+      lastUpdate: "23 de setembro", // Adicionando a última atualização
       developer: "irawansalt",
       url: "https://drive.google.com/drive/folders/1Sx7qR2SBfVo9fg6pPcnZlJNYLAmI4h_I?usp=sharing",
       details: {
@@ -48,6 +49,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -70,6 +72,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -92,6 +95,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -114,6 +118,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -136,6 +141,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -158,6 +164,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -180,6 +187,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -202,6 +210,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -224,6 +233,7 @@ const romsData = {
       description: "",
       size: "",
       date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
       developer: "",
       url: "",
       details: {
@@ -248,6 +258,7 @@ const romsData = {
       description: "Versão oficial da LineageOS, estável e com suporte contínuo.",
       size: "1.2 GB",
       date: "15/05/2025",
+      lastUpdate: "13 de setembro", // Adicionando a última atualização
       developer: "LineageOS Team",
       url: "https://drive.google.com/uc?export=download&id=1Y0hCeOZdxHoVgW1IQ3Ds_hzq6V8moIG0",
       details: {
@@ -267,6 +278,7 @@ const romsData = {
       description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
       size: "1.3 GB",
       date: "22/06/2025",
+      lastUpdate: "14 de setembro", // Adicionando a última atualização
       developer: "JNW_SG",
       url: "https://drive.google.com/uc?export=download&id=1QNut_vxQVrIHGnT1qrDSHiDtMxhtcOhT",
       details: {
@@ -288,6 +300,7 @@ const romsData = {
       description: "Versão não oficial do LineageOS com ajustes e melhorias.",
       size: "1.2 GB",
       date: "10/07/2025",
+      lastUpdate: "20 de setembro", // Adicionando a última atualização
       developer: "Irawansalt",
       url: "https://drive.google.com/uc?export=download&id=17lYOIeu77sjOtVwEBqFJgvl-crEqv3OP",
       details: {
@@ -319,9 +332,10 @@ const romsData = {
     {
       name: "PixelOS",
       version: "Android 15",
-      description: "Versão não oficial da ROM PixelOS (sistema oficial Google).",
+      description: "Versão não oficial da ROM PixelOS (sistema oficial Google) desenvolvida por Akarizao",
       size: "1.1 GB",
       date: "05/08/2025",
+      lastUpdate: "17 de setembro", // Adicionando a última atualização
       developer: "Akarizao",
       url: "https://drive.google.com/uc?export=download&id=1fFdfNz5CL2TbNWfKeaNTiF9xOz0coquE",
       details: {
@@ -348,9 +362,10 @@ const romsData = {
     {
       name: "YAAP | Voyager",
       version: "Android 16",
-      description: "Versão não oficial e user da ROM YAAP Voyager.",
+      description: "Versão não oficial e user da ROM YAAP Voyage, mantida por visual",
       size: "1.4 GB",
       date: "18/08/2025",
+      lastUpdate: "14 de setembro", // Adicionando a última atualização
       developer: "@XxxVishalxxX",
       url: "https://drive.google.com/uc?export=download&id=1Mwp06uqf_og2NJH7AlqIK-aVb2VkqjC4",
       details: {
@@ -374,6 +389,7 @@ const romsData = {
       description: "Versão customizada da interface proprietária da Motorola, antiga MyUI.",
       size: "1.8 GB",
       date: "10/09/2025",
+      lastUpdate: "1 de setembro", // Adicionando a última atualização
       developer: "Motorola Team, AndyLin",
       url: "https://drive.google.com/uc?export=download&id=1RfY3KBwBEvQEPaKFDaLriB429IPdikzS",
       details: {
@@ -400,9 +416,10 @@ const romsData = {
     {
       name: "MistOS 4.1",
       version: "Android 16",
-      description: "Versão oficial da ROM MistOS.",
+      description: "Versão oficial da ROM MistOS desenvolvida por JNW",
       size: "1.3 GB",
       date: "15/09/2025",
+      lastUpdate: "9 de setembro", // Adicionando a última atualização
       developer: "JNW_SG",
       url: "https://drive.google.com/uc?export=download&id=10hmFcHd0OYbAcRi2CXKXBhRKvdrnYZSC",
       details: {
@@ -419,9 +436,10 @@ const romsData = {
     {
       name: "AxionOS 2.0",
       version: "Android 16",
-      description: "Versão BETA 3 não oficial da ROM AxionOS.",
+      description: "Versão BETA 3 não oficial da ROM AxionOS, desenvolvida por JNW",
       size: "1.5 GB",
       date: "20/09/2025",
+      lastUpdate: "29 de agosto", // Adicionando a última atualização
       developer: "JNW_SG",
       url: "https://drive.google.com/uc?export=download&id=1siUx-Fz5lzIwQ2OLQDyE7cGbQPJ0OWzX",
       details: {
@@ -441,9 +459,10 @@ const romsData = {
     {
       name: "InfinityX (Não Oficial)",
       version: "Android 16",
-      description: "Versão não oficial da Rom Infinity X.",
+      description: "Versão não oficial da Rom Infinity X desenvolvida por Akarizao",
       size: "1.4 GB",
       date: "25/09/2025",
+      lastUpdate: "23 de setembro", // Adicionando a última atualização
       developer: "Akarizao",
       url: "https://drive.google.com/drive/folders/1J8ezFfoplKq34qAMnYL1ZRKmITygTxzw",
       details: {
@@ -472,9 +491,10 @@ const romsData = {
     {
       name: "SunOS (Não Oficial)",
       version: "Android 15",
-      description: "Versão não oficial da Rom SunOS.",
+      description: "ROM SunOS não oficial desenvolvida por Irawansalt",
       size: "1.3 GB",
       date: "20/09/2025",
+      lastUpdate: "23 de setembro", // Adicionando a última atualização
       developer: "Irawansalt",
       url: "https://drive.google.com/uc?export=download&id=1WTo-zHIfB39mMaz6AR6hdDtP9OgtDd5q",
       details: {
@@ -504,16 +524,17 @@ const romsData = {
     {
       name: "Stock ROM",
       version: "Android 15",
-      description: "Stock Rom (Clique em Download para mais detalhes).",
+      description: "ROM Stock oficial da Motorola, para o Moto G34. O download deve ser feito pelo RSA para maior garantia",
       size: "1.8 GB",
       date: "01/01/2025",
+      lastUpdate: "N/A", // Adicionando a última atualização
       developer: "Motorola",
       url: "https://pt-br.support.motorola.com/app/softwarefix",
       easterEgg: true,
       details: {
         version: "Android 15",
         dev: "Motorola",
-        description: "ROM Stock oficial da Motorola, para o Moto G34. É recomendado fazer o download direto pelo RSA, vai por sua conta e risco.",
+        description: "ROM Stock oficial da Motorola, para o MotoG34",
         changelog: [],
         knownIssues: [],
         notes: [
@@ -543,4 +564,3 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
-

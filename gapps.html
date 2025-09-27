@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GApps - Moto G34</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --md-sys-color-primary: #4CAF50;           
+      --md-sys-color-on-primary: #FFFFFF;       
+      --md-sys-color-primary-container: #E8F5E9;
+      --md-sys-color-on-primary-container: #1B5E20;
+      --md-sys-color-secondary: #505A6E;
+      --md-sys-color-on-secondary: #FFFFFF;
+      --md-sys-color-secondary-container: #D8E2F0;
+      --md-sys-color-on-secondary-container: #0C1525;
+      --md-sys-color-tertiary: #64577A;
+      --md-sys-color-on-tertiary: #FFFFFF;
+      --md-sys-color-tertiary-container: #EBDFF7;
+      --md-sys-color-on-tertiary-container: #20102D;
+      --md-sys-color-error: #BA1A1A;
+      --md-sys-color-error-container: #FFDAD6;
+      --md-sys-color-on-error: #FFFFFF;
+      --md-sys-color-on-error-container: #410002;
+      --md-sys-color-background: #FFFBFE;
+      --md-sys-color-on-background: #1C1B1F;
+      --md-sys-color-surface: #FFFBFE;
+      --md-sys-color-on-surface: #1C1B1F;
+      --md-sys-color-surface-variant: #E7E0EC;
+      --md-sys-color-on-surface-variant: #49454F;
+      --md-sys-color-outline: #79747E;
+      --md-sys-color-inverse-on-surface: #F4EFF4;
+      --md-sys-color-inverse-surface: #313033;
+      --md-sys-color-inverse-primary: #B3CDF5;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.2);
+      --md-sys-color-surface-tint: #4CAF50;
+      --md-sys-color-outline-variant: #CAC4D0;
+      
+      --md-sys-elevation-level0: none;
+      --md-sys-elevation-level1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      --md-sys-elevation-level2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      --md-sys-elevation-level3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      --md-sys-elevation-level4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      --md-sys-elevation-level5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--md-sys-color-surface-variant);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--md-sys-color-primary);
+      border-radius: 10px;
+      transition: background 0.2s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--md-sys-color-primary);
+      opacity: 0.8;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface-variant);
+      scrollbar-border-radius: 10px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    body::before {
+      content: '';
+      display: block;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    [data-theme="dark"] {
+      --md-sys-color-primary: #81C784;           
+      --md-sys-color-on-primary: #1B5E20;       
+      --md-sys-color-primary-container: #2E7D32;
+      --md-sys-color-on-primary-container: #E8F5E9;
+      --md-sys-color-secondary: #C2C7D9;
+      --md-sys-color-on-secondary: #262A3A;
+      --md-sys-color-secondary-container: #3D4254;
+      --md-sys-color-on-secondary-container: #D8E2F0;
+      --md-sys-color-tertiary: #D0BCFF;
+      --md-sys-color-on-tertiary: #352A48;
+      --md-sys-color-tertiary-container: #4D4162;
+      --md-sys-color-on-tertiary-container: #EBDFF7;
+      --md-sys-color-error: #F2B8B5;
+      --md-sys-color-error-container: #93000A;
+      --md-sys-color-on-error: #601410;
+      --md-sys-color-on-error-container: #FFDAD6;
+      --md-sys-color-background: #1C1B1F;
+      --md-sys-color-on-background: #E6E1E5;
+      --md-sys-color-surface: #1C1B1F;
+      --md-sys-color-on-surface: #E6E1E5;
+      --md-sys-color-surface-variant: #49454F;
+      --md-sys-color-on-surface-variant: #CAC4CF;
+      --md-sys-color-outline: #938F99;
+      --md-sys-color-inverse-on-surface: #1C1B1F;
+      --md-sys-color-inverse-surface: #E6E1E5;
+      --md-sys-color-inverse-primary: #4CAF50;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.3);
+      --md-sys-color-surface-tint: #81C784;
+      --md-sys-color-outline-variant: #49454F;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInCard {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      60% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes slideOutCard {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      40% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+    }
+
+    @keyframes fadeInTopBar {
+      from {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes fadeOutTopBar {
+      from {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      to {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+
+    @keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(10deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  70% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+  90% { transform: rotate(-10deg); }
+}
+
+@keyframes ring {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes heartBeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.background-shapes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 20s infinite ease-in-out;
+}
+
+.shape:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  background: var(--md-sys-color-primary);
+  top: 10%;
+  left: 10%;
+  animation-duration: 30s;
+}
+
+.shape:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  background: var(--md-sys-color-tertiary);
+  top: 70%;
+  left: 80%;
+  animation-duration: 25s;
+  animation-delay: 2s;
+}
+
+.shape:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  background: var(--md-sys-color-secondary);
+  top: 40%;
+  left: 70%;
+  animation-duration: 35s;
+  animation-delay: 5s;
+}
+
+.shape:nth-child(4) {
+  width: 250px;
+  height: 250px;
+  background: var(--md-sys-color-primary-container);
+  top: 60%;
+  left: 20%;
+  animation-duration: 40s;
+  animation-delay: 1s;
+}
+
+.shape:nth-child(5) {
+  width: 120px;
+  height: 120px;
+  background: var(--md-sys-color-tertiary-container);
+  top: 20%;
+  left: 60%;
+  animation-duration: 28s;
+  animation-delay: 3s;
+}
+
+.shape:nth-child(6) {
+  width: 180px;
+  height: 180px;
+  background: var(--md-sys-color-secondary-container);
+  top: 80%;
+  left: 40%;
+  animation-duration: 32s;
+  animation-delay: 4s;
+}
+
+.spiral {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 4px solid var(--md-sys-color-outline);
+  border-radius: 50%;
+  opacity: 0.05;
+  animation: rotate 40s linear infinite;
+}
+
+.spiral:nth-child(7) {
+  top: 15%;
+  left: 15%;
+  width: 200px;
+  height: 200px;
+  animation-duration: 60s;
+}
+
+.spiral:nth-child(8) {
+  top: 65%;
+  left: 65%;
+  width: 250px;
+  height: 250px;
+  animation-duration: 80s;
+  animation-direction: reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(5deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(20px) rotate(-5deg); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--md-sys-color-surface);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: var(--md-sys-elevation-level2);
+  height: 64px;
+  animation: fadeInDown 0.5s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-button:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+  transform: scale(1.1);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.icon-button .material-icons {
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.icon-button.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-button.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.icon-button.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+[data-theme="dark"] .icon-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-primary);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem 2rem;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: calc(100vh - 64px);
+}
+
+.gapps-list {
+  width: 100%;
+  display: none;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gapps-list.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gapps-list.hiding {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.gapps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gapps-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.gapps-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+.search-container {
+  flex: 1;
+  position: relative;
+  max-width: 500px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border-radius: 24px;
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--md-sys-color-on-surface-variant);
+  pointer-events: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  display: none;
+}
+
+.search-clear.visible {
+  display: block;
+}
+
+.filter-dropdown {
+  position: relative;
+}
+
+.filter-button {
+  background-color: var(--md-sys-color-surface-variant);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  background-color: var(--md-sys-color-outline-variant);
+}
+
+.filter-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--md-sys-color-surface);
+  border-radius: 8px;
+  box-shadow: var(--md-sys-elevation-level3);
+  min-width: 200px;
+  z-index: 10;
+  margin-top: 0.5rem;
+  display: none;
+  overflow: hidden;
+}
+
+.filter-menu.active {
+  display: block;
+}
+
+.filter-option {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-option:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.view-toggle {
+  display: flex;
+  background-color: var(--md-sys-color-surface-variant);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.view-button {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+
+.view-button.active {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.view-button:hover:not(.active) {
+  background-color: var(--md-sys-color-outline-variant);
+}
+
+.gapps-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.gapps-cards.list-view {
+  grid-template-columns: 1fr;
+}
+
+.gapps-card {
+  background-color: var(--md-sys-color-surface);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--md-sys-elevation-level1);
+  transition: all 0.3s ease;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+
+.gapps-cards.list-view .gapps-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.gapps-card.show {
+  animation-name: slideInCard;
+}
+
+.gapps-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+  border-radius: 4px 4px 0 0;
+  opacity: 0;
+  animation: fadeInTopBar 0.8s ease 0.3s forwards;
+}
+
+.gapps-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--md-sys-elevation-level4);
+  border-color: var(--md-sys-color-primary);
+}
+
+.gapps-cards.list-view .gapps-card:hover {
+  transform: translateY(-2px);
+}
+
+.gapps-content {
+  flex: 1;
+}
+
+.gapps-cards.list-view .gapps-content {
+  flex: 1;
+}
+
+.gapps-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 0.5rem;
+}
+
+.gapps-cards.list-view .gapps-name {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.gapps-version {
+  display: inline-block;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.gapps-cards.list-view .gapps-version {
+  display: none;
+}
+
+.gapps-description {
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.gapps-cards.list-view .gapps-description {
+  display: none;
+}
+
+.gapps-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.gapps-cards.list-view .gapps-details {
+  display: none;
+}
+
+.gapps-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.gapps-detail .material-icons {
+  font-size: 0.9rem;
+}
+
+.gapps-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.gapps-cards.list-view .gapps-actions {
+  margin-top: 0;
+}
+
+.favorite-button {
+  background: none;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.favorite-button:hover {
+  background-color: var(--md-sys-color-surface-variant);
+  transform: scale(1.1);
+}
+
+.favorite-button.active {
+  color: var(--md-sys-color-error);
+  border-color: var(--md-sys-color-error);
+}
+
+.favorite-button.active:hover {
+  background-color: rgba(186, 26, 26, 0.1);
+}
+
+.favorite-button .material-icons {
+  font-size: 1.2rem;
+}
+
+.download-button {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  border-radius: 16px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--md-sys-elevation-level2);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gapps-cards.list-view .download-button {
+  width: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.download-button:hover {
+  background-color: #388E3C;
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-level3);
+}
+
+.download-button:active {
+  transform: translateY(0);
+  box-shadow: var(--md-sys-elevation-level1);
+}
+
+.download-button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+.loading {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loading.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeIn 0.5s ease;
+}
+
+.loading .material-icons {
+  font-size: 2rem;
+  color: var(--md-sys-color-primary);
+  animation: spin 1.5s linear infinite;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.no-results .material-icons {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--md-sys-color-primary);
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.favorites-section {
+  display: none;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.favorites-section.show {
+  display: block;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.favorites-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+.favorites-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.favorites-empty .material-icons {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--md-sys-color-primary);
+}
+
+.favorites-empty h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.tutorial-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  border-radius: 16px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--md-sys-elevation-level3);
+  z-index: 99;
+}
+
+.tutorial-button:hover {
+  background-color: #388E3C;
+  transform: translateY(-2px);
+  box-shadow: var(--md-sys-elevation-level4);
+}
+
+.tutorial-button:active {
+  transform: translateY(0);
+  box-shadow: var(--md-sys-elevation-level2);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: var(--md-sys-color-surface);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: var(--md-sys-elevation-level5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.active .modal {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  margin-bottom: 1.5rem;
+}
+
+.modal-tab {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.modal-tab.active {
+  color: var(--md-sys-color-primary);
+  border-bottom-color: var(--md-sys-color-primary);
+}
+
+.modal-tab-content {
+  display: none;
+}
+
+.modal-tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-section {
+  margin-bottom: 1.5rem;
+  background-color: var(--md-sys-color-surface);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  box-shadow: var(--md-sys-elevation-level1);
+  transition: all 0.3s ease;
+}
+
+.modal-section:hover {
+  box-shadow: var(--md-sys-elevation-level3);
+  transform: translateY(-2px);
+}
+
+.modal-section-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-section-title .material-icons {
+  font-size: 1.2rem;
+  color: var(--md-sys-color-primary);
+}
+
+.modal-list {
+  list-style: none;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.modal-list li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.modal-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--md-sys-color-primary);
+}
+
+.android-versions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.android-version {
+  background-color: var(--md-sys-color-surface-variant);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.android-version:hover {
+  background-color: var(--md-sys-color-primary-container);
+  border-color: var(--md-sys-color-primary);
+  transform: translateY(-2px);
+}
+
+.android-version .material-icons {
+  font-size: 1.5rem;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.android-version-name {
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+.modal-button-secondary {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.modal-button-secondary:hover {
+  background-color: var(--md-sys-color-outline-variant);
+}
+
+.modal-button-primary {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+}
+
+.modal-button-primary:hover {
+  background-color: #388E3C;
+}
+
+.telegram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0088cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.telegram-button:hover {
+  background-color: #0077b3;
+  transform: translateY(-2px);
+}
+
+.telegram-button .material-icons {
+  font-size: 1.2rem;
+}
+
+.info-card {
+  background-color: var(--md-sys-color-primary-container);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--md-sys-color-primary);
+}
+
+.info-card-title {
+  font-weight: 500;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-card-title .material-icons {
+  font-size: 1rem;
+}
+
+.info-card-content {
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-card-description {
+  background-color: var(--md-sys-color-surface-variant);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--md-sys-color-secondary);
+}
+
+.info-card-description-title {
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-card-description-content {
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.5;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--md-sys-color-surface);
+  border-radius: 8px;
+  box-shadow: var(--md-sys-elevation-level4);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 500;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 350px;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.notification-icon {
+  color: var(--md-sys-color-primary);
+  font-size: 1.5rem;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.notification-message {
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .gapps-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .gapps-controls {
+    flex-direction: column;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .modal-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-section {
+    padding: 0.75rem;
+  }
+  
+  .tutorial-button {
+    bottom: 10px;
+    left: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .android-versions {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="background-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="spiral"></div>
+    <div class="spiral"></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="logo">
+      <span class="material-icons">apps</span>
+      <h1>GApps</h1>
+    </div>
+    <div class="toolbar-actions">
+      <button class="icon-button" id="romsButton" aria-label="ROMs" title="ROMs">
+        <span class="material-icons">android</span>
+      </button>
+      <button class="icon-button" id="recoverysButton" aria-label="Recoverys" title="Recoverys">
+        <span class="material-icons">settings_backup_restore</span>
+      </button>
+      <button class="icon-button" id="rootsButton" aria-label="Roots" title="Roots">
+        <span class="material-icons">security</span>
+      </button>
+      <button class="icon-button" id="themeToggle" aria-label="Alternar tema">
+        <span class="material-icons">dark_mode</span>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <div class="gapps-list" id="gappsList">
+      <div class="gapps-header">
+        <h2 class="gapps-title" id="gappsTitle">GApps para Moto G34</h2>
+        <button class="back-button" id="backButton">
+          <span class="material-icons">arrow_back</span>
+          Voltar
+        </button>
+      </div>
+      
+      <div class="gapps-controls">
+        <div class="search-container">
+          <span class="material-icons search-icon">search</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Buscar GApps...">
+          <span class="material-icons search-clear" id="searchClear">clear</span>
+        </div>
+        
+        <div class="filter-dropdown">
+          <button class="filter-button" id="filterButton">
+            <span class="material-icons">filter_list</span>
+            Filtrar
+          </button>
+          <div class="filter-menu" id="filterMenu">
+            <div class="filter-option" data-filter="all">
+              <span class="material-icons">apps</span>
+              Todos os GApps
+            </div>
+            <div class="filter-option" data-filter="favorites">
+              <span class="material-icons">favorite</span>
+              Favoritos
+            </div>
+            <div class="filter-option" data-filter="developer">
+              <span class="material-icons">person</span>
+              Por Desenvolvedor
+            </div>
+            <div class="filter-option" data-filter="date">
+              <span class="material-icons">calendar_today</span>
+              Por Data
+            </div>
+          </div>
+        </div>
+        
+        <div class="view-toggle">
+          <button class="view-button active" id="gridViewButton" title="Visualização em grade">
+            <span class="material-icons">grid_view</span>
+          </button>
+          <button class="view-button" id="listViewButton" title="Visualização em lista">
+            <span class="material-icons">view_list</span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="loading" id="loading">
+        <span class="material-icons">refresh</span>
+        <p>Carregando GApps...</p>
+      </div>
+      
+      <div class="gapps-cards" id="gappsCards">
+        <!-- Os GApps serão carregados dinamicamente aqui -->
+      </div>
+    </div>
+
+    <div class="favorites-section" id="favoritesSection">
+      <div class="favorites-header">
+        <h2 class="favorites-title">Meus GApps Favoritos</h2>
+        <button class="back-button" id="backFromFavorites">
+          <span class="material-icons">arrow_back</span>
+          Voltar
+        </button>
+      </div>
+      
+      <div class="loading" id="favoritesLoading">
+        <span class="material-icons">refresh</span>
+        <p>Carregando favoritos...</p>
+      </div>
+      
+      <div class="gapps-cards" id="favoritesCards">
+        <!-- Os favoritos serão carregados dinamicamente aqui -->
+      </div>
+      
+      <div class="favorites-empty" id="favoritesEmpty">
+        <span class="material-icons">favorite_border</span>
+        <h3>Nenhum GApp favoritado</h3>
+        <p>Clique no ícone de coração em qualquer GApp para adicioná-lo aos favoritos.</p>
+      </div>
+    </div>
+  </main>
+
+  <button class="tutorial-button" id="tutorialButton">
+    <span class="material-icons">help_outline</span>
+    Como instalar GApps?
+  </button>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Informações do GApp</h3>
+        <button class="modal-close" id="modalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-tabs" id="modalTabs">
+          <div class="modal-tab active" data-tab="details">Detalhes</div>
+          <div class="modal-tab" data-tab="source">Fonte</div>
+        </div>
+        
+        <div class="modal-tab-content active" id="details-tab">
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">apps</span>
+                Versão
+              </div>
+              <div class="info-card-content" id="gappsVersion">
+                <!-- Versão do GApp será inserida aqui -->
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">person</span>
+                Desenvolvedor
+              </div>
+              <div class="info-card-content" id="gappsDeveloper">
+                <!-- Desenvolvedor do GApp será inserido aqui -->
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">update</span>
+                Última Atualização
+              </div>
+              <div class="info-card-content" id="gappsLastUpdate">
+                <!-- Última atualização do GApp será inserida aqui -->
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card-description">
+            <div class="info-card-description-title">
+              <span class="material-icons">description</span>
+              Descrição
+            </div>
+            <div class="info-card-description-content" id="gappsDescription">
+              <!-- Descrição do GApp será inserida aqui -->
+            </div>
+          </div>
+          
+          <div class="modal-section" id="changelogSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">history</span>
+              Registro de Mudanças
+            </h4>
+            <ul class="modal-list" id="changelog">
+              <!-- Changelog será inserido aqui -->
+            </ul>
+          </div>
+          
+          <div class="modal-section" id="knownIssuesSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">error_outline</span>
+              Problemas Conhecidos
+            </h4>
+            <ul class="modal-list" id="knownIssues">
+              <!-- Problemas conhecidos serão inseridos aqui -->
+            </ul>
+          </div>
+          
+          <div class="modal-section" id="notesSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">sticky_note_2</span>
+              Notas
+            </h4>
+            <ul class="modal-list" id="notes">
+              <!-- Notas serão inseridas aqui -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="modal-tab-content" id="source-tab">
+          <div class="modal-section">
+            <h4 class="modal-section-title">
+              <span class="material-icons">link</span>
+              Fonte do GApp
+            </h4>
+            <div id="sourceLink">
+              <!-- Link da fonte será inserido aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-secondary" id="cancelButton">
+          <span class="material-icons">close</span>
+          Cancelar
+        </button>
+        <button class="modal-button modal-button-primary" id="confirmButton">
+          <span class="material-icons">download</span>
+          Baixar GApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="downloadModalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="downloadModalTitle">Selecione a versão do Android</h3>
+        <button class="modal-close" id="downloadModalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <span class="material-icons">android</span>
+            Escolha uma versão do Android para download
+          </h4>
+          <div class="android-versions" id="androidVersions">
+            <!-- As versões do Android serão carregadas dinamicamente aqui -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-secondary" id="downloadModalCancel">
+          <span class="material-icons">close</span>
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="tutorialModalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Como Instalar GApps</h3>
+        <button class="modal-close" id="tutorialModalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <span class="material-icons">warning</span>
+            Aviso Importante
+          </h4>
+          <p>A instalação de GApps é necessária para ter acesso aos serviços do Google, como Play Store, Gmail, YouTube, etc. Este processo deve ser feito após instalar uma ROM customizada que não inclui GApps por padrão. Não somos responsáveis por quaisquer danos causados ao seu dispositivo. Prossiga com cuidado e sempre faça backup dos seus dados importantes antes de prosseguir.</p>
+        </div>
+        
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <span class="material-icons">list_alt</span>
+            Pré-requisitos
+          </h4>
+          <ul class="modal-list">
+            <li>ROM customizada instalada (sem GApps)</li>
+            <li>Recovery personalizado (TWRP recomendado)</li>
+            <li>Bateria com pelo menos 50% de carga</li>
+            <li>Faça backup dos seus dados importantes</li>
+          </ul>
+        </div>
+        
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <span class="material-icons">build</span>
+            Instruções de Instalação
+          </h4>
+          <ol class="modal-list" style="list-style-type: decimal;">
+            <li>Baixe o pacote GApps correto para a sua versão do Android</li>
+            <li>Transfira o arquivo para o seu dispositivo</li>
+            <li>Reinicie no modo recovery</li>
+            <li>Selecione "Install" ou "Instalar"</li>
+            <li>Navegue até o local do arquivo GApps e selecione-o</li>
+            <li>Deslize para confirmar a instalação</li>
+            <li>Reinicie o dispositivo</li>
+            <li>Configure sua conta Google</li>
+          </ol>
+        </div>
+        
+        <div class="modal-section">
+          <h4 class="modal-section-title">
+            <span class="material-icons">help_outline</span>
+            Solução de Problemas
+          </h4>
+          <ul class="modal-list">
+            <li>Se encontrar erros durante a instalação, verifique se você baixou a versão correta para sua versão do Android</li>
+            <li>Se o dispositivo ficar preso no bootloop, tente reinstalar a ROM e os GApps</li>
+            <li>Para problemas específicos, consulte a fonte do GApp para obter suporte</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-primary" id="tutorialModalConfirm">
+          <span class="material-icons">check</span>
+          Entendido
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">
+    <span class="material-icons notification-icon">check_circle</span>
+    <div class="notification-content">
+      <div class="notification-title">Sucesso</div>
+      <div class="notification-message">Operação concluída com sucesso!</div>
+    </div>
+    <button class="notification-close">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <script src="gapps-data.js"></script>
+  
+  <script>
+    const gappsList = document.getElementById('gappsList');
+    const gappsCards = document.getElementById('gappsCards');
+    const favoritesSection = document.getElementById('favoritesSection');
+    const favoritesCards = document.getElementById('favoritesCards');
+    const favoritesEmpty = document.getElementById('favoritesEmpty');
+    const favoritesLoading = document.getElementById('favoritesLoading');
+    const loading = document.getElementById('loading');
+    const backButton = document.getElementById('backButton');
+    const backFromFavorites = document.getElementById('backFromFavorites');
+    const themeToggle = document.getElementById('themeToggle');
+    const romsButton = document.getElementById('romsButton');
+    const recoverysButton = document.getElementById('recoverysButton');
+    const rootsButton = document.getElementById('rootsButton');
+    const notification = document.getElementById('notification');
+    const tutorialButton = document.getElementById('tutorialButton');
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const gridViewButton = document.getElementById('gridViewButton');
+    const listViewButton = document.getElementById('listViewButton');
+    const filterButton = document.getElementById('filterButton');
+    const filterMenu = document.getElementById('filterMenu');
+    
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalTabs = document.querySelectorAll('.modal-tab');
+    const modalTabContents = document.querySelectorAll('.modal-tab-content');
+    const cancelButton = document.getElementById('cancelButton');
+    const confirmButton = document.getElementById('confirmButton');
+    
+    const downloadModalOverlay = document.getElementById('downloadModalOverlay');
+    const downloadModalClose = document.getElementById('downloadModalClose');
+    const downloadModalCancel = document.getElementById('downloadModalCancel');
+    const downloadModalTitle = document.getElementById('downloadModalTitle');
+    const androidVersions = document.getElementById('androidVersions');
+    
+    const tutorialModalOverlay = document.getElementById('tutorialModalOverlay');
+    const tutorialModalClose = document.getElementById('tutorialModalClose');
+    const tutorialModalConfirm = document.getElementById('tutorialModalConfirm');
+    
+    let settings = {
+      theme: 'light',
+      primaryColor: '#4CAF50',
+      animationsEnabled: true,
+      notificationsEnabled: true,
+      viewMode: 'grid',
+      lastUpdateSeen: null
+    };
+
+    let currentGapp = null;
+    let allGapps = [];
+    let favorites = [];
+    let currentFilter = 'all';
+    let currentDevice = '';
+
+    function initializeApp() {
+      loadSettings();
+      loadFavorites();
+      setupEventListeners();
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      currentDevice = urlParams.get('device') || 'motog34';
+      
+      document.getElementById('gappsTitle').textContent = `GApps para ${currentDevice.charAt(0).toUpperCase() + currentDevice.slice(1)}`;
+      
+      loadGapps();
+    }
+
+    function setupEventListeners() {
+      backButton.addEventListener('click', function() {
+        window.location.href = 'index.html';
+      });
+
+      backFromFavorites.addEventListener('click', function() {
+        showGappsList();
+      });
+
+      themeToggle.addEventListener('click', toggleTheme);
+
+      romsButton.addEventListener('click', function() {
+        window.location.href = `roms.html?device=${currentDevice}`;
+      });
+
+      recoverysButton.addEventListener('click', function() {
+        window.location.href = `recovery.html?device=${currentDevice}`;
+      });
+
+      rootsButton.addEventListener('click', function() {
+        window.location.href = `roots.html?device=${currentDevice}`;
+      });
+
+      tutorialButton.addEventListener('click', function() {
+        tutorialModalOverlay.classList.add('active');
+      });
+
+      searchInput.addEventListener('input', function() {
+        const value = this.value;
+        if (value) {
+          searchClear.classList.add('visible');
+        } else {
+          searchClear.classList.remove('visible');
+        }
+        filterGapps(value);
+      });
+
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.classList.remove('visible');
+        filterGapps('');
+      });
+
+      filterButton.addEventListener('click', function() {
+        filterMenu.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.filter-option').forEach(option => {
+        option.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          applyFilter(filter);
+          filterMenu.classList.remove('active');
+        });
+      });
+
+      gridViewButton.addEventListener('click', function() {
+        setViewMode('grid');
+      });
+
+      listViewButton.addEventListener('click', function() {
+        setViewMode('list');
+      });
+
+      notification.querySelector('.notification-close').addEventListener('click', function() {
+        notification.classList.remove('show');
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      cancelButton.addEventListener('click', closeModal);
+      confirmButton.addEventListener('click', showDownloadModal);
+      
+      downloadModalClose.addEventListener('click', closeDownloadModal);
+      downloadModalCancel.addEventListener('click', closeDownloadModal);
+      
+      modalTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabName = this.getAttribute('data-tab');
+          switchTab(tabName);
+        });
+      });
+      
+      tutorialModalClose.addEventListener('click', function() {
+        tutorialModalOverlay.classList.remove('active');
+      });
+      
+      tutorialModalConfirm.addEventListener('click', function() {
+        tutorialModalOverlay.classList.remove('active');
+      });
+      
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+      
+      downloadModalOverlay.addEventListener('click', function(e) {
+        if (e.target === downloadModalOverlay) {
+          closeDownloadModal();
+        }
+      });
+      
+      tutorialModalOverlay.addEventListener('click', function(e) {
+        if (e.target === tutorialModalOverlay) {
+          tutorialModalOverlay.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.icon-button, .modal-button, .download-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
+          
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!filterButton.contains(e.target) && !filterMenu.contains(e.target)) {
+          filterMenu.classList.remove('active');
+        }
+      });
+    }
+
+    function loadGapps() {
+      loading.classList.add('show');
+      gappsCards.innerHTML = '';
+      
+      setTimeout(() => {
+        loading.classList.remove('show');
+        
+        allGapps = getGappsByDevice(currentDevice);
+        
+        if (allGapps.length === 0) {
+          gappsCards.innerHTML = `
+            <div class="no-results">
+              <span class="material-icons">search_off</span>
+              <h3>Nenhum GApp encontrado</h3>
+              <p>Não há GApps disponíveis para este dispositivo no momento.</p>
+            </div>
+          `;
+        } else {
+          applyFilter(currentFilter);
+        }
+        
+        setTimeout(() => {
+          gappsList.classList.add('show');
+        }, 100);
+      }, 300);
+    }
+
+    function showFavorites() {
+      gappsList.style.display = 'none';
+      favoritesSection.style.display = 'block';
+      tutorialButton.style.display = 'none';
+      
+      favoritesLoading.classList.add('show');
+      favoritesCards.innerHTML = '';
+      favoritesEmpty.style.display = 'none';
+      
+      setTimeout(() => {
+        favoritesLoading.classList.remove('show');
+        
+        if (favorites.length === 0) {
+          favoritesEmpty.style.display = 'block';
+        } else {
+          displayGapps(favorites, favoritesCards);
+        }
+        
+        setTimeout(() => {
+          favoritesSection.classList.add('show');
+        }, 100);
+      }, 300);
+    }
+
+    function showGappsList() {
+      favoritesSection.classList.remove('show');
+      gappsList.style.display = 'block';
+      tutorialButton.style.display = 'flex';
+    }
+
+    function displayGapps(gapps, container = gappsCards) {
+      container.innerHTML = '';
+      
+      if (gapps.length === 0) {
+        container.innerHTML = `
+          <div class="no-results">
+            <span class="material-icons">search_off</span>
+            <h3>Nenhum GApp encontrado</h3>
+            <p>Não há GApps correspondentes à sua busca.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      gapps.forEach((gapp, index) => {
+        const gappCard = createGappCard(gapp, index);
+        container.appendChild(gappCard);
+      });
+    }
+
+    function createGappCard(gapp, index) {
+      const gappCard = document.createElement('div');
+      gappCard.className = 'gapps-card';
+      
+      const isFavorite = favorites.some(fav => fav.name === gapp.name && fav.developer === gapp.developer);
+      
+      gappCard.innerHTML = `
+        <div class="gapps-content">
+          <h3 class="gapps-name">${gapp.name}</h3>
+          <span class="gapps-version">${gapp.version}</span>
+          <p class="gapps-description">${gapp.description}</p>
+          <div class="gapps-details">
+            <div class="gapps-detail">
+              <span class="material-icons">sd_card</span>
+              <span>${gapp.size}</span>
+            </div>
+            <div class="gapps-detail">
+              <span class="material-icons">calendar_today</span>
+              <span>26/09/2025</span>
+            </div>
+            <div class="gapps-detail">
+              <span class="material-icons">update</span>
+              <span>${gapp.lastUpdate || 'N/A'}</span>
+            </div>
+            <div class="gapps-detail">
+              <span class="material-icons">person</span>
+              <span>${gapp.developer}</span>
+            </div>
+          </div>
+        </div>
+        <div class="gapps-actions">
+          <button class="favorite-button ${isFavorite ? 'active' : ''}" data-gapp-name="${gapp.name}" data-gapp-dev="${gapp.developer}">
+            <span class="material-icons">${isFavorite ? 'favorite' : 'favorite_border'}</span>
+          </button>
+          <button class="download-button" data-gapp-index="${index}">
+            <span class="material-icons">download</span>
+            Download
+          </button>
+        </div>
+      `;
+      
+      setTimeout(() => {
+        gappCard.classList.add('show');
+      }, index * 100);
+      
+      gappCard.querySelector('.favorite-button').addEventListener('click', function() {
+        const gappName = this.getAttribute('data-gapp-name');
+        const gappDev = this.getAttribute('data-gapp-dev');
+        toggleFavorite(gappName, gappDev);
+      });
+      
+      gappCard.querySelector('.download-button').addEventListener('click', function() {
+        const gappIndex = this.getAttribute('data-gapp-index');
+        const selectedGapp = gapp;
+        showGappDetails(selectedGapp);
+      });
+      
+      return gappCard;
+    }
+
+    function toggleFavorite(gappName, gappDev) {
+      const index = favorites.findIndex(fav => fav.name === gappName && fav.dev === gappDev);
+      
+      if (index === -1) {
+        const gapp = allGapps.find(r => r.name === gappName && r.developer === gappDev);
+        if (gapp) {
+          favorites.push({
+            name: gapp.name,
+            developer: gapp.developer,
+            version: gapp.version,
+            description: gapp.description,
+            size: gapp.size,
+            date: gapp.date,
+            lastUpdate: gapp.lastUpdate,
+            url: gapp.url,
+            downloads: gapp.downloads,
+            supportedSystems: gapp.supportedSystems,
+            details: gapp.details,
+            source: gapp.source
+          });
+          showNotification('Adicionado aos Favoritos', `${gappName} foi adicionado aos seus favoritos.`);
+        }
+      } else {
+        favorites.splice(index, 1);
+        showNotification('Removido dos Favoritos', `${gappName} foi removido dos seus favoritos.`);
+      }
+      
+      saveFavorites();
+      
+      if (currentFilter === 'favorites') {
+        applyFilter('favorites');
+      } else {
+        applyFilter(currentFilter);
+      }
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      
+      let filteredGapps = [];
+      
+      switch (filter) {
+        case 'all':
+          filteredGapps = allGapps;
+          break;
+        case 'favorites':
+          filteredGapps = favorites;
+          break;
+        case 'developer':
+          const developers = [...new Set(allGapps.map(gapp => gapp.developer).filter(dev => dev && dev.trim() !== ''))];
+          filteredGapps = developers.map(dev => ({
+            isDeveloperGroup: true,
+            developer: dev,
+            gapps: allGapps.filter(gapp => gapp.developer === dev)
+          }));
+          break;
+        case 'date':
+          filteredGapps = [...allGapps].sort((a, b) => {
+            const dateA = new Date(a.date.split('/').reverse().join('/'));
+            const dateB = new Date(b.date.split('/').reverse().join('/'));
+            return dateB - dateA;
+          });
+          break;
+        default:
+          filteredGapps = allGapps;
+      }
+      
+      displayGapps(filteredGapps);
+    }
+
+    function filterGapps(searchTerm) {
+      if (!searchTerm) {
+        applyFilter(currentFilter);
+        return;
+      }
+      
+      let gappsToFilter = currentFilter === 'favorites' ? favorites : allGapps;
+      
+      const filteredGapps = gappsToFilter.filter(gapp => {
+        const term = searchTerm.toLowerCase();
+        return (
+          gapp.name.toLowerCase().includes(term) ||
+          gapp.version.toLowerCase().includes(term) ||
+          gapp.description.toLowerCase().includes(term) ||
+          gapp.developer.toLowerCase().includes(term)
+        );
+      });
+      
+      displayGapps(filteredGapps);
+    }
+
+    function setViewMode(mode) {
+      settings.viewMode = mode;
+      saveSettings();
+      
+      if (mode === 'grid') {
+        gappsCards.classList.remove('list-view');
+        gridViewButton.classList.add('active');
+        listViewButton.classList.remove('active');
+      } else {
+        gappsCards.classList.add('list-view');
+        gridViewButton.classList.remove('active');
+        listViewButton.classList.add('active');
+      }
+    }
+
+    function showGappDetails(gapp) {
+      currentGapp = gapp;
+      
+      modalTitle.textContent = gapp.name;
+      
+      document.getElementById('gappsVersion').textContent = gapp.details.version;
+      document.getElementById('gappsDeveloper').textContent = gapp.details.dev;
+      document.getElementById('gappsLastUpdate').textContent = gapp.lastUpdate || 'N/A';
+      document.getElementById('gappsDescription').textContent = gapp.details.description;
+      
+      const changelogHtml = gapp.details.changelog.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('changelog').innerHTML = changelogHtml || '<li>Nenhuma alteração recente</li>';
+      
+      document.getElementById('changelogSection').style.display = gapp.details.changelog.length > 0 ? 'block' : 'none';
+      
+      const issuesHtml = gapp.details.knownIssues.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('knownIssues').innerHTML = issuesHtml || '<li>Nenhum problema conhecido</li>';
+      
+      document.getElementById('knownIssuesSection').style.display = gapp.details.knownIssues.length > 0 ? 'block' : 'none';
+      
+      const notesHtml = gapp.details.notes.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('notes').innerHTML = notesHtml || '<li>Nenhuma nota adicional</li>';
+      
+      document.getElementById('notesSection').style.display = gapp.details.notes.length > 0 ? 'block' : 'none';
+      
+      let sourceHtml = `<a href="${gapp.source}" target="_blank" class="telegram-button"><span class="material-icons">send</span> Acessar</a>`;
+      document.getElementById('sourceLink').innerHTML = sourceHtml;
+      
+      modalOverlay.classList.add('active');
+    }
+
+    function switchTab(tabName) {
+      modalTabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      modalTabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+      document.getElementById(`${tabName}-tab`).classList.add('active');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      currentGapp = null;
+    }
+
+    function showDownloadModal() {
+      if (!currentGapp) return;
+      
+      downloadModalTitle.textContent = `Selecione a versão do Android - ${currentGapp.name}`;
+      androidVersions.innerHTML = '';
+      
+      // Criar botões para cada versão do Android suportada
+      currentGapp.supportedSystems.forEach(version => {
+        const versionButton = document.createElement('div');
+        versionButton.className = 'android-version';
+        versionButton.innerHTML = `
+          <span class="material-icons">android</span>
+          <div class="android-version-name">Android ${version}</div>
+        `;
+        
+        versionButton.addEventListener('click', function() {
+          if (currentGapp.downloads && currentGapp.downloads[version]) {
+            window.open(currentGapp.downloads[version], '_blank');
+            closeDownloadModal();
+            
+            if (settings.notificationsEnabled) {
+              showNotification('Download Iniciado', `O download do ${currentGapp.name} para Android ${version} foi iniciado.`);
+            }
+          }
+        });
+        
+        androidVersions.appendChild(versionButton);
+      });
+      
+      downloadModalOverlay.classList.add('active');
+    }
+
+    function closeDownloadModal() {
+      downloadModalOverlay.classList.remove('active');
+    }
+
+    function trackDownload(gappName) {
+      const formData = new FormData();
+      formData.append('dispositivo', navigator.userAgent);
+      formData.append('gapp', gappName);
+      formData.append('mensagem', 'Entrou!');
+      
+      fetch('https://formspree.io/f/xblzjvwn', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Download tracked:', data);
+      })
+      .catch(error => {
+        console.error('Error tracking download:', error);
+      });
+    }
+
+    function toggleTheme() {
+      settings.theme = settings.theme === 'light' ? 'dark' : 'light';
+      applyTheme();
+      saveSettings();
+      
+      localStorage.setItem('appTheme', settings.theme);
+    }
+
+    function applyTheme() {
+      if (settings.theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerHTML = '<span class="material-icons">light_mode</span>';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.innerHTML = '<span class="material-icons">dark_mode</span>';
+      }
+    }
+
+    function applyPrimaryColor() {
+      document.documentElement.style.setProperty('--md-sys-color-primary', settings.primaryColor);
+      
+      const r = parseInt(settings.primaryColor.slice(1, 3), 16);
+      const g = parseInt(settings.primaryColor.slice(3, 5), 16);
+      const b = parseInt(settings.primaryColor.slice(5, 7), 16);
+      
+      const containerColor = `rgba(${r}, ${g}, ${b}, 0.2)`;
+      document.documentElement.style.setProperty('--md-sys-color-primary-container', containerColor);
+    }
+
+    function showNotification(title, message) {
+      if (!settings.notificationsEnabled) return;
+      
+      const titleElement = notification.querySelector('.notification-title');
+      const messageElement = notification.querySelector('.notification-message');
+      
+      titleElement.textContent = title;
+      messageElement.textContent = message;
+      
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 5000);
+    }
+
+    function saveSettings() {
+      localStorage.setItem('gappsSettings', JSON.stringify(settings));
+    }
+
+    function loadSettings() {
+      const savedSettings = localStorage.getItem('gappsSettings');
+      if (savedSettings) {
+        settings = JSON.parse(savedSettings);
+      }
+      
+      const sharedTheme = localStorage.getItem('appTheme');
+      if (sharedTheme) {
+        settings.theme = sharedTheme;
+      }
+      
+      applyTheme();
+      applyPrimaryColor();
+      setViewMode(settings.viewMode);
+    }
+
+    function saveFavorites() {
+      localStorage.setItem('gappsFavorites', JSON.stringify(favorites));
+    }
+
+    function loadFavorites() {
+      const savedFavorites = localStorage.getItem('gappsFavorites');
+      if (savedFavorites) {
+        favorites = JSON.parse(savedFavorites);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeApp);
+  </script>
+</body>
+</html>

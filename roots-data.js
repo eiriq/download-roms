@@ -70,7 +70,8 @@ const rootsData = {
       },
       source: "https://github.com/bmax121/APatch/releases/tag/11107"
     },
-    
+   
+    */
     // MODELO 3 - KingRoot
     {
       name: "KingRoot",
@@ -97,6 +98,7 @@ const rootsData = {
       },
       source: "https://kingrootofficial.com/download/kingroot-v5-3-7-20180619/"
     },
+    */
     
     // MODELO 4 - KernelSU
     {
@@ -279,4 +281,5 @@ function getAvailableDevicesForRoots() {
 
 // =================================================================================
 // FIM DO ARQUIVO
+
 // =================================================================================

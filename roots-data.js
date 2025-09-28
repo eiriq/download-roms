@@ -70,35 +70,6 @@ const rootsData = {
       },
       source: "https://github.com/bmax121/APatch/releases/tag/11107"
     },
-   
-    */
-    // MODELO 3 - KingRoot
-    {
-      name: "KingRoot",
-      version: "5.3.7",
-      description: "KingRoot - Solução de root com um clique",
-      size: "10MB",
-      date: "2019",
-      developer: "KingxTeam",
-      url: "https://drive.google.com/file/d/1BXn6DJGAe8Xxls_C3419_cDpQIzBATVy/view?usp=drive_link",
-      download: "https://drive.google.com/file/d/1BXn6DJGAe8Xxls_C3419_cDpQIzBATVy/view?usp=drive_link",
-      lastUpdate: "2019", // Adicionando a última atualização (apenas o ano)
-      details: {
-        version: "5.3.7",
-        dev: "KingxTeam",
-        description: "KingRoot - Solução de root com um clique",
-        changelog: [
-          "Versão mais recente estável"
-        ],
-        knownIssues: [],
-        notes: [
-          "Pode não funcionar em todos os dispositivos",
-          "Pode conter anúncios e indicar falso positivo em vírus!"
-        ]
-      },
-      source: "https://kingrootofficial.com/download/kingroot-v5-3-7-20180619/"
-    },
-    */
     
     // MODELO 4 - KernelSU
     {
@@ -283,3 +254,4 @@ function getAvailableDevicesForRoots() {
 // FIM DO ARQUIVO
 
 // =================================================================================
+

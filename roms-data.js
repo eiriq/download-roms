@@ -285,7 +285,7 @@ const romsData = {
         description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
         changelog: [
           "Alteração  do estilo do texto do alerta para corresponder ao relógio,
-          "Otimize o AbsListView para reduzir a latência da operação de clique,
+          "Otimização do ABSLISTVIEW para reduzir a latência da operação de clique,
           "Sincronizar com as alterações da linhagem 23.0
         ],
         knownIssues: [],
@@ -566,6 +566,7 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 
 

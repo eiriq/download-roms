@@ -23,6 +23,7 @@ Um site para download de ROMs personalizadas para o Moto G34, com interface mode
 - MistOS 4.1 (Android 16)
 - AxionOS 2.0 (Android 16)
 - Stock ROM (Android 15)
+- LMDroid
 
 ## Como usar
 
@@ -51,4 +52,5 @@ O site utiliza variáveis CSS para facilitar a personalização:
 ## Créditos
 
 Desenvolvido para a comunidade Moto G34.
+
 

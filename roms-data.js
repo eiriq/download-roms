@@ -284,9 +284,9 @@ const romsData = {
         dev: "JNW_SG",
         description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
         changelog: [
-          "Alteração  do estilo do texto do alerta para corresponder ao relógio,
-          "Otimização do ABSLISTVIEW para reduzir a latência da operação de clique,
-          "Sincronizar com as alterações da linhagem 23.0
+          "Alteração  do estilo do texto do alerta para corresponder ao relógio",
+          "Otimização do ABSLISTVIEW para reduzir a latência da operação de clique",
+          "Sincronizar com as alterações da linhagem 23.0"
         ],
         knownIssues: [],
         notes: []
@@ -566,6 +566,7 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 
 

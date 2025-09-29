@@ -63,7 +63,6 @@ const romsData = {
     },
     
     // MODELO 3
-    /*
     {
       name: "",
       version: "",
@@ -83,10 +82,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 4
-    /*
     {
       name: "",
       version: "",
@@ -106,10 +103,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 5
-    /*
     {
       name: "",
       version: "",
@@ -129,10 +124,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 6
-    /*
     {
       name: "",
       version: "",
@@ -152,10 +145,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 7
-    /*
     {
       name: "",
       version: "",
@@ -175,10 +166,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 8
-    /*
     {
       name: "",
       version: "",
@@ -198,10 +187,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 9
-    /*
     {
       name: "",
       version: "",
@@ -221,10 +208,8 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // MODELO 10
-    /*
     {
       name: "",
       version: "",
@@ -244,7 +229,6 @@ const romsData = {
       },
       source: ""
     },
-    */
     
     // ================================================================================
     // ROMS EXISTENTES (NÃO ALTERE NADA AQUI)
@@ -290,8 +274,6 @@ const romsData = {
         ],
         knownIssues: [],
         notes: []
-          
-        ]
       },
       source: "https://t.me/MotoG34/490876"
     },
@@ -566,8 +548,3 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
-
-
-
-
-

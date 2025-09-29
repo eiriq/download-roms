@@ -286,7 +286,7 @@ const romsData = {
         changelog: [
           "Alteração  do estilo do texto do alerta para corresponder ao relógio,
           "Otimize o AbsListView para reduzir a latência da operação de clique,
-          "Sincronizar com as alterações da linhagem 23.0,
+          "Sincronizar com as alterações da linhagem 23.0
         ],
         knownIssues: [],
         notes: []
@@ -566,5 +566,6 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 

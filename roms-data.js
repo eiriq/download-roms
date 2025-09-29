@@ -274,22 +274,26 @@ const romsData = {
       name: "LunarisOS",
       version: "Android 16",
       description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
-      size: "1.3 GB",
-      date: "22/06/2025",
-      lastUpdate: "14 de setembro", // Adicionando a última atualização
+      size: "2.06 GB",
+      date: "28/09/2025",
+      lastUpdate: "29 de setembro", // Adicionando a última atualização
       developer: "JNW_SG",
-      url: "https://drive.google.com/uc?export=download&id=1QNut_vxQVrIHGnT1qrDSHiDtMxhtcOhT",
+      url: "https://drive.google.com/uc?export=download&id=1orrvcw9dwzqIEYWInjtxW_K2PRvMGVjE",
       details: {
         version: "Android 16",
         dev: "JNW_SG",
         description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
-        changelog: [],
+        changelog: [
+          "Alteração  do estilo do texto do alerta para corresponder ao relógio,
+          "Otimize o AbsListView para reduzir a latência da operação de clique,
+          "Sincronizar com as alterações da linhagem 23.0,
+        ],
         knownIssues: [],
-        notes: [
-          "Versão somente com GAPPS! (Google Apps)"
+        notes: []
+          
         ]
       },
-      source: "https://t.me/lunaris_update"
+      source: "https://t.me/MotoG34/490876"
     },
     
     {
@@ -562,4 +566,5 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 

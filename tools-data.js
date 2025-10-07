@@ -26,8 +26,6 @@ function getToolsByDevice(device) {
           "Script de instalação automatizado"
         ],
         knownIssues: [
-          "Pode não funcionar corretamente em versões mais antigas do GNOME",
-          "Requer reinicialização do sistema após a instalação"
         ],
         notes: [
           "Certifique-se de ter o Python instalado",
@@ -66,8 +64,7 @@ function getToolsByDevice(device) {
           "Configuração simples e intuitiva"
         ],
         knownIssues: [
-          "Alguns efeitos podem não funcionar em sistemas mais antigos",
-          "Requer reinicialização para aplicar algumas mudanças"
+          "Alguns efeitos podem não funcionar emalgumas marcas."
         ],
         notes: [
           "Faça backup das configurações originais",
@@ -107,8 +104,7 @@ function getToolsByDevice(device) {
           "Opção de backup antes da remoção"
         ],
         knownIssues: [
-          "Alguns aplicativos do sistema não podem ser removidos",
-          "A remoção de certos apps pode afetar funcionalidades"
+          "A remoção de certos apps pode afetar funcionalidades, sempre cheque"
         ],
         notes: [
           "IMPORTANTE: Faça backup antes de usar",
@@ -148,8 +144,7 @@ function getToolsByDevice(device) {
           "Interface simples de seleção"
         ],
         knownIssues: [
-          "Alguns dispositivos podem não suportar todas as taxas",
-          "Mudanças podem não persistir após reinicialização"
+          "Alguns dispositivos podem não suportar todas as taxas"
         ],
         notes: [
           "Verifique as taxas suportadas pelo seu dispositivo",
@@ -208,3 +203,4 @@ function getToolsByDevice(device) {
 }
 
 //feito com ♡ por Riq:)
+

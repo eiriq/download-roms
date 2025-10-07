@@ -25,27 +25,41 @@ const romsData = {
     // ================================================================================
     
     // MODELO 3
-    /*
     {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      lastUpdate: "", // Adicione aqui a última atualização
-      developer: "",
-      url: "",
+      name: "BreezeOS",
+      version: "Android 16",
+      description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
+      size: "1,4 GB",
+      date: "07 de Outubro",
+      lastUpdate: "07 de Outubro", // Adicione aqui a última atualização
+      developer: "CottonCloudMod",
+      url: "https://drive.usercontent.google.com/download?id=14QA7RnI08WWiMdDcBk7NmYsZaXYixa-r&export=download&authuser=0",
       details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
+        version: "Android 16",
+        dev: "CottonCloudMod",
+        description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
+        changelog: [
+   "Ativado o Zram Writeback",
+    "Desativadas transições de alto desempenho",
+    "Desativado papel de parede no AOD (Always On Display)",
+          "Ocultado o realce do sensor de impressão digital na tela de bloqueio",
+          "Corrigido o aplicativo Treble quebrado",
+          "Corrigida a tela de bloqueio com erro em alguns dispositivos"
+        ],
+        knownIssues: [
+          "Sem suporte para Kernel 4.x (somente 5.x e 6.x)",
+    "Não é compatível com Treble Droid",
+    "Esta é uma compilação experimental e pessoal, portanto não relate bugs"
+        ],
+        notes: [
+          "Baseada nas imagens Google QPR1 DSU",
+          "Construção experimental (uso pessoal)",
+          "Recursos e correções podem não ser estáveis",
+          "Recurso Zram Writeback habilitado"
+        ],
       },
-      source: ""
+      source: "https://t.me/MotoG34/498899"
     },
-    */
     
     // MODELO 4
     /*
@@ -572,3 +586,4 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+

@@ -1,383 +1,136 @@
-/*
- * =================================================================================
- * ARQUIVO DE DADOS DAS FERRAMENTAS - MOTO G34
- * =================================================================================
- * 
- * COMO ADICIONAR UMA NOVA FERRAMENTA:
- * 
- * 1. Escolha um dos modelos abaixo (de 1 a 10)
- * 2. Preencha as informações entre ASPAS, como 'name, version', etc, os que não tiverem essas info, deixe em branco
- * 3. Após preencher, remova o '/*' do início e final de cada modelo.
- * 4. Pronto!
- * 5. Salve o arquivo e envie para o GitHub
- * 
- * EXEMPLO: name: "COLOQUE O NOME AQUI",
- * 
- * NÃO ALTERE NADA QUE TENHA { } [ ] OU PALAVRAS COMO "downloads:"
- * =================================================================================
- */
+# JavaScript (tools-data.js)
 
-// Lista de Ferramentas para o Moto G34
-const toolsData = {
-  motog34: [
-    // MODELO 1 - Alterar Animações
+```javascript
+function getToolsByDevice(device) {
+  return [
     {
-      name: "Alterar Animações",
+      name: "MaterialYouGnome",
+      developer: "Riq",
       version: "1.0.0",
-      description: "Modifique as animações do seu sistema e deixe seu sistema mais rápido ou mais lento!",
-      size: "2.1 MB",
-      date: "26/09/2023",
-      developer: "DevTools",
-      url: "#",
-      lastUpdate: "26 de setembro",
-      supportedSystems: ["Linux", "Windows", "Android"],
+      description: "Tutorial para colocar customização Material You no GNOME",
+      size: "5,9 KB",
+      date: "07 de Outubro",
+      lastUpdate: "07 de Outubro",
+      url: "https://drive.google.com/uc?export=download&id=1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb",
+      source: "https://t.me/MotoG34/496793",
+      icon: "palette",
+      category: "Customização",
+      categoryIcon: "palette",
+      supportedSystems: ["Ubuntu/Debian", "Arch"],
+      unavailable: ["Ubuntu/Debian"],
       downloads: {
-        "Linux": "https://drive.google.com/drive/folders/1ABC123DEF456GHI789JKL012MNO345PQR?usp=sharing",
-        "Windows": "https://drive.google.com/drive/folders/1ABC123DEF456GHI789JKL012MNO345PQR?usp=sharing",
-        "Android": "https://drive.google.com/drive/folders/1ABC123DEF456GHI789JKL012MNO345PQR?usp=sharing"
+        "Arch": "https://drive.google.com/uc?export=download&id=1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb"
       },
       details: {
-        version: "1.0.0",
-        dev: "DevTools",
-        description: "Modifique as animações do seu sistema e deixe seu sistema mais rápido ou mais lento!",
+        description: "Este script permite aplicar a customização Material You no ambiente de desktop GNOME, adaptando as cores do sistema baseado na sua papel de parede.",
         changelog: [
           "Versão inicial lançada",
-          "Suporte para múltiplas plataformas",
-          "Interface intuitiva para ajustes"
+          "Compatibilidade com Arch Linux",
+          "Script de instalação automatizado"
         ],
         knownIssues: [
-          "Em alguns dispositivos, pode ser necessário reiniciar para aplicar as alterações"
+          "Pode não funcionar corretamente em versões mais antigas do GNOME",
+          "Requer reinicialização do sistema após a instalação"
         ],
         notes: [
-          "Valores mais baixos = animações mais rápidas",
-          "Valores mais altos = animações mais lentas",
-          "Recomendado: 0.5x para melhor performance"
+          "Certifique-se de ter o Python instalado",
+          "Faça backup das suas configurações antes de executar",
+          "Execute o script com permissões de administrador"
         ]
       },
-      source: "https://github.com/devtools/animation-changer",
-      category: "Scripts",
-      categoryIcon: "animation",
       tutorial: {
-        "Linux": "Para executar este script no Linux:\n1. Abra o terminal\n2. Navegue até a pasta onde salvou o arquivo\n3. Dê permissão de execução: chmod +x animation-changer.sh\n4. Execute o script: ./animation-changer.sh\n5. Siga as instruções na tela",
-        "Windows": "Este script ainda não tem uma versão para Windows! :( Se quiser, solicite uma versão aqui embaixo!",
-        "Android": "Este script ainda não tem uma versão para Android! :( Se quiser, solicite uma versão aqui embaixo!"
-      },
-      unavailable: ["Windows", "Android"]
+        "Ubuntu/Debian": "# Tutorial para Ubuntu/Debian\n\nEsta versão ainda não está disponível. Aguarde futuras atualizações.",
+        "Arch": "# Tutorial para Arch Linux\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb -O material-you-gnome.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x material-you-gnome.sh\n```\n\n3. Execute o script:\n```bash\n./material-you-gnome.sh\n```\n\n4. Siga as instruções na tela\n\n5. Reinicie o sistema para aplicar as mudanças:\n```bash\nreboot\n```"
+      }
     },
-    
-    // MODELO 2 - Alterar Taxa de Atualização
     {
-      name: "Alterar Taxa de Atualização",
-      version: "1.2.0",
-      description: "Descubra as taxas que seu display suporta e modifique-as facilmente!",
-      size: "1.8 MB",
-      date: "15/09/2023",
-      developer: "DisplayTools",
-      url: "#",
-      lastUpdate: "15 de setembro",
-      supportedSystems: ["Linux"],
+      name: "Otimizador de Sistema",
+      developer: "Riq",
+      version: "2.1.0",
+      description: "Script para otimizar o desempenho do sistema",
+      size: "12,3 KB",
+      date: "15 de Outubro",
+      lastUpdate: "15 de Outubro",
+      url: "https://drive.google.com/uc?export=download&id=abc123def456",
+      source: "https://t.me/MotoG34/49680",
+      icon: "speed",
+      category: "Scripts",
+      categoryIcon: "code",
+      supportedSystems: ["Ubuntu/Debian", "Arch", "Fedora"],
       downloads: {
-        "Linux": "https://drive.google.com/drive/folders/1DEF456GHI789JKL012MNO345PQR678STU?usp=sharing"
+        "Ubuntu/Debian": "https://drive.google.com/uc?export=download&id=abc123def456",
+        "Arch": "https://drive.google.com/uc?export=download&id=abc123def456",
+        "Fedora": "https://drive.google.com/uc?export=download&id=abc123def456"
       },
       details: {
-        version: "1.2.0",
-        dev: "DisplayTools",
-        description: "Descubra as taxas que seu display suporta e modifique-as facilmente!",
+        description: "Script completo para otimizar o desempenho do seu sistema Linux, limpando arquivos temporários, otimizando serviços e melhorando o uso de memória.",
         changelog: [
-          "Adicionado suporte para mais modelos de tela",
-          "Melhorias na detecção automática",
-          "Correção de bugs em monitores específicos"
+          "Adicionada otimização para Fedora",
+          "Melhorado o algoritmo de limpeza",
+          "Corrigidos bugs em sistemas com menos de 4GB de RAM"
         ],
         knownIssues: [
-          "Alguns monitores podem não reportar corretamente as taxas suportadas"
+          "Pode conflitar com outros otimizadores de sistema",
+          "Em sistemas muito antigos pode não funcionar corretamente"
         ],
         notes: [
-          "Taxas mais altas consomem mais bateria",
-          "Nem todos os aplicativos se beneficiam de taxas altas",
-          "Recomendado: 60Hz para equilíbrio entre performance e consumo"
+          "Execute como root ou com sudo",
+          "Faça backup antes de executar",
+          "Recomendado executar uma vez por mês"
         ]
       },
-      source: "https://github.com/displaytools/refresh-rate-changer",
-      category: "Scripts",
-      categoryIcon: "screen_rotation",
       tutorial: {
-        "Linux": "Para executar este script no Linux:\n1. Abra o terminal\n2. Navegue até a pasta onde salvou o arquivo\n3. Dê permissão de execução: chmod +x refresh-rate-changer.sh\n4. Execute o script: ./refresh-rate-changer.sh\n5. Siga as instruções na tela para selecionar a taxa desejada"
-      },
-      unavailable: []
+        "Ubuntu/Debian": "# Tutorial para Ubuntu/Debian\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=abc123def456 -O otimizador.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x otimizador.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./otimizador.sh\n```\n\n4. Siga as instruções na tela",
+        "Arch": "# Tutorial para Arch Linux\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=abc123def456 -O otimizador.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x otimizador.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./otimizador.sh\n```\n\n4. Siga as instruções na tela",
+        "Fedora": "# Tutorial para Fedora\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=abc123def456 -O otimizador.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x otimizador.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./otimizador.sh\n```\n\n4. Siga as instruções na tela"
+      }
     },
-    
-    // MODELO 3 - Saúde da Bateria
     {
-      name: "Saúde da Bateria",
-      version: "2.0.1",
-      description: "Cheque a saúde da bateria, a capacidade total e quanto ela ainda tem!",
-      size: "3.5 MB",
-      date: "20/09/2023",
-      developer: "BatteryTools",
-      url: "#",
-      lastUpdate: "20 de setembro",
-      supportedSystems: ["Linux"],
-      downloads: {
-        "Linux": "https://drive.google.com/drive/folders/1GHI789JKL012MNO345PQR678STU901VWX?usp=sharing"
-      },
-      details: {
-        version: "2.0.1",
-        dev: "BatteryTools",
-        description: "Cheque a saúde da bateria, a capacidade total e quanto ela ainda tem!",
-        changelog: [
-          "Interface redesenhada para melhor visualização",
-          "Adicionado gráficos de degradação ao longo do tempo",
-          "Correção de leitura em alguns modelos de bateria"
-        ],
-        knownIssues: [
-          "Em notebooks, pode mostrar informações incorretas quando múltiplas baterias estão presentes"
-        ],
-        notes: [
-          "Baterias abaixo de 80% da capacidade original podem precisar de substituição",
-          "Calibrações periódicas ajudam a manter leituras precisas",
-          "Evite descarregar completamente a bateria regularmente"
-        ]
-      },
-      source: "https://github.com/batterytools/battery-health",
-      category: "Scripts",
-      categoryIcon: "battery_charging_full",
-      tutorial: {
-        "Linux": "Para executar este script no Linux:\n1. Abra o terminal\n2. Navegue até a pasta onde salvou o arquivo\n3. Dê permissão de execução: chmod +x battery-health.sh\n4. Execute o script: ./battery-health.sh\n5. Aguarde a análise completa da bateria"
-      },
-      unavailable: []
-    },
-    
-    // MODELO 4 - Debloater
-    {
-      name: "Debloater",
+      name: "Limpeza de Cache",
+      developer: "Riq",
       version: "1.5.2",
-      description: "Desinstale facilmente bloatwares (aplicativos desnecessários) do seu Android!",
-      size: "4.2 MB",
-      date: "10/09/2023",
-      developer: "AndroidTools",
-      url: "#",
-      lastUpdate: "10 de setembro",
-      supportedSystems: ["Linux"],
+      description: "Ferramenta para limpar caches e arquivos temporários",
+      size: "8,7 KB",
+      date: "10 de Outubro",
+      lastUpdate: "10 de Outubro",
+      url: "https://drive.google.com/uc?export=download&id=def789ghi012",
+      source: "https://t.me/MotoG34/49681",
+      icon: "cleaning_services",
+      category: "Scripts",
+      categoryIcon: "code",
+      supportedSystems: ["Ubuntu/Debian", "Arch", "Fedora", "openSUSE"],
       downloads: {
-        "Linux": "https://drive.google.com/drive/folders/1JKL012MNO345PQR678STU901VWX234YZA?usp=sharing"
+        "Ubuntu/Debian": "https://drive.google.com/uc?export=download&id=def789ghi012",
+        "Arch": "https://drive.google.com/uc?export=download&id=def789ghi012",
+        "Fedora": "https://drive.google.com/uc?export=download&id=def789ghi012",
+        "openSUSE": "https://drive.google.com/uc?export=download&id=def789ghi012"
       },
       details: {
-        version: "1.5.2",
-        dev: "AndroidTools",
-        description: "Desinstale facilmente bloatwares (aplicativos desnecessários) do seu Android!",
+        description: "Script para limpar caches de sistema, navegadores e aplicativos, liberando espaço em disco e melhorando o desempenho geral.",
         changelog: [
-          "Lista expandida de bloatwares conhecidos",
-          "Melhorias na interface de seleção",
-          "Adicionada função de backup antes da remoção"
+          "Adicionado suporte para openSUSE",
+          "Melhorada a limpeza de cache do navegador",
+          "Corrigido bug na limpeza de logs antigos"
         ],
         knownIssues: [
-          "Alguns aplicativos do sistema podem ser reinstalados após atualizações OTA"
+          "Pode remover senhas salvas em alguns navegadores",
+          "Em sistemas com pouco espaço livre pode levar mais tempo"
         ],
         notes: [
-          "Sempre faça backup antes de remover aplicativos",
-          "Cuidado ao remover aplicativos que possam ser necessários para o funcionamento do sistema",
-          "Alguns aplicativos podem precisar de root para serem removidos"
+          "Execute como root ou com sudo",
+          "Feche navegadores antes de executar",
+          "O processo pode levar vários minutos"
         ]
       },
-      source: "https://github.com/androidtools/debloater",
-      category: "Scripts",
-      categoryIcon: "delete_sweep",
       tutorial: {
-        "Linux": "Para executar este script no Linux:\n1. Conecte seu dispositivo Android via USB com depuração USB ativada\n2. Abra o terminal\n3. Navegue até a pasta onde salvou o arquivo\n4. Dê permissão de execução: chmod +x debloater.sh\n5. Execute o script: ./debloater.sh\n6. Siga as instruções para selecionar os aplicativos a serem removidos"
-      },
-      unavailable: []
-    },
-    
-    // MODELO 5
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // MODELO 6
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // MODELO 7
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // MODELO 8
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // MODELO 9
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // MODELO 10
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      developer: "",
-      url: "",
-      lastUpdate: "",
-      supportedSystems: [],
-      downloads: {},
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: "",
-      category: "",
-      categoryIcon: "",
-      tutorial: {},
-      unavailable: []
-    },
-    */
-    
-    // FIM DA LISTA DE FERRAMENTAS
-  ]
-};
-
-// =================================================================================
-// FUNÇÕES DO SISTEMA - NÃO ALTERE NADA AQUI
-// =================================================================================
-
-function getToolsByDevice(device) {
-  return toolsData[device] || [];
+        "Ubuntu/Debian": "# Tutorial para Ubuntu/Debian\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=def789ghi012 -O limpeza.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x limpeza.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./limpeza.sh\n```\n\n4. Siga as instruções na tela",
+        "Arch": "# Tutorial para Arch Linux\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=def789ghi012 -O limpeza.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x limpeza.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./limpeza.sh\n```\n\n4. Siga as instruções na tela",
+        "Fedora": "# Tutorial para Fedora\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=def789ghi012 -O limpeza.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x limpeza.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./limpeza.sh\n```\n\n4. Siga as instruções na tela",
+        "openSUSE": "# Tutorial para openSUSE\n\n1. Baixe o script:\n```bash\nwget https://drive.google.com/uc?export=download&id=def789ghi012 -O limpeza.sh\n```\n\n2. Torne o script executável:\n```bash\nchmod +x limpeza.sh\n```\n\n3. Execute o script:\n```bash\nsudo ./limpeza.sh\n```\n\n4. Siga as instruções na tela"
+      }
+    }
+  ];
 }
 
-function getAvailableDevicesForTools() {
-  return Object.keys(toolsData);
-}
-
-// =================================================================================
-// FIM DO ARQUIVO
-// =================================================================================
+//feito com ♡ por Riq:)
+```

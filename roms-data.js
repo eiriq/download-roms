@@ -28,7 +28,7 @@ const romsData = {
     {
       name: "BreezeOS",
       version: "Android 16",
-      description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
+      description: "Versão oficial da GSI BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
       size: "1,4 GB",
       date: "07 de Outubro",
       lastUpdate: "07 de Outubro", // Adicione aqui a última atualização
@@ -586,4 +586,5 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 

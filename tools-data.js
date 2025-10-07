@@ -8,7 +8,7 @@ function getToolsByDevice(device) {
       size: "5,9 KB",
       date: "07 de Outubro",
       lastUpdate: "07 de Outubro",
-      url: "https://drive.google.com/file/d/1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb/view?usp=sharing",
+      url: "https://drive.google.com/file/d/1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb/view?usp=drive_link",
       source: "https://t.me/MotoG34/496793",
       icon: "palette",
       category: "Customização",
@@ -16,7 +16,7 @@ function getToolsByDevice(device) {
       supportedSystems: ["Ubuntu/Debian", "Arch"],
       unavailable: ["Ubuntu/Debian"],
       downloads: {
-        "Arch": "https://drive.google.com/uc?export=download&id=1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb"
+        "Arch": "https://drive.google.com/file/d/1XGCw8g2U6s0RncAoyHouG0vRYqdJj8cb/view?usp=drive_link"
       },
       details: {
         description: "Este script permite aplicar a customização Material You no ambiente de desktop GNOME, adaptando as cores do sistema baseado na sua papel de parede.",

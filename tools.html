@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferramentas - Moto G34</title>
+  <link rel="icon" type="image/png" href="icontools.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --md-sys-color-primary: #2196F3;           
+      --md-sys-color-on-primary: #FFFFFF;       
+      --md-sys-color-primary-container: #E3F2FD;
+      --md-sys-color-on-primary-container: #0D47A1;
+      --md-sys-color-secondary: #505A6E;
+      --md-sys-color-on-secondary: #FFFFFF;
+      --md-sys-color-secondary-container: #D8E2F0;
+      --md-sys-color-on-secondary-container: #0C1525;
+      --md-sys-color-tertiary: #64577A;
+      --md-sys-color-on-tertiary: #FFFFFF;
+      --md-sys-color-tertiary-container: #EBDFF7;
+      --md-sys-color-on-tertiary-container: #20102D;
+      --md-sys-color-error: #BA1A1A;
+      --md-sys-color-error-container: #FFDAD6;
+      --md-sys-color-on-error: #FFFFFF;
+      --md-sys-color-on-error-container: #410002;
+      --md-sys-color-background: #FFFBFE;
+      --md-sys-color-on-background: #1C1B1F;
+      --md-sys-color-surface: #FFFBFE;
+      --md-sys-color-on-surface: #1C1B1F;
+      --md-sys-color-surface-variant: #E7E0EC;
+      --md-sys-color-on-surface-variant: #49454F;
+      --md-sys-color-outline: #79747E;
+      --md-sys-color-inverse-on-surface: #F4EFF4;
+      --md-sys-color-inverse-surface: #313033;
+      --md-sys-color-inverse-primary: #90CAF9;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.2);
+      --md-sys-color-surface-tint: #2196F3;
+      --md-sys-color-outline-variant: #CAC4D0;
+      
+      --md-sys-elevation-level0: none;
+      --md-sys-elevation-level1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      --md-sys-elevation-level2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      --md-sys-elevation-level3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      --md-sys-elevation-level4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      --md-sys-elevation-level5: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--md-sys-color-surface-variant);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--md-sys-color-primary);
+      border-radius: 10px;
+      transition: background 0.2s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--md-sys-color-primary);
+      opacity: 0.8;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-surface-variant);
+      scrollbar-border-radius: 10px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    body::before {
+      content: '';
+      display: block;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    [data-theme="dark"] {
+      --md-sys-color-primary: #90CAF9;           
+      --md-sys-color-on-primary: #0D47A1;       
+      --md-sys-color-primary-container: #0D47A1;
+      --md-sys-color-on-primary-container: #E3F2FD;
+      --md-sys-color-secondary: #C2C7D9;
+      --md-sys-color-on-secondary: #262A3A;
+      --md-sys-color-secondary-container: #3D4254;
+      --md-sys-color-on-secondary-container: #D8E2F0;
+      --md-sys-color-tertiary: #D0BCFF;
+      --md-sys-color-on-tertiary: #352A48;
+      --md-sys-color-tertiary-container: #4D4162;
+      --md-sys-color-on-tertiary-container: #EBDFF7;
+      --md-sys-color-error: #F2B8B5;
+      --md-sys-color-error-container: #93000A;
+      --md-sys-color-on-error: #601410;
+      --md-sys-color-on-error-container: #FFDAD6;
+      --md-sys-color-background: #1C1B1F;
+      --md-sys-color-on-background: #E6E1E5;
+      --md-sys-color-surface: #1C1B1F;
+      --md-sys-color-on-surface: #E6E1E5;
+      --md-sys-color-surface-variant: #49454F;
+      --md-sys-color-on-surface-variant: #CAC4CF;
+      --md-sys-color-outline: #938F99;
+      --md-sys-color-inverse-on-surface: #1C1B1F;
+      --md-sys-color-inverse-surface: #E6E1E5;
+      --md-sys-color-inverse-primary: #2196F3;
+      --md-sys-color-shadow: rgba(0, 0, 0, 0.3);
+      --md-sys-color-surface-tint: #90CAF9;
+      --md-sys-color-outline-variant: #49454F;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInCard {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      60% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes slideOutCard {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      40% {
+        opacity: 0.8;
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+    }
+
+    @keyframes fadeInTopBar {
+      from {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes fadeOutTopBar {
+      from {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      to {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(33, 150, 243, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10% { transform: rotate(-10deg); }
+      20% { transform: rotate(10deg); }
+      30% { transform: rotate(-10deg); }
+      40% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      60% { transform: rotate(10deg); }
+      70% { transform: rotate(-10deg); }
+      80% { transform: rotate(10deg); }
+      90% { transform: rotate(-10deg); }
+    }
+
+    @keyframes ring {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .slide-up {
+      animation: slideUp 0.4s ease forwards;
+    }
+
+    .background-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .shape:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      background: var(--md-sys-color-primary);
+      top: 10%;
+      left: 10%;
+      animation-duration: 30s;
+    }
+
+    .shape:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      background: var(--md-sys-color-tertiary);
+      top: 70%;
+      left: 80%;
+      animation-duration: 25s;
+      animation-delay: 2s;
+    }
+
+    .shape:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      background: var(--md-sys-color-secondary);
+      top: 40%;
+      left: 70%;
+      animation-duration: 35s;
+      animation-delay: 5s;
+    }
+
+    .shape:nth-child(4) {
+      width: 250px;
+      height: 250px;
+      background: var(--md-sys-color-primary-container);
+      top: 60%;
+      left: 20%;
+      animation-duration: 40s;
+      animation-delay: 1s;
+    }
+
+    .shape:nth-child(5) {
+      width: 120px;
+      height: 120px;
+      background: var(--md-sys-color-tertiary-container);
+      top: 20%;
+      left: 60%;
+      animation-duration: 28s;
+      animation-delay: 3s;
+    }
+
+    .shape:nth-child(6) {
+      width: 180px;
+      height: 180px;
+      background: var(--md-sys-color-secondary-container);
+      top: 80%;
+      left: 40%;
+      animation-duration: 32s;
+      animation-delay: 4s;
+    }
+
+    .spiral {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 4px solid var(--md-sys-color-outline);
+      border-radius: 50%;
+      opacity: 0.05;
+      animation: rotate 40s linear infinite;
+    }
+
+    .spiral:nth-child(7) {
+      top: 15%;
+      left: 15%;
+      width: 200px;
+      height: 200px;
+      animation-duration: 60s;
+    }
+
+    .spiral:nth-child(8) {
+      top: 65%;
+      left: 65%;
+      width: 250px;
+      height: 250px;
+      animation-duration: 80s;
+      animation-direction: reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(20px) rotate(-5deg); }
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--md-sys-color-surface);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: var(--md-sys-elevation-level2);
+      height: 64px;
+      animation: fadeInDown 0.5s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .icon-button {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-button:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+      transform: scale(1.1);
+    }
+
+    .icon-button:active {
+      transform: scale(0.95);
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .icon-button .material-icons {
+      font-size: 1.2rem;
+      z-index: 1;
+    }
+
+    .icon-button.ripple {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-button.ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .icon-button.ripple:active::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    [data-theme="dark"] .icon-button:hover {
+      background-color: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-primary);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 5rem 1rem 2rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      min-height: calc(100vh - 64px);
+    }
+
+    .tools-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+
+    .tools-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--md-sys-color-primary);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .tools-subtitle {
+      font-size: 1.2rem;
+      color: var(--md-sys-color-on-surface-variant);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tools-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .tools-category {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .category-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+    }
+
+    .category-icon .material-icons {
+      font-size: 1.8rem;
+    }
+
+    .category-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .category-divider {
+      height: 2px;
+      background: linear-gradient(90deg, var(--md-sys-color-primary), transparent);
+      margin: 0 0 1.5rem 0;
+      border-radius: 1px;
+    }
+
+    .tools-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background-color: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--md-sys-elevation-level1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+      animation-fill-mode: forwards;
+    }
+
+    .tool-card.show {
+      animation-name: slideInCard;
+    }
+
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+      border-radius: 4px 4px 0 0;
+      opacity: 0;
+      animation: fadeInTopBar 0.8s ease 0.3s forwards;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: var(--md-sys-elevation-level4);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .tool-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .tool-icon .material-icons {
+      font-size: 2rem;
+    }
+
+    .tool-name {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-version {
+      display: inline-block;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .tool-description {
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .tool-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tool-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .tool-detail .material-icons {
+      font-size: 0.9rem;
+    }
+
+    .tool-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .favorite-button {
+      background: none;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .favorite-button:hover {
+      background-color: var(--md-sys-color-surface-variant);
+      transform: scale(1.1);
+    }
+
+    .favorite-button.active {
+      color: var(--md-sys-color-error);
+      border-color: var(--md-sys-color-error);
+    }
+
+    .favorite-button.active:hover {
+      background-color: rgba(186, 26, 26, 0.1);
+    }
+
+    .favorite-button .material-icons {
+      font-size: 1.2rem;
+    }
+
+    .download-button {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border: none;
+      border-radius: 16px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--md-sys-elevation-level2);
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-button:hover {
+      background-color: #1976D2;
+      transform: translateY(-2px);
+      box-shadow: var(--md-sys-elevation-level3);
+    }
+
+    .download-button:active {
+      transform: translateY(0);
+      box-shadow: var(--md-sys-elevation-level1);
+    }
+
+    .download-button .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .loading.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .loading .material-icons {
+      font-size: 2rem;
+      color: var(--md-sys-color-primary);
+      animation: spin 1.5s linear infinite;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .no-results .material-icons {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--md-sys-color-primary);
+    }
+
+    .no-results h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .back-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: none;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 2rem;
+    }
+
+    .back-button:hover {
+      background-color: var(--md-sys-color-surface-variant);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background-color: var(--md-sys-color-surface);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow: hidden;
+      box-shadow: var(--md-sys-elevation-level5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay.active .modal {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+    }
+
+    .modal-close:hover {
+      background-color: var(--md-sys-color-surface-variant);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .modal-tab {
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .modal-tab.active {
+      color: var(--md-sys-color-primary);
+      border-bottom-color: var(--md-sys-color-primary);
+    }
+
+    .modal-tab-content {
+      display: none;
+    }
+
+    .modal-tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-section {
+      margin-bottom: 1.5rem;
+      background-color: var(--md-sys-color-surface);
+      border-radius: 16px;
+      padding: 1.25rem;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      box-shadow: var(--md-sys-elevation-level1);
+      transition: all 0.3s ease;
+    }
+
+    .modal-section:hover {
+      box-shadow: var(--md-sys-elevation-level3);
+      transform: translateY(-2px);
+    }
+
+    .modal-section-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .modal-section-title .material-icons {
+      font-size: 1.2rem;
+      color: var(--md-sys-color-primary);
+    }
+
+    .modal-list {
+      list-style: none;
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .modal-list li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .modal-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--md-sys-color-primary);
+    }
+
+    .modal-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .modal-button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-button .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.7);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+    }
+
+    .modal-button-secondary {
+      background-color: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .modal-button-secondary:hover {
+      background-color: var(--md-sys-color-outline-variant);
+    }
+
+    .modal-button-primary {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .modal-button-primary:hover {
+      background-color: #1976D2;
+    }
+
+    .info-card {
+      background-color: var(--md-sys-color-primary-container);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--md-sys-color-primary);
+    }
+
+    .info-card-title {
+      font-weight: 500;
+      color: var(--md-sys-color-primary);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card-title .material-icons {
+      font-size: 1rem;
+    }
+
+    .info-card-content {
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-card-description {
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--md-sys-color-secondary);
+    }
+
+    .info-card-description-title {
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card-description-content {
+      color: var(--md-sys-color-on-surface-variant);
+      line-height: 1.5;
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--md-sys-color-surface);
+      border-radius: 8px;
+      box-shadow: var(--md-sys-elevation-level4);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 500;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      max-width: 350px;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-icon {
+      color: var(--md-sys-color-primary);
+      font-size: 1.5rem;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .notification-message {
+      font-size: 0.9rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+    }
+
+    .unavailable-message {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-error);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .request-button {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .request-button:hover {
+      background-color: #1976D2;
+    }
+
+    .tutorial-content {
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 8px;
+      padding: 1rem;
+      white-space: pre-line;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .tutorial-step {
+      background-color: var(--md-sys-color-surface);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--md-sys-color-primary);
+      box-shadow: var(--md-sys-elevation-level1);
+    }
+
+    .tutorial-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--md-sys-color-primary);
+    }
+
+    .tutorial-step-content {
+      color: var(--md-sys-color-on-surface-variant);
+      line-height: 1.5;
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border-left: 3px solid var(--md-sys-color-secondary);
+    }
+
+    .tutorial-code {
+      background-color: var(--md-sys-color-surface-variant);
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--md-sys-color-on-surface);
+      overflow-x: auto;
+    }
+
+    .tutorial-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .tutorial-tab {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background-color: var(--md-sys-color-surface-variant);
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .tutorial-tab.active {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--md-sys-color-outline);
+      border-radius: 8px;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    @media (max-width: 768px) {
+      .tools-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .modal {
+        max-width: 100%;
+        border-radius: 16px;
+      }
+      
+      .modal-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .modal-section {
+        padding: 0.75rem;
+      }
+      
+      .tools-title {
+        font-size: 2rem;
+      }
+      
+      .category-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="spiral"></div>
+    <div class="spiral"></div>
+  </div>
+
+  <div class="toolbar">
+    <div class="logo">
+      <span class="material-icons">build_circle</span>
+      <h1>Ferramentas</h1>
+    </div>
+    <div class="toolbar-actions">
+      <button class="icon-button" id="romsButton" aria-label="ROMs" title="ROMs">
+        <span class="material-icons">android</span>
+      </button>
+      <button class="icon-button" id="recoverysButton" aria-label="Recoverys" title="Recoverys">
+        <span class="material-icons">settings_backup_restore</span>
+      </button>
+      <button class="icon-button" id="rootsButton" aria-label="Roots" title="Roots">
+        <span class="material-icons">security</span>
+      </button>
+      <button class="icon-button" id="gappsButton" aria-label="GApps" title="GApps">
+        <span class="material-icons">apps</span>
+      </button>
+      <button class="icon-button" id="themeToggle" aria-label="Alternar tema">
+        <span class="material-icons">dark_mode</span>
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <button class="back-button" id="backButton">
+      <span class="material-icons">arrow_back</span>
+      Voltar
+    </button>
+    
+    <div class="tools-header">
+      <h1 class="tools-title">Ferramentas para seu dispositivo!</h1>
+      <p class="tools-subtitle">Explore diversas ferramentas para maximizar o potencial do seu celular, desde otimização de sistema até personalização avançada.</p>
+    </div>
+    
+    <div class="loading" id="loading">
+      <span class="material-icons">refresh</span>
+      <p>Carregando ferramentas...</p>
+    </div>
+    
+    <div class="tools-container" id="toolsContainer">
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Informações da Ferramenta</h3>
+        <button class="modal-close" id="modalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-tabs" id="modalTabs">
+          <div class="modal-tab active" data-tab="details">Detalhes</div>
+          <div class="modal-tab" data-tab="tutorial">Tutorial</div>
+        </div>
+        
+        <div class="modal-tab-content active" id="details-tab">
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">build</span>
+                Versão
+              </div>
+              <div class="info-card-content" id="toolVersion">
+                1.0.0
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">person</span>
+                Desenvolvedor
+              </div>
+              <div class="info-card-content" id="toolDeveloper">
+                Riq:)
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">update</span>
+                Última Atualização
+              </div>
+              <div class="info-card-content" id="toolLastUpdate">
+                01 de Outubro
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <div class="info-card-title">
+                <span class="material-icons">sd_card</span>
+                Tamanho
+              </div>
+              <div class="info-card-content" id="toolSize">
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card-description">
+            <div class="info-card-description-title">
+              <span class="material-icons">description</span>
+              Descrição
+            </div>
+            <div class="info-card-description-content" id="toolDescription">
+            </div>
+          </div>
+          
+          <div class="modal-section" id="changelogSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">history</span>
+              Registro de Mudanças
+            </h4>
+            <ul class="modal-list" id="changelog">
+            </ul>
+          </div>
+          
+          <div class="modal-section" id="knownIssuesSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">error_outline</span>
+              Problemas Conhecidos
+            </h4>
+            <ul class="modal-list" id="knownIssues">
+            </ul>
+          </div>
+          
+          <div class="modal-section" id="notesSection">
+            <h4 class="modal-section-title">
+              <span class="material-icons">sticky_note_2</span>
+              Notas
+            </h4>
+            <ul class="modal-list" id="notes">
+            </ul>
+          </div>
+        </div>
+        
+        <div class="modal-tab-content" id="tutorial-tab">
+          <div class="modal-section">
+            <h4 class="modal-section-title">
+              <span class="material-icons">school</span>
+              Tutorial de Uso
+            </h4>
+            <div class="tutorial-tabs" id="tutorialTabs">
+            </div>
+            <div class="tutorial-content" id="tutorialContent">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-secondary" id="cancelButton">
+          <span class="material-icons">close</span>
+          Cancelar
+        </button>
+        <button class="modal-button modal-button-primary" id="confirmButton">
+          <span class="material-icons">download</span>
+          Baixar Ferramenta
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="requestModalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Solicitar Versão</h3>
+        <button class="modal-close" id="requestModalClose">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="requestForm">
+          <div class="form-group">
+            <label class="form-label" for="requestName">Seu Nome (Opcional)</label>
+            <input type="text" class="form-input" id="requestName" placeholder="Deixe em branco para enviar anonimamente">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="requestEmail">Seu E-mail (Opcional)</label>
+            <input type="email" class="form-input" id="requestEmail" placeholder="Para receber notificações sobre o andamento">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="requestMessage">Mensagem (Opcional)</label>
+            <textarea class="form-textarea" id="requestMessage" placeholder="Alguma informação adicional que você gostaria de compartilhar"></textarea>
+          </div>
+          
+          <input type="hidden" id="requestTool" name="tool">
+          <input type="hidden" id="requestPlatform" name="platform">
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="modal-button modal-button-secondary" id="requestCancelButton">
+          <span class="material-icons">close</span>
+          Cancelar
+        </button>
+        <button class="modal-button modal-button-primary" id="requestSubmitButton">
+          <span class="material-icons">send</span>
+          Enviar Solicitação
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">
+    <span class="material-icons notification-icon">check_circle</span>
+    <div class="notification-content">
+      <div class="notification-title">Sucesso</div>
+      <div class="notification-message">Operação concluída com sucesso!</div>
+    </div>
+    <button class="notification-close">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <script src="tools-data.js"></script>
+  
+  <script>
+    const toolsContainer = document.getElementById('toolsContainer');
+    const loading = document.getElementById('loading');
+    const backButton = document.getElementById('backButton');
+    const themeToggle = document.getElementById('themeToggle');
+    const romsButton = document.getElementById('romsButton');
+    const recoverysButton = document.getElementById('recoverysButton');
+    const rootsButton = document.getElementById('rootsButton');
+    const gappsButton = document.getElementById('gappsButton');
+    const notification = document.getElementById('notification');
+    
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalTabs = document.querySelectorAll('.modal-tab');
+    const modalTabContents = document.querySelectorAll('.modal-tab-content');
+    const cancelButton = document.getElementById('cancelButton');
+    const confirmButton = document.getElementById('confirmButton');
+    const tutorialTabs = document.getElementById('tutorialTabs');
+    const tutorialContent = document.getElementById('tutorialContent');
+    
+    const requestModalOverlay = document.getElementById('requestModalOverlay');
+    const requestModalClose = document.getElementById('requestModalClose');
+    const requestCancelButton = document.getElementById('requestCancelButton');
+    const requestSubmitButton = document.getElementById('requestSubmitButton');
+    const requestForm = document.getElementById('requestForm');
+    const requestTool = document.getElementById('requestTool');
+    const requestPlatform = document.getElementById('requestPlatform');
+    
+    let settings = {
+      theme: 'light',
+      primaryColor: '#2196F3',
+      animationsEnabled: true,
+      notificationsEnabled: true,
+      lastUpdateSeen: null
+    };
+
+    let currentTool = null;
+    let allTools = [];
+    let favorites = [];
+    let currentDevice = '';
+    let currentPlatform = '';
+
+    function initializeApp() {
+      loadSettings();
+      loadFavorites();
+      setupEventListeners();
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      currentDevice = urlParams.get('device') || 'motog34';
+      
+      loadTools();
+    }
+
+    function setupEventListeners() {
+      backButton.addEventListener('click', function() {
+        window.location.href = 'index.html';
+      });
+
+      themeToggle.addEventListener('click', toggleTheme);
+
+      romsButton.addEventListener('click', function() {
+        window.location.href = `roms.html?device=${currentDevice}`;
+      });
+
+      recoverysButton.addEventListener('click', function() {
+        window.location.href = `recovery.html?device=${currentDevice}`;
+      });
+
+      rootsButton.addEventListener('click', function() {
+        window.location.href = `roots.html?device=${currentDevice}`;
+      });
+
+      gappsButton.addEventListener('click', function() {
+        window.location.href = `gapps.html?device=${currentDevice}`;
+      });
+
+      notification.querySelector('.notification-close').addEventListener('click', function() {
+        notification.classList.remove('show');
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      cancelButton.addEventListener('click', closeModal);
+      confirmButton.addEventListener('click', downloadTool);
+      
+      requestModalClose.addEventListener('click', closeRequestModal);
+      requestCancelButton.addEventListener('click', closeRequestModal);
+      requestSubmitButton.addEventListener('click', submitRequest);
+      
+      modalTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const tabName = this.getAttribute('data-tab');
+          switchTab(tabName);
+        });
+      });
+      
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+      
+      requestModalOverlay.addEventListener('click', function(e) {
+        if (e.target === requestModalOverlay) {
+          closeRequestModal();
+        }
+      });
+
+      document.querySelectorAll('.icon-button, .modal-button, .download-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          ripple.classList.add('ripple');
+          
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.width = ripple.style.height = size + 'px';
+          ripple.style.left = x + 'px';
+          ripple.style.top = y + 'px';
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+    }
+
+    function loadTools() {
+      loading.classList.add('show');
+      toolsContainer.innerHTML = '';
+      
+      setTimeout(() => {
+        loading.classList.remove('show');
+        
+        allTools = getToolsByDevice(currentDevice);
+        
+        if (allTools.length === 0) {
+          toolsContainer.innerHTML = `
+            <div class="no-results">
+              <span class="material-icons">search_off</span>
+              <h3>Nenhuma ferramenta encontrada</h3>
+              <p>Não há ferramentas disponíveis para este dispositivo no momento.</p>
+            </div>
+          `;
+        } else {
+          displayTools();
+        }
+      }, 300);
+    }
+
+    function displayTools() {
+      toolsContainer.innerHTML = '';
+      
+      const categories = {};
+      
+      allTools.forEach(tool => {
+        if (!categories[tool.category]) {
+          categories[tool.category] = {
+            name: tool.category,
+            icon: tool.categoryIcon,
+            tools: []
+          };
+        }
+        categories[tool.category].tools.push(tool);
+      });
+      
+      Object.values(categories).forEach((category, categoryIndex) => {
+        const categorySection = document.createElement('div');
+        categorySection.className = 'tools-category';
+        categorySection.style.animationDelay = `${categoryIndex * 0.2}s`;
+        
+        categorySection.innerHTML = `
+          <div class="category-header">
+            <div class="category-icon">
+              <span class="material-icons">${category.icon}</span>
+            </div>
+            <h2 class="category-title">${category.name}</h2>
+          </div>
+          <div class="category-divider"></div>
+          <div class="tools-cards" id="category-${categoryIndex}">
+          </div>
+        `;
+        
+        toolsContainer.appendChild(categorySection);
+        
+        const toolsCards = document.getElementById(`category-${categoryIndex}`);
+        
+        category.tools.forEach((tool, toolIndex) => {
+          const toolCard = createToolCard(tool, toolIndex);
+          toolsCards.appendChild(toolCard);
+        });
+      });
+    }
+
+    function createToolCard(tool, index) {
+      const toolCard = document.createElement('div');
+      toolCard.className = 'tool-card';
+      
+      const isFavorite = favorites.some(fav => fav.name === tool.name && fav.developer === tool.developer);
+      
+      toolCard.innerHTML = `
+        <div class="tool-icon">
+          <span class="material-icons">code</span>
+        </div>
+        <h3 class="tool-name">${tool.name}</h3>
+        <span class="tool-version">1.0.0</span>
+        <p class="tool-description">${tool.description}</p>
+        <div class="tool-details">
+          <div class="tool-detail">
+            <span class="material-icons">sd_card</span>
+            <span>${tool.size}</span>
+          </div>
+          <div class="tool-detail">
+            <span class="material-icons">calendar_today</span>
+            <span>01 de Outubro</span>
+          </div>
+          <div class="tool-detail">
+            <span class="material-icons">person</span>
+            <span>Riq:)</span>
+          </div>
+        </div>
+        <div class="tool-actions">
+          <button class="favorite-button ${isFavorite ? 'active' : ''}" data-tool-name="${tool.name}" data-tool-dev="${tool.developer}">
+            <span class="material-icons">${isFavorite ? 'favorite' : 'favorite_border'}</span>
+          </button>
+          <button class="download-button" data-tool-index="${index}">
+            <span class="material-icons">download</span>
+            Download
+          </button>
+        </div>
+      `;
+      
+      setTimeout(() => {
+        toolCard.classList.add('show');
+      }, index * 100);
+      
+      const favoriteButton = toolCard.querySelector('.favorite-button');
+      favoriteButton.addEventListener('click', function() {
+        const toolName = this.getAttribute('data-tool-name');
+        const toolDev = this.getAttribute('data-tool-dev');
+        toggleFavorite(toolName, toolDev, this);
+      });
+      
+      toolCard.querySelector('.download-button').addEventListener('click', function() {
+        const toolIndex = this.getAttribute('data-tool-index');
+        const selectedTool = allTools.find(t => t.name === tool.name && t.developer === tool.developer);
+        showToolDetails(selectedTool);
+      });
+      
+      return toolCard;
+    }
+
+    function toggleFavorite(toolName, toolDev, buttonElement) {
+      const index = favorites.findIndex(fav => fav.name === toolName && fav.developer === toolDev);
+      
+      if (index === -1) {
+        const tool = allTools.find(t => t.name === toolName && t.developer === toolDev);
+        if (tool) {
+          favorites.push({
+            name: tool.name,
+            developer: tool.developer,
+            version: tool.version,
+            description: tool.description,
+            size: tool.size,
+            date: tool.date,
+            lastUpdate: tool.lastUpdate,
+            url: tool.url,
+            downloads: tool.downloads,
+            supportedSystems: tool.supportedSystems,
+            details: tool.details,
+            source: tool.source,
+            icon: tool.icon,
+            category: tool.category,
+            categoryIcon: tool.categoryIcon,
+            tutorial: tool.tutorial,
+            unavailable: tool.unavailable
+          });
+          showNotification('Adicionado aos Favoritos', `${toolName} foi adicionado aos seus favoritos.`);
+          
+          buttonElement.classList.add('active');
+          buttonElement.querySelector('.material-icons').textContent = 'favorite';
+        }
+      } else {
+        favorites.splice(index, 1);
+        showNotification('Removido dos Favoritos', `${toolName} foi removido dos seus favoritos.`);
+        
+        buttonElement.classList.remove('active');
+        buttonElement.querySelector('.material-icons').textContent = 'favorite_border';
+      }
+      
+      saveFavorites();
+    }
+
+    function showToolDetails(tool) {
+      currentTool = tool;
+      
+      modalTitle.textContent = tool.name;
+      
+      document.getElementById('toolVersion').textContent = '1.0.0';
+      document.getElementById('toolDeveloper').textContent = 'Riq:)';
+      document.getElementById('toolLastUpdate').textContent = '01 de Outubro';
+      document.getElementById('toolSize').textContent = tool.size;
+      document.getElementById('toolDescription').textContent = tool.details.description;
+      
+      const changelogHtml = tool.details.changelog.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('changelog').innerHTML = changelogHtml || '<li>Nenhuma alteração recente</li>';
+      
+      document.getElementById('changelogSection').style.display = tool.details.changelog.length > 0 ? 'block' : 'none';
+      
+      const issuesHtml = tool.details.knownIssues.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('knownIssues').innerHTML = issuesHtml || '<li>Nenhum problema conhecido</li>';
+      
+      document.getElementById('knownIssuesSection').style.display = tool.details.knownIssues.length > 0 ? 'block' : 'none';
+      
+      const notesHtml = tool.details.notes.map(item => `<li>${item}</li>`).join('');
+      document.getElementById('notes').innerHTML = notesHtml || '<li>Nenhuma nota adicional</li>';
+      
+      document.getElementById('notesSection').style.display = tool.details.notes.length > 0 ? 'block' : 'none';
+      
+      setupTutorialTabs(tool);
+      
+      modalOverlay.classList.add('active');
+    }
+
+    function setupTutorialTabs(tool) {
+      tutorialTabs.innerHTML = '';
+      
+      tool.supportedSystems.forEach(system => {
+        const tab = document.createElement('div');
+        tab.className = 'tutorial-tab';
+        tab.setAttribute('data-tutorial', system);
+        tab.textContent = system;
+        
+        if (system === tool.supportedSystems[0]) {
+          tab.classList.add('active');
+          showTutorialContent(tool, system);
+        }
+        
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('[data-tutorial]').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          showTutorialContent(tool, system);
+        });
+        
+        tutorialTabs.appendChild(tab);
+      });
+    }
+
+    function showTutorialContent(tool, system) {
+      currentPlatform = system;
+      
+      if (tool.unavailable && tool.unavailable.includes(system)) {
+        tutorialContent.innerHTML = `
+          <div class="unavailable-message">
+            <span class="material-icons">error</span>
+            <span>Este script ainda não tem uma versão para ${system}! :( Se quiser, solicite uma versão aqui embaixo!</span>
+          </div>
+          <button class="request-button" id="requestVersionButton">
+            <span class="material-icons">send</span>
+            Solicitar Versão
+          </button>
+        `;
+        
+        document.getElementById('requestVersionButton').addEventListener('click', function() {
+          openRequestModal(tool, system);
+        });
+      } else {
+        const tutorialText = tool.tutorial[system];
+        const steps = parseTutorialSteps(tutorialText);
+        
+        let tutorialHtml = '';
+        steps.forEach((step, index) => {
+          tutorialHtml += `
+            <div class="tutorial-step">
+              <div class="tutorial-step-header">
+                <span class="material-icons">looks_one</span>
+                <span>Passo ${index + 1}</span>
+              </div>
+              <div class="tutorial-step-content">${step.content}</div>
+              ${step.code ? `<div class="tutorial-code">${step.code}</div>` : ''}
+            </div>
+          `;
+        });
+        
+        tutorialContent.innerHTML = tutorialHtml;
+      }
+    }
+
+    function parseTutorialSteps(tutorialText) {
+      const lines = tutorialText.split('\n');
+      const steps = [];
+      let currentStep = { content: '', code: '' };
+      let inCodeBlock = false;
+      
+      lines.forEach(line => {
+        if (line.startsWith('```')) {
+          inCodeBlock = !inCodeBlock;
+          if (!inCodeBlock && currentStep.code) {
+            steps.push({...currentStep});
+            currentStep = { content: '', code: '' };
+          }
+        } else if (inCodeBlock) {
+          currentStep.code += line + '\n';
+        } else if (line.trim() === '') {
+          if (currentStep.content) {
+            steps.push({...currentStep});
+            currentStep = { content: '', code: '' };
+          }
+        } else {
+          currentStep.content += line + '\n';
+        }
+      });
+      
+      if (currentStep.content || currentStep.code) {
+        steps.push(currentStep);
+      }
+      
+      return steps;
+    }
+
+    function openRequestModal(tool, system) {
+      requestTool.value = tool.name;
+      requestPlatform.value = system;
+      requestModalOverlay.classList.add('active');
+    }
+
+    function closeRequestModal() {
+      requestModalOverlay.classList.remove('active');
+      requestForm.reset();
+    }
+
+    function submitRequest() {
+      const name = document.getElementById('requestName').value;
+      const email = document.getElementById('requestEmail').value;
+      const message = document.getElementById('requestMessage').value;
+      const tool = requestTool.value;
+      const platform = requestPlatform.value;
+      
+      const formData = new FormData();
+      formData.append('nome', name || 'Anônimo');
+      formData.append('email', email || 'Não informado');
+      formData.append('mensagem', message || 'Sem mensagem adicional');
+      formData.append('ferramenta', tool);
+      formData.append('plataforma', platform);
+      formData.append('tipo', 'Solicitação de Versão');
+      
+      fetch('https://formspree.io/f/xnngvzbk', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          showNotification('Solicitação Enviada', 'Sua solicitação foi enviada com sucesso! Entraremos em contato em breve.');
+          closeRequestModal();
+        } else {
+          showNotification('Erro', 'Não foi possível enviar sua solicitação. Tente novamente.');
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting request:', error);
+        showNotification('Erro', 'Não foi possível enviar sua solicitação. Tente novamente.');
+      });
+    }
+
+    function switchTab(tabName) {
+      modalTabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      modalTabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+      document.getElementById(`${tabName}-tab`).classList.add('active');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      currentTool = null;
+    }
+
+    function downloadTool() {
+      if (!currentTool) return;
+      
+      if (currentTool.downloads && currentTool.downloads[currentPlatform]) {
+        window.open(currentTool.downloads[currentPlatform], '_blank');
+        closeModal();
+        
+        if (settings.notificationsEnabled) {
+          showNotification('Download Iniciado', `O download do ${currentTool.name} para ${currentPlatform} foi iniciado.`);
+        }
+        
+        trackDownload(currentTool.name);
+      }
+    }
+
+    function trackDownload(toolName) {
+      const formData = new FormData();
+      formData.append('dispositivo', navigator.userAgent);
+      formData.append('ferramenta', toolName);
+      formData.append('mensagem', 'Entrou!');
+      
+      fetch('https://formspree.io/f/xblzjvwn', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Download tracked:', data);
+      })
+      .catch(error => {
+        console.error('Error tracking download:', error);
+      });
+    }
+
+    function toggleTheme() {
+      settings.theme = settings.theme === 'light' ? 'dark' : 'light';
+      applyTheme();
+      saveSettings();
+      
+      localStorage.setItem('appTheme', settings.theme);
+    }
+
+    function applyTheme() {
+      if (settings.theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.innerHTML = '<span class="material-icons">light_mode</span>';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.innerHTML = '<span class="material-icons">dark_mode</span>';
+      }
+    }
+
+    function applyPrimaryColor() {
+      document.documentElement.style.setProperty('--md-sys-color-primary', settings.primaryColor);
+      
+      const r = parseInt(settings.primaryColor.slice(1, 3), 16);
+      const g = parseInt(settings.primaryColor.slice(3, 5), 16);
+      const b = parseInt(settings.primaryColor.slice(5, 7), 16);
+      
+      const containerColor = `rgba(${r}, ${g}, ${b}, 0.2)`;
+      document.documentElement.style.setProperty('--md-sys-color-primary-container', containerColor);
+    }
+
+    function showNotification(title, message) {
+      if (!settings.notificationsEnabled) return;
+      
+      const titleElement = notification.querySelector('.notification-title');
+      const messageElement = notification.querySelector('.notification-message');
+      
+      titleElement.textContent = title;
+      messageElement.textContent = message;
+      
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 5000);
+    }
+
+    function saveSettings() {
+      localStorage.setItem('toolsSettings', JSON.stringify(settings));
+    }
+
+    function loadSettings() {
+      const savedSettings = localStorage.getItem('toolsSettings');
+      if (savedSettings) {
+        settings = JSON.parse(savedSettings);
+      }
+      
+      const sharedTheme = localStorage.getItem('appTheme');
+      if (sharedTheme) {
+        settings.theme = sharedTheme;
+      }
+      
+      applyTheme();
+      applyPrimaryColor();
+    }
+
+    function saveFavorites() {
+      localStorage.setItem('toolsFavorites', JSON.stringify(favorites));
+    }
+
+    function loadFavorites() {
+      const savedFavorites = localStorage.getItem('toolsFavorites');
+      if (savedFavorites) {
+        favorites = JSON.parse(savedFavorites);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeApp);
+    
+    // Feito com carinho por Riq:)
+  </script>
+</body>
+</html>

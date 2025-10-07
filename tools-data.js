@@ -1,6 +1,3 @@
-# JavaScript (tools-data.js)
-
-```javascript
 function getToolsByDevice(device) {
   return [
     {
@@ -133,5 +130,3 @@ function getToolsByDevice(device) {
 }
 
 //feito com ♡ por Riq:)
-
-

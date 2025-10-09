@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROMs - Moto G34</title>
-  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" type="image/png" href="iconroms.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style>
@@ -2219,7 +2219,7 @@
       romCard.querySelector('.favorite-button').addEventListener('click', function() {
         const romName = this.getAttribute('data-rom-name');
         const romDev = this.getAttribute('data-rom-dev');
-        toggleFavorite(romName, romDev);
+        toggleFavorite(romName, romDev, this);
       });
       
       romCard.querySelector('.download-button').addEventListener('click', function() {
@@ -2232,8 +2232,8 @@
       return romCard;
     }
 
-    function toggleFavorite(romName, romDev) {
-      const index = favorites.findIndex(fav => fav.name === romName && fav.dev === romDev);
+    function toggleFavorite(romName, romDev, buttonElement) {
+      const index = favorites.findIndex(fav => fav.name === romName && fav.developer === romDev);
       
       if (index === -1) {
         const rom = allRoms.find(r => r.name === romName && r.developer === romDev);
@@ -2252,10 +2252,20 @@
             easterEgg: rom.easterEgg || false
           });
           showNotification('Adicionado aos Favoritos', `${romName} foi adicionada aos seus favoritos.`);
+          
+          if (buttonElement) {
+            buttonElement.classList.add('active');
+            buttonElement.querySelector('.material-icons').textContent = 'favorite';
+          }
         }
       } else {
         favorites.splice(index, 1);
         showNotification('Removido dos Favoritos', `${romName} foi removida dos seus favoritos.`);
+        
+        if (buttonElement) {
+          buttonElement.classList.remove('active');
+          buttonElement.querySelector('.material-icons').textContent = 'favorite_border';
+        }
       }
       
       saveFavorites();
@@ -2522,7 +2532,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
-  // Modificação no dia 26 pra roms
+    // Feito com ♡ por Riq:)
   </script>
 </body>
 </html>

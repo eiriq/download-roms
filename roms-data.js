@@ -22,44 +22,77 @@ const romsData = {
   motog34: [
     // ================================================================================
     // MODELOS PARA NOVAS ROMS (COMENTADOS - REMOVA /* */ PARA ATIVAR)
+    // ESTES MODELOS TÊM PRIORIDADE MÁXIMA PARA FACILITAR NOVAS ADIÇÕES
     // ================================================================================
     
-    // MODELO 3
+    // MODELO 1
+    /*
     {
-      name: "BreezeOS",
-      version: "Android 16",
-      description: "Versão oficial da GSI BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
-      size: "1,4 GB",
-      date: "07 de Outubro",
-      lastUpdate: "07 de Outubro", // Adicione aqui a última atualização
-      developer: "CottonCloudMod",
-      url: "https://drive.usercontent.google.com/download?id=14QA7RnI08WWiMdDcBk7NmYsZaXYixa-r&export=download&authuser=0",
+      name: "",
+      version: "",
+      description: "",
+      size: "",
+      date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
+      developer: "",
+      url: "",
       details: {
-        version: "Android 16",
-        dev: "CottonCloudMod",
-        description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
-        changelog: [
-   "Ativado o Zram Writeback",
-    "Desativadas transições de alto desempenho",
-    "Desativado papel de parede no AOD (Always On Display)",
-          "Ocultado o realce do sensor de impressão digital na tela de bloqueio",
-          "Corrigido o aplicativo Treble quebrado",
-          "Corrigida a tela de bloqueio com erro em alguns dispositivos"
-        ],
-        knownIssues: [
-          "Sem suporte para Kernel 4.x (somente 5.x e 6.x)",
-    "Não é compatível com Treble Droid",
-    "Esta é uma compilação experimental e pessoal, portanto não relate bugs"
-        ],
-        notes: [
-          "Baseada nas imagens Google QPR1 DSU",
-          "Construção experimental (uso pessoal)",
-          "Recursos e correções podem não ser estáveis",
-          "Recurso Zram Writeback habilitado"
-        ],
+        version: "",
+        dev: "",
+        description: "",
+        changelog: [],
+        knownIssues: [],
+        notes: []
       },
-      source: "https://t.me/MotoG34/498899"
+      source: ""
     },
+    */
+    
+    // MODELO 2
+    /*
+    {
+      name: "",
+      version: "",
+      description: "",
+      size: "",
+      date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
+      developer: "",
+      url: "",
+      details: {
+        version: "",
+        dev: "",
+        description: "",
+        changelog: [],
+        knownIssues: [],
+        notes: []
+      },
+      source: ""
+    },
+    */
+    
+    // MODELO 3
+    /*
+    {
+      name: "",
+      version: "",
+      description: "",
+      size: "",
+      date: "",
+      lastUpdate: "", // Adicione aqui a última atualização
+      developer: "",
+      url: "",
+      details: {
+        version: "",
+        dev: "",
+        description: "",
+        changelog: [],
+        knownIssues: [],
+        notes: []
+      },
+      source: ""
+    },
+    */
     
     // MODELO 4
     /*
@@ -152,81 +185,47 @@ const romsData = {
       source: ""
     },
     */
-    
-    // MODELO 8
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      lastUpdate: "", // Adicione aqui a última atualização
-      developer: "",
-      url: "",
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: ""
-    },
-    */
-    
-    // MODELO 9
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      lastUpdate: "", // Adicione aqui a última atualização
-      developer: "",
-      url: "",
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: ""
-    },
-    */
-    
-    // MODELO 10
-    /*
-    {
-      name: "",
-      version: "",
-      description: "",
-      size: "",
-      date: "",
-      lastUpdate: "", // Adicione aqui a última atualização
-      developer: "",
-      url: "",
-      details: {
-        version: "",
-        dev: "",
-        description: "",
-        changelog: [],
-        knownIssues: [],
-        notes: []
-      },
-      source: ""
-    },
-    */
-    
+
     // ================================================================================
-    // ROMS ATIVAS (NÃO ALTERE A ORDEM)
+    // ROMS DISPONÍVEIS (NÃO ALTERE A ORDEM DAS ROMS JÁ EXISTENTES)
     // ================================================================================
     
-    // MODELO 1
+    {
+      name: "BreezeOS",
+      version: "Android 16",
+      description: "Versão oficial da GSI BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
+      size: "1,4 GB",
+      date: "07 de Outubro",
+      lastUpdate: "07 de Outubro", // Adicione aqui a última atualização
+      developer: "CottonCloudMod",
+      url: "https://drive.usercontent.google.com/download?id=14QA7RnI08WWiMdDcBk7NmYsZaXYixa-r&export=download&authuser=0",
+      details: {
+        version: "Android 16",
+        dev: "CottonCloudMod",
+        description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
+        changelog: [
+   "Ativado o Zram Writeback",
+    "Desativadas transições de alto desempenho",
+    "Desativado papel de parede no AOD (Always On Display)",
+          "Ocultado o realce do sensor de impressão digital na tela de bloqueio",
+          "Corrigido o aplicativo Treble quebrado",
+          "Corrigida a tela de bloqueio com erro em alguns dispositivos"
+        ],
+        knownIssues: [
+          "Sem suporte para Kernel 4.x (somente 5.x e 6.x)",
+    "Não é compatível com Treble Droid",
+    "Esta é uma compilação experimental e pessoal, portanto não relate bugs"
+        ],
+        notes: [
+          "Baseada nas imagens Google QPR1 DSU",
+          "Construção experimental (uso pessoal)",
+          "Recursos e correções podem não ser estáveis",
+          "Recurso Zram Writeback habilitado"
+        ],
+      },
+      source: "https://t.me/MotoG34/498899"
+    },
+    
     {
       name: "crDroid (Não Oficial)",
       version: "Android 15",
@@ -247,7 +246,6 @@ const romsData = {
       source: "https://t.me/MotoG34/484673"
     },
     
-    // MODELO 2
     {
       name: "LMODroid",
       version: "Android 15",
@@ -267,10 +265,6 @@ const romsData = {
       },
       source: "https://t.me/MotoG34/500579"
     },
-    
-    // ================================================================================
-    // ROMS EXISTENTES (NÃO ALTERE NADA AQUI)
-    // ================================================================================
     
     {
       name: "LineageOS",
@@ -586,7 +580,3 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
-
-
-
-

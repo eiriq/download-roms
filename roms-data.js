@@ -252,8 +252,8 @@ const romsData = {
       name: "LMODroid",
       version: "Android 15",
       description: "Versão 6.2 oficial da LMDroid baseada no Android 15 QPR2",
-      size: "1.4GB",
-      date: "27/09/2025",
+      size: "1.29 GB",
+      date: "09/10/2025",
       lastUpdate: "09 de Outubro", // Adicione aqui a última atualização
       developer: "LibreMobileOS",
       url: "https://drive.google.com/uc?export=download&id=1UnvRZh_djlcO3IO4k6CSASJYOYaoUDk7",
@@ -586,6 +586,7 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 
 

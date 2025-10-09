@@ -251,21 +251,21 @@ const romsData = {
     {
       name: "LMODroid",
       version: "Android 15",
-      description: "Versão 6.2 oficial da LMDroid baseada no Android 15",
+      description: "Versão 6.2 oficial da LMDroid baseada no Android 15 QPR2",
       size: "1.4GB",
       date: "27/09/2025",
-      lastUpdate: "17 de Setembro", // Adicione aqui a última atualização
+      lastUpdate: "09 de Outubro", // Adicione aqui a última atualização
       developer: "LibreMobileOS",
-      url: "https://drive.google.com/file/d/1LuRFAUVBSNpf6kmepOkZhUcfDO75O8Uh/view?usp=sharing",
+      url: "https://drive.google.com/uc?export=download&id=1UnvRZh_djlcO3IO4k6CSASJYOYaoUDk7",
       details: {
         version: "Android 15",
         dev: "LibreMobileOS",
-        description: "Versão 6.2 oficial da LMDroid baseada no Android 15",
+        description: "Versão 6.2 oficial da LMDroid baseada no Android 15 QPR2",
         changelog: [],
         knownIssues: [],
         notes: []
       },
-      source: "https://t.me/MotoG34/488271"
+      source: "https://t.me/MotoG34/500579"
     },
     
     // ================================================================================
@@ -586,5 +586,6 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 

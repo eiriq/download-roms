@@ -268,22 +268,22 @@ const romsData = {
     
     {
       name: "LineageOS",
-      version: "Android 15",
+      version: "Android 16",
       description: "Versão oficial da LineageOS, estável e com suporte contínuo.",
-      size: "1.2 GB",
-      date: "15/05/2025",
-      lastUpdate: "13 de setembro", // Adicionando a última atualização
+      size: "1.1 GB",
+      date: "13/10/2025",
+      lastUpdate: "10 de Outubro", // Adicionando a última atualização
       developer: "LineageOS Team",
-      url: "https://drive.google.com/uc?export=download&id=1Y0hCeOZdxHoVgW1IQ3Ds_hzq6V8moIG0",
+      url: "https://drive.google.com/uc?export=download&id=1t4XUf1SYAoB_2hEKR7isXwUTU435K8qk",
       details: {
-        version: "Android 15",
+        version: "Android 16",
         dev: "LineageOS Team",
         description: "Versão oficial da LineageOS",
         changelog: [],
         knownIssues: [],
         notes: []
       },
-      source: "https://t.me/MotoG34/471177"
+      source: "https://t.me/MotoG34/503517"
     },
     
     {
@@ -580,3 +580,4 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+

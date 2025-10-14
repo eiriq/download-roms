@@ -289,25 +289,25 @@ const romsData = {
     {
       name: "LunarisOS",
       version: "Android 16",
-      description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
-      size: "2.06 GB",
-      date: "28/09/2025",
-      lastUpdate: "29 de setembro", // Adicionando a última atualização
+      description: "Versão 3.4 oficial da ROM Lunaris para a nova versão 16 do Android!",
+      size: "2.3 GB",
+      date: "14/10/2025",
+      lastUpdate: "14 de Outubro", // Adicionando a última atualização
       developer: "JNW_SG",
-      url: "https://drive.google.com/uc?export=download&id=1orrvcw9dwzqIEYWInjtxW_K2PRvMGVjE",
+      url: "https://drive.google.com/uc?export=download&id=1LRrU3SAxEvcd7TBY1JWgKnEHLlSfBgnn",
       details: {
         version: "Android 16",
         dev: "JNW_SG",
-        description: "Versão oficial da ROM Lunaris para a nova versão 16 do Android!",
+        description: "Versão 3.4 oficial da ROM Lunaris para a nova versão 16 do Android!",
         changelog: [
-          "Alteração  do estilo do texto do alerta para corresponder ao relógio",
-          "Otimização do ABSLISTVIEW para reduzir a latência da operação de clique",
-          "Sincronizar com as alterações da linhagem 23.0"
+          "Sincronização da fonte da ROM mais recente",
+          "Problema com o microfone das chamadas do WhatsApp corrigido",
+          "Jitter e lag corrigidos além de Kernel atualizado para a versão 5.4.300"
         ],
         knownIssues: [],
         notes: []
       },
-      source: "https://t.me/MotoG34/490876"
+      source: "https://t.me/MotoG34/507486"
     },
     
     {
@@ -580,4 +580,5 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 

@@ -314,35 +314,25 @@ const romsData = {
       name: "LineageOS (Não Oficial)",
       version: "Android 15",
       description: "Versão não oficial do LineageOS com ajustes e melhorias.",
-      size: "1.2 GB",
-      date: "10/07/2025",
-      lastUpdate: "20 de setembro", // Adicionando a última atualização
+      size: "1.5 GB",
+      date: "18/10/2025",
+      lastUpdate: "18 de Outubro", // Adicionando a última atualização
       developer: "Irawansalt",
-      url: "https://drive.google.com/uc?export=download&id=17lYOIeu77sjOtVwEBqFJgvl-crEqv3OP",
+      url: "https://drive.google.com/uc?export=download&id=1EASjUpwAdSTJjftC-dFQOWoWZ4Fltkgx",
       details: {
         version: "Android 15",
         dev: "Irawansalt",
         description: "Versão não oficial da ROM LineageOS (LOS), desenvolvida por Irawansalt",
         changelog: [
-          "Corrigido volume ficando no máximo mesmo no nível mais baixo durante chamadas VoIP",
-          "Corrigido problema de ausência de som ao mudar para o alto-falante durante chamadas VoIP",
-          "Corrigido problema no microfone durante chamadas",
-          "Corrigido estalo/ruído em alguns jogos",
-          "Corrigido problema de desligamento automático da tela durante sessões de jogos ou em altas temperaturas"
+          "Patch de segurança de outubro",
+          "Migração para a libperfmgr comum",
+          "Kernel upstream 5.4.300"
         ],
-        knownIssues: [
-          "O Auto HDR no MotoCamera às vezes causa travamentos; solução alternativa: desativar o HDR"
-        ],
+        knownIssues: [],
         notes: [
-          "Baseado em OSS",
-          "GApps incluídos",
-          "Build assinada e usuário",
-          "SELinux: Enforcing (modo restritivo)",
-          "Play Integrity: Fail (Leia aqui: link)",
-          "Dolby Atmos e MotoCamera incluídos"
         ]
       },
-      source: "https://t.me/MotoG34/480142"
+      source: "https://t.me/MotoG34/515512"
     },
     
     {
@@ -580,3 +570,4 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+

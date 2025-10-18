@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionamento - Downloads Fast</title>
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #FF1B2D;
+      --secondary-color: #722ED1;
+      --accent-color: #00D9FF;
+      --dark-bg: #0A0E1A;
+      --card-bg: rgba(20, 20, 35, 0.8);
+      --text-light: #FFFFFF;
+      --text-secondary: #B0B0B0;
+      --neon-blue: #00D9FF;
+      --neon-pink: #FF1B2D;
+      --neon-purple: #722ED1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rajdhani', 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(114, 46, 209, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(0, 217, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 27, 45, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(20, 20, 35, 0.5);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--neon-blue), var(--neon-pink));
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      box-shadow: 0 0 15px rgba(255, 27, 45, 0.7);
+    }
+
+    .page-title {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    .page-title h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 10px var(--primary-color);
+    }
+
+    .page-title .material-icons {
+      font-size: 2rem;
+      color: var(--primary-color);
+      filter: drop-shadow(0 0 10px var(--primary-color));
+    }
+
+    .theme-picker {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .theme-picker:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .theme-options {
+      position: fixed;
+      top: 75px;
+      right: 20px;
+      background: rgba(20, 20, 35, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 99;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .theme-options.active {
+      display: flex;
+    }
+
+    .theme-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .theme-option:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .theme-default .theme-color {
+      background: #FF1B2D;
+    }
+
+    .theme-red .theme-color {
+      background: #FF1B2D;
+    }
+
+    .theme-blue .theme-color {
+      background: #0066FF;
+    }
+
+    .theme-green .theme-color {
+      background: #00C853;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      max-width: 800px;
+      width: 100%;
+      min-height: 100vh;
+      z-index: 1;
+    }
+
+    .redirect-container {
+      background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(30, 30, 50, 0.9));
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+      animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .redirect-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+      border-radius: 4px 4px 0 0;
+    }
+
+    .redirect-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    }
+
+    .redirect-icon {
+      font-size: 4rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 20px var(--primary-color));
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px var(--primary-color));
+      }
+      50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 30px var(--primary-color));
+      }
+    }
+
+    .redirect-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+    }
+
+    .redirect-message {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .access-button {
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: var(--text-light);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255, 27, 45, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .access-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .access-button:hover::before {
+      left: 100%;
+    }
+
+    .access-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(255, 27, 45, 0.5);
+    }
+
+    .access-button:active {
+      transform: translateY(-2px);
+    }
+
+    .access-button .material-icons {
+      font-size: 1.5rem;
+    }
+
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .loading-content {
+      text-align: center;
+    }
+
+    .loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: var(--text-light);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 500;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      max-width: 400px;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification.error {
+      background: linear-gradient(45deg, #BA1A1A, #D32F2F);
+    }
+
+    .notification-icon {
+      color: var(--text-light);
+      font-size: 1.5rem;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .notification-message {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .notification-close {
+      background: none;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+    }
+
+    .orb {
+      position: fixed;
+      top: -10px;
+      z-index: 1;
+      user-select: none;
+      cursor: default;
+      animation: orbFall linear infinite;
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary-color);
+    }
+
+    @keyframes orbFall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(calc(100vh + 100px)) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .redirect-container {
+        padding: 2rem;
+        margin: 1rem;
+      }
+
+      .redirect-title {
+        font-size: 2rem;
+      }
+
+      .redirect-message {
+        font-size: 1rem;
+      }
+
+      .access-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+
+      .page-title {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-title">
+    <span class="material-icons">rocket_launch</span>
+    <h1>Redirecionamento</h1>
+  </div>
+
+  <button class="theme-picker" id="themePicker" aria-label="Escolher tema">
+    <span class="material-icons">palette</span>
+  </button>
+
+  <div class="theme-options" id="themeOptions">
+    <div class="theme-option theme-default" data-theme="default">
+      <div class="theme-color"></div>
+      <span>Padrão</span>
+    </div>
+    <div class="theme-option theme-red" data-theme="red">
+      <div class="theme-color"></div>
+      <span>Red</span>
+    </div>
+    <div class="theme-option theme-blue" data-theme="blue">
+      <div class="theme-color"></div>
+      <span>Blue</span>
+    </div>
+    <div class="theme-option theme-green" data-theme="green">
+      <div class="theme-color"></div>
+      <span>Green</span>
+    </div>
+  </div>
+
+  <main>
+    <div class="redirect-container">
+      <span class="material-icons redirect-icon">rocket_launch</span>
+      <h1 class="redirect-title">Migração do Site</h1>
+      <p class="redirect-message">
+        Olá! Nosso site passou por uma grande atualização de funcionalidades e estética, então por isso, migramos ele para outro link! Acesse por aqui, espero que gostem:D
+      </p>
+      <button class="access-button" id="accessButton">
+        <span class="material-icons">arrow_forward</span>
+        Acessar
+      </button>
+    </div>
+  </main>
+
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Redirecionando...</p>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">
+    <span class="material-icons notification-icon">check_circle</span>
+    <div class="notification-content">
+      <div class="notification-title">Sucesso</div>
+      <div class="notification-message">Operação concluída com sucesso!</div>
+    </div>
+    <button class="notification-close">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+
+  <script src="colors.js"></script>
+  <script>
+    const accessButton = document.getElementById('accessButton');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const notification = document.getElementById('notification');
+    const themePicker = document.getElementById('themePicker');
+    const themeOptions = document.getElementById('themeOptions');
+
+    function getDeviceInfo() {
+      const userAgent = navigator.userAgent;
+      let deviceInfo = {
+        userAgent: userAgent,
+        platform: navigator.platform,
+        vendor: navigator.vendor
+      };
+
+      // Detectar dispositivo móvel
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
+        if (/Android/i.test(userAgent)) {
+          deviceInfo.type = 'Android';
+          // Tentar extrair modelo do Android
+          const match = userAgent.match(/Android\s([^\s;)]+)/);
+          if (match) {
+            deviceInfo.model = match[1];
+          }
+          // Tentar extrair marca/modelo específico
+          const modelMatch = userAgent.match(/;\s([^\s)]+)\sBuild/);
+          if (modelMatch) {
+            deviceInfo.model = modelMatch[1];
+          }
+        } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+          deviceInfo.type = 'iOS';
+          const match = userAgent.match(/(iPhone|iPad|iPod)/);
+          if (match) {
+            deviceInfo.model = match[1];
+          }
+        } else {
+          deviceInfo.type = 'Mobile';
+        }
+      } else {
+        deviceInfo.type = 'Desktop';
+      }
+
+      return deviceInfo;
+    }
+
+    function sendAccessNotification(deviceInfo) {
+      const formData = new FormData();
+      formData.append('dispositivo', deviceInfo.type);
+      formData.append('modelo', deviceInfo.model || 'Não identificado');
+      formData.append('plataforma', deviceInfo.platform);
+      formData.append('user_agent', deviceInfo.userAgent);
+      formData.append('data_acesso', new Date().toLocaleString('pt-BR'));
+      formData.append('mensagem', 'Usuário acessou o redirecionamento');
+
+      fetch('https://formspree.io/f/xwprzepy', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Notificação enviada com sucesso:', data);
+      })
+      .catch(error => {
+        console.error('Erro ao enviar notificação:', error);
+      });
+    }
+
+    function showNotification(title, message, isError = false) {
+      const titleElement = notification.querySelector('.notification-title');
+      const messageElement = notification.querySelector('.notification-message');
+      
+      titleElement.textContent = title;
+      messageElement.textContent = message;
+      
+      if (isError) {
+        notification.classList.add('error');
+      } else {
+        notification.classList.remove('error');
+      }
+      
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 5000);
+    }
+
+    function redirectToNewSite() {
+      // Mostrar loading
+      loadingOverlay.classList.add('show');
+      
+      // Obter informações do dispositivo
+      const deviceInfo = getDeviceInfo();
+      
+      // Enviar notificação
+      sendAccessNotification(deviceInfo);
+      
+      // Aguardar um pouco para mostrar o loading e depois redirecionar
+      setTimeout(() => {
+        window.location.href = 'https://eiriq.github.io/downloads-fast-comunidadeG34/';
+      }, 1500);
+    }
+
+    function setupEventListeners() {
+      accessButton.addEventListener('click', redirectToNewSite);
+      
+      themePicker.addEventListener('click', function() {
+        themeOptions.classList.toggle('active');
+      });
+
+      document.querySelectorAll('.theme-option').forEach(option => {
+        option.addEventListener('click', function() {
+          const theme = this.getAttribute('data-theme');
+          if (window.applyTheme) {
+            window.applyTheme(theme);
+          }
+          themeOptions.classList.remove('active');
+        });
+      });
+
+      notification.querySelector('.notification-close').addEventListener('click', function() {
+        notification.classList.remove('show');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!themePicker.contains(e.target) && !themeOptions.contains(e.target)) {
+          themeOptions.classList.remove('active');
+        }
+      });
+    }
+
+    function createOrb() {
+      const orb = document.createElement('div');
+      orb.className = 'orb';
+      
+      const currentTheme = localStorage.getItem('selectedTheme') || 'default';
+      let orbColor = '#FF1B2D';
+      
+      if (currentTheme === 'red') {
+        orbColor = '#FF1B2D';
+      } else if (currentTheme === 'blue') {
+        orbColor = '#0066FF';
+      } else if (currentTheme === 'green') {
+        orbColor = '#00C853';
+      }
+      
+      orb.style.backgroundColor = orbColor;
+      orb.style.boxShadow = `0 0 10px ${orbColor}`;
+      orb.style.left = Math.random() * window.innerWidth + 'px';
+      orb.style.animationDuration = Math.random() * 3 + 5 + 's';
+      orb.style.opacity = Math.random();
+      orb.style.width = Math.random() * 10 + 10 + 'px';
+      orb.style.height = orb.style.width;
+      
+      document.body.appendChild(orb);
+      
+      setTimeout(() => {
+        orb.remove();
+      }, 8000);
+    }
+
+    // Inicialização
+    document.addEventListener('DOMContentLoaded', function() {
+      setupEventListeners();
+      
+      // Criar partículas animadas
+      setInterval(createOrb, 300);
+      
+      // Mostrar notificação de boas-vindas após 1 segundo
+      setTimeout(() => {
+        showNotification('Bem-vindo!', 'Estamos redirecionando você para nosso novo site!');
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

@@ -204,17 +204,17 @@ const romsData = {
         dev: "CottonCloudMod",
         description: "Versão oficial da BreezeOS, versão QPR1 20251007, desenvolvida pela CottonCloudMod",
         changelog: [
-   "Ativado o Zram Writeback",
-    "Desativadas transições de alto desempenho",
-    "Desativado papel de parede no AOD (Always On Display)",
+          "Ativado o Zram Writeback",
+          "Desativadas transições de alto desempenho",
+          "Desativado papel de parede no AOD (Always On Display)",
           "Ocultado o realce do sensor de impressão digital na tela de bloqueio",
           "Corrigido o aplicativo Treble quebrado",
           "Corrigida a tela de bloqueio com erro em alguns dispositivos"
         ],
         knownIssues: [
           "Sem suporte para Kernel 4.x (somente 5.x e 6.x)",
-    "Não é compatível com Treble Droid",
-    "Esta é uma compilação experimental e pessoal, portanto não relate bugs"
+          "Não é compatível com Treble Droid",
+          "Esta é uma compilação experimental e pessoal, portanto não relate bugs"
         ],
         notes: [
           "Baseada nas imagens Google QPR1 DSU",
@@ -230,7 +230,7 @@ const romsData = {
       name: "crDroid (Não Oficial)",
       version: "Android 16",
       description: "Versão não oficial da crDroid baseada no Android 16 desenvolvida por irawansalt",
-      size: "1.35GB",
+      size: "1.37 GB",
       date: "18/10/2025",
       lastUpdate: "18 de Outubro", // Adicionando a última atualização
       developer: "irawansalt",
@@ -239,7 +239,7 @@ const romsData = {
         version: "Android 16",
         dev: "irawansalt",
         description: "Versão não oficial da crDroid baseada no Android 16 desenvolvida por irawansalt",
-        changelog: [Corrigida falha do eis na MotCamera],
+        changelog: ["Corrigida falha do eis na MotCamera"],
         knownIssues: [],
         notes: []
       },
@@ -580,7 +580,3 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
-
-
-
-

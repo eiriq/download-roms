@@ -228,22 +228,22 @@ const romsData = {
     
     {
       name: "crDroid (Não Oficial)",
-      version: "Android 15",
-      description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
+      version: "Android 16",
+      description: "Versão não oficial da crDroid baseada no Android 16 desenvolvida por irawansalt",
       size: "1.35GB",
-      date: "23/09/2025",
-      lastUpdate: "23 de setembro", // Adicionando a última atualização
+      date: "18/10/2025",
+      lastUpdate: "18 de Outubro", // Adicionando a última atualização
       developer: "irawansalt",
-      url: "https://drive.google.com/drive/folders/1Sx7qR2SBfVo9fg6pPcnZlJNYLAmI4h_I?usp=sharing",
+      url: "https://drive.google.com/uc?export=download&id=1EASjUpwAdSTJjftC-dFQOWoWZ4Fltkgx",
       details: {
-        version: "Android 15",
+        version: "Android 16",
         dev: "irawansalt",
-        description: "Versão não oficial da crDroid baseada no Android 15 desenvolvida por irawansalt",
-        changelog: [],
+        description: "Versão não oficial da crDroid baseada no Android 16 desenvolvida por irawansalt",
+        changelog: [Corrigida falha do eis na MotCamera],
         knownIssues: [],
         notes: []
       },
-      source: "https://t.me/MotoG34/484673"
+      source: "https://t.me/MotoG34/515436"
     },
     
     {
@@ -580,6 +580,7 @@ function getAvailableDevices() {
 // =================================================================================
 // FIM DO ARQUIVO
 // =================================================================================
+
 
 
 
